@@ -86,15 +86,36 @@
                                     <constraint firstAttribute="height" constant="44" id="XJw-wv-U1h"/>
                                 </constraints>
                                 <items>
-                                    <navigationItem title="Title" id="KKg-YJ-hcq"/>
+                                    <navigationItem title="Search by Name" id="KKg-YJ-hcq"/>
                                 </items>
                             </navigationBar>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yVT-AT-d8Z">
+                                <rect key="frame" x="91" y="100" width="418" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GhO-kt-vuF">
+                                <rect key="frame" x="431" y="144" width="78" height="35"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="78" id="SNQ-eM-5D9"/>
+                                    <constraint firstAttribute="height" constant="35" id="f44-fd-YoB"/>
+                                </constraints>
+                                <state key="normal" title="Search">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="UdN-FM-csL" secondAttribute="trailing" constant="-20" id="9iV-Mu-p8L"/>
                             <constraint firstItem="UdN-FM-csL" firstAttribute="leading" secondItem="5Tb-Me-Uau" secondAttribute="leadingMargin" constant="-20" id="ACw-CQ-hwm"/>
                             <constraint firstItem="UdN-FM-csL" firstAttribute="top" secondItem="NbJ-o5-oY6" secondAttribute="bottom" id="JII-8h-1oB"/>
+                            <constraint firstItem="yVT-AT-d8Z" firstAttribute="leading" secondItem="5Tb-Me-Uau" secondAttribute="leadingMargin" constant="71" id="VkW-QT-ezd"/>
+                            <constraint firstItem="GhO-kt-vuF" firstAttribute="top" secondItem="yVT-AT-d8Z" secondAttribute="bottom" constant="14" id="Xyi-GN-4xE"/>
+                            <constraint firstItem="yVT-AT-d8Z" firstAttribute="top" secondItem="NbJ-o5-oY6" secondAttribute="bottom" constant="80" id="ad5-Hk-F1j"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="yVT-AT-d8Z" secondAttribute="trailing" constant="71" id="mU3-Bu-5vK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="GhO-kt-vuF" secondAttribute="trailing" constant="71" id="mx2-Os-cYN"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Name" image="UIBarButtonSearch_2x.png" id="jXz-Al-h1i"/>
@@ -124,12 +145,33 @@
                                     <navigationItem title="Searh by Zip Code" id="eP9-SX-XxV"/>
                                 </items>
                             </navigationBar>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Zip Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7gp-Bg-xdo">
+                                <rect key="frame" x="91" y="119" width="418" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a7v-bm-OL3">
+                                <rect key="frame" x="431" y="163" width="78" height="35"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="Y3m-Um-JKy"/>
+                                    <constraint firstAttribute="width" constant="78" id="nbx-Io-STH"/>
+                                </constraints>
+                                <state key="normal" title="Search">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="7gp-Bg-xdo" firstAttribute="leading" secondItem="Pun-fH-DOi" secondAttribute="leadingMargin" constant="71" id="5hP-qz-loN"/>
                             <constraint firstItem="JkW-WW-PzJ" firstAttribute="leading" secondItem="Pun-fH-DOi" secondAttribute="leadingMargin" constant="-20" id="6wn-Jt-N17"/>
                             <constraint firstAttribute="trailingMargin" secondItem="JkW-WW-PzJ" secondAttribute="trailing" constant="-20" id="AlP-NP-yFl"/>
+                            <constraint firstItem="a7v-bm-OL3" firstAttribute="top" secondItem="7gp-Bg-xdo" secondAttribute="bottom" constant="14" id="UDP-GT-7te"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="a7v-bm-OL3" secondAttribute="trailing" constant="71" id="Xnf-aC-iCf"/>
                             <constraint firstItem="JkW-WW-PzJ" firstAttribute="top" secondItem="IXn-ll-qPB" secondAttribute="bottom" id="cWt-DV-YKS"/>
+                            <constraint firstItem="7gp-Bg-xdo" firstAttribute="top" secondItem="IXn-ll-qPB" secondAttribute="bottom" constant="99" id="edC-Rg-XNw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7gp-Bg-xdo" secondAttribute="trailing" constant="71" id="fcu-Nk-8bZ"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Zip Code" image="UIBarButtonSearch_2x.png" id="SxI-QX-94S"/>
