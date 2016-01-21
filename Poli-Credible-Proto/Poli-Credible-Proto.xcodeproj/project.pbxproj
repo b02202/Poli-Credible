@@ -16,6 +16,8 @@
 		C71832871C50B85F00388E02 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C71832851C50B85F00388E02 /* LaunchScreen.storyboard */; };
 		C71832921C50B85F00388E02 /* Poli_Credible_ProtoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C71832911C50B85F00388E02 /* Poli_Credible_ProtoTests.m */; };
 		C718329D1C50B85F00388E02 /* Poli_Credible_ProtoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C718329C1C50B85F00388E02 /* Poli_Credible_ProtoUITests.m */; };
+		C71832AC1C50BA0F00388E02 /* search-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C71832AA1C50BA0F00388E02 /* search-icon.png */; };
+		C71832AD1C50BA0F00388E02 /* UIBarButtonSearch_2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C71832AB1C50BA0F00388E02 /* UIBarButtonSearch_2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		C71832981C50B85F00388E02 /* Poli-Credible-ProtoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Poli-Credible-ProtoUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C718329C1C50B85F00388E02 /* Poli_Credible_ProtoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Poli_Credible_ProtoUITests.m; sourceTree = "<group>"; };
 		C718329E1C50B85F00388E02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C71832AA1C50BA0F00388E02 /* search-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-icon.png"; sourceTree = "<group>"; };
+		C71832AB1C50BA0F00388E02 /* UIBarButtonSearch_2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UIBarButtonSearch_2x.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,7 @@
 		C71832731C50B85F00388E02 /* Poli-Credible-Proto */ = {
 			isa = PBXGroup;
 			children = (
+				C71832AE1C50BA1A00388E02 /* Images */,
 				C71832771C50B85F00388E02 /* AppDelegate.h */,
 				C71832781C50B85F00388E02 /* AppDelegate.m */,
 				C718327A1C50B85F00388E02 /* ViewController.h */,
@@ -141,6 +146,15 @@
 				C718329E1C50B85F00388E02 /* Info.plist */,
 			);
 			path = "Poli-Credible-ProtoUITests";
+			sourceTree = "<group>";
+		};
+		C71832AE1C50BA1A00388E02 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				C71832AA1C50BA0F00388E02 /* search-icon.png */,
+				C71832AB1C50BA0F00388E02 /* UIBarButtonSearch_2x.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,7 +262,9 @@
 			files = (
 				C71832871C50B85F00388E02 /* LaunchScreen.storyboard in Resources */,
 				C71832841C50B85F00388E02 /* Assets.xcassets in Resources */,
+				C71832AC1C50BA0F00388E02 /* search-icon.png in Resources */,
 				C718327F1C50B85F00388E02 /* Main.storyboard in Resources */,
+				C71832AD1C50BA0F00388E02 /* UIBarButtonSearch_2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
