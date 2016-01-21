@@ -47,13 +47,6 @@
                                     <segue destination="Lp2-2c-pRV" kind="presentation" id="oHJ-4L-tmN"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="feJ-Lo-cme">
-                                <rect key="frame" x="332" y="353" width="78" height="35"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Login">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
-                                </state>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -148,7 +141,7 @@
         <!--State-->
         <scene sceneID="15M-A7-az0">
             <objects>
-                <viewController id="OFN-uk-XCg" sceneMemberID="viewController">
+                <viewController id="OFN-uk-XCg" customClass="StateViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bsD-cv-CGO"/>
                         <viewControllerLayoutGuide type="bottom" id="l0i-Zi-0Ot"/>
@@ -166,15 +159,36 @@
                                     <navigationItem title="Search by State" id="7Jo-dN-77r"/>
                                 </items>
                             </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="56" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mZy-hb-tb1">
+                                <rect key="frame" x="0.0" y="88" width="600" height="463"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="stateCell" rowHeight="56" id="Spl-tV-F3H">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="56"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Spl-tV-F3H" id="tAB-ND-mpD">
+                                            <rect key="frame" x="0.0" y="0.0" width="567" height="55"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="mZy-hb-tb1" firstAttribute="leading" secondItem="aet-Xq-KTM" secondAttribute="leadingMargin" constant="-20" id="2ly-AJ-Mlg"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Glw-cP-87Z" secondAttribute="trailing" constant="-20" id="9pa-60-awZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mZy-hb-tb1" secondAttribute="trailing" constant="-20" id="FDn-pC-3up"/>
                             <constraint firstItem="Glw-cP-87Z" firstAttribute="leading" secondItem="aet-Xq-KTM" secondAttribute="leadingMargin" constant="-20" id="NKr-Ex-iPY"/>
                             <constraint firstItem="Glw-cP-87Z" firstAttribute="top" secondItem="bsD-cv-CGO" secondAttribute="bottom" id="O17-Z1-lVB"/>
+                            <constraint firstItem="l0i-Zi-0Ot" firstAttribute="top" secondItem="mZy-hb-tb1" secondAttribute="bottom" id="XdZ-Pg-4lN"/>
+                            <constraint firstItem="mZy-hb-tb1" firstAttribute="top" secondItem="bsD-cv-CGO" secondAttribute="bottom" constant="68" id="bbH-hN-DNC"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="State" image="UIBarButtonSearch_2x.png" id="Sgn-c6-82t"/>
+                    <connections>
+                        <outlet property="stateTableView" destination="mZy-hb-tb1" id="ofZ-uu-IE8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xda-ON-uIl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

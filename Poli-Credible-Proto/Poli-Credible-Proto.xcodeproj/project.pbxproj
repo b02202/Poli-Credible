@@ -18,6 +18,7 @@
 		C718329D1C50B85F00388E02 /* Poli_Credible_ProtoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C718329C1C50B85F00388E02 /* Poli_Credible_ProtoUITests.m */; };
 		C71832AC1C50BA0F00388E02 /* search-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C71832AA1C50BA0F00388E02 /* search-icon.png */; };
 		C71832AD1C50BA0F00388E02 /* UIBarButtonSearch_2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C71832AB1C50BA0F00388E02 /* UIBarButtonSearch_2x.png */; };
+		C71832B31C513DFD00388E02 /* StateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C71832B21C513DFD00388E02 /* StateViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,8 @@
 		C718329E1C50B85F00388E02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C71832AA1C50BA0F00388E02 /* search-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-icon.png"; sourceTree = "<group>"; };
 		C71832AB1C50BA0F00388E02 /* UIBarButtonSearch_2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UIBarButtonSearch_2x.png; sourceTree = "<group>"; };
+		C71832B11C513DFD00388E02 /* StateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StateViewController.h; sourceTree = "<group>"; };
+		C71832B21C513DFD00388E02 /* StateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StateViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +121,8 @@
 				C71832881C50B85F00388E02 /* Info.plist */,
 				C71832801C50B85F00388E02 /* Poli_Credible_Proto.xcdatamodeld */,
 				C71832741C50B85F00388E02 /* Supporting Files */,
+				C71832B11C513DFD00388E02 /* StateViewController.h */,
+				C71832B21C513DFD00388E02 /* StateViewController.m */,
 			);
 			path = "Poli-Credible-Proto";
 			sourceTree = "<group>";
@@ -293,6 +298,7 @@
 				C718327C1C50B85F00388E02 /* ViewController.m in Sources */,
 				C71832791C50B85F00388E02 /* AppDelegate.m in Sources */,
 				C71832761C50B85F00388E02 /* main.m in Sources */,
+				C71832B31C513DFD00388E02 /* StateViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
