@@ -34,13 +34,24 @@
     return _requestConnection;
 }
 
--(void)httpRequest:(NSMutableURLRequest *)request
+-(void)httpRequest:(NSURL *)url
 {
-    self.requestConnection = [NSURLConnection connectionWithRequest:request delegate:self];
-//    NSURLSession *session = [NSURLSession sharedSession];
-//    [[session dataTaskWithRequest:@"jsonFileUrl" completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-//        // handle Response
-//    }]resume];
+    NSURLSession *session = [NSURLSession sharedSession];
+    [[session dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        if (!error) {
+            [self.delegate getReceivedData:data sender:self];
+            self.delegate = nil;
+        }
+        else {
+            // Handle Errors
+            NSLog(@"%@", error.description);
+        }
+    }] resume];
+    
+    //self.requestConnection = [NSURLConnection connectionWithRequest:request delegate:self];
+
+    
+    
 }
 
 

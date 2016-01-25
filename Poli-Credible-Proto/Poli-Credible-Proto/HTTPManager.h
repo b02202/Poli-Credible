@@ -11,12 +11,12 @@
 // Define delegate protocal and delegate
 @class HTTPManager;
 @protocol HTTPManagerDelegate
--(void)getReceivedData:(NSMutableData *)data sender:(HTTPManager*)sender;
+-(void)getReceivedData:(NSData*)data sender:(HTTPManager*)sender;
 @end
 
 @interface HTTPManager : NSObject
 // Public Method
--(void)httpRequest:(NSMutableURLRequest *)request;
+-(void)httpRequest:(NSURL*)url;
 
 @property  (nonatomic, weak) id <HTTPManagerDelegate> delegate;
 

@@ -118,9 +118,13 @@
     urlString = [urlString stringByAddingPercentEncodingWithAllowedCharacters:set];
     // Convert to URL
     NSURL *url = [NSURL URLWithString:urlString];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    [request setHTTPMethod:GET];
-    [self.httpManager httpRequest:request];
+   // self.httpManager.delegate = self.httpManager;
+    [self.httpManager httpRequest:url];
+    
+    //NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    //[request setHTTPMethod:GET];
+    //NSURL *urlRequest = [NSURLRequest requestWithURL:url];
+   // [self.httpManager httpRequest:request];
 }
 
 
