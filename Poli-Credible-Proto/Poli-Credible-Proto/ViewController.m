@@ -30,4 +30,9 @@
     // Execute here
 }
 
+- (IBAction)registerUser:(id)sender {
+}
+
+- (IBAction)loginUser:(id)sender {
+}
 @end
