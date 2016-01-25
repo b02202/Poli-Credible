@@ -266,10 +266,10 @@
             </objects>
             <point key="canvasLocation" x="677" y="-790"/>
         </scene>
-        <!--View Controller-->
+        <!--Results View Controller-->
         <scene sceneID="ndV-EH-6LH">
             <objects>
-                <viewController id="IZS-V5-xac" sceneMemberID="viewController">
+                <viewController id="IZS-V5-xac" customClass="ResultsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9XA-od-4Um"/>
                         <viewControllerLayoutGuide type="bottom" id="8a2-Nd-OgV"/>
