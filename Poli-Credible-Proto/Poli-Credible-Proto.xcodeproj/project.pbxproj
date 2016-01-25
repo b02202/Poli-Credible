@@ -22,6 +22,7 @@
 		C71832B51C56554800388E02 /* Logo-1.png in Resources */ = {isa = PBXBuildFile; fileRef = C71832B41C56554800388E02 /* Logo-1.png */; };
 		C71832B81C567B9100388E02 /* ResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C71832B71C567B9100388E02 /* ResultsViewController.m */; };
 		C71832BB1C567D8900388E02 /* MemberDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = C71832BA1C567D8900388E02 /* MemberDataClass.m */; };
+		C71832BF1C56890A00388E02 /* HTTPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C71832BE1C56890A00388E02 /* HTTPManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,8 @@
 		C71832B71C567B9100388E02 /* ResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultsViewController.m; sourceTree = "<group>"; };
 		C71832B91C567D8900388E02 /* MemberDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemberDataClass.h; sourceTree = "<group>"; };
 		C71832BA1C567D8900388E02 /* MemberDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemberDataClass.m; sourceTree = "<group>"; };
+		C71832BD1C56890A00388E02 /* HTTPManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPManager.h; sourceTree = "<group>"; };
+		C71832BE1C56890A00388E02 /* HTTPManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +138,8 @@
 				C71832B71C567B9100388E02 /* ResultsViewController.m */,
 				C71832B91C567D8900388E02 /* MemberDataClass.h */,
 				C71832BA1C567D8900388E02 /* MemberDataClass.m */,
+				C71832BD1C56890A00388E02 /* HTTPManager.h */,
+				C71832BE1C56890A00388E02 /* HTTPManager.m */,
 			);
 			path = "Poli-Credible-Proto";
 			sourceTree = "<group>";
@@ -311,6 +316,7 @@
 				C71832821C50B85F00388E02 /* Poli_Credible_Proto.xcdatamodeld in Sources */,
 				C718327C1C50B85F00388E02 /* ViewController.m in Sources */,
 				C71832791C50B85F00388E02 /* AppDelegate.m in Sources */,
+				C71832BF1C56890A00388E02 /* HTTPManager.m in Sources */,
 				C71832B81C567B9100388E02 /* ResultsViewController.m in Sources */,
 				C71832BB1C567D8900388E02 /* MemberDataClass.m in Sources */,
 				C71832761C50B85F00388E02 /* main.m in Sources */,

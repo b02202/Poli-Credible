@@ -7,12 +7,23 @@
 //
 
 #import "StateViewController.h"
+#import "MemberDataClass.h"
+#import "HTTPManager.h"
 
 @interface StateViewController ()
 @property (nonatomic, strong) NSArray *stateArray;
+@property (nonatomic, strong) HTTPManager *httpManager;
+
 @end
 
 @implementation StateViewController
+
+-(HTTPManager*)httpManager {
+    if (!_httpManager) {
+        _httpManager = [[HTTPManager alloc] init];
+    }
+    return _httpManager;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -97,6 +108,20 @@
      
      return cell;
  }
+
+// Http Get Request
+-(void)httpGetRequest {
+    NSString *urlString = @"http://congress.api.sunlightfoundation.com/legislators?state_name=Alabama&per_page=all&apikey=6f9f2e31124941a98e97110aeeaec3ff";
+    // Escape special characters
+    //urlString = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSCharacterSet *set = [NSCharacterSet URLQueryAllowedCharacterSet];
+    urlString = [urlString stringByAddingPercentEncodingWithAllowedCharacters:set];
+    // Convert to URL
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    [request setHTTPMethod:GET];
+    [self.httpManager httpRequest:request];
+}
 
 
 
