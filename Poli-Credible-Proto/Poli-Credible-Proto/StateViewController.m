@@ -101,22 +101,8 @@
 
 
 
-/* // TableView Number of Rows
- // Specify number of rows displayed
- -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
- return self.addressArray.count;
- }
- 
- - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
- // Dequeue the cell.
- UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TableCell" forIndexPath:indexPath];
- NSString *titleString = [[self.addressArray objectAtIndex:indexPath.row] objectForKey:@"addressName"];
- // cell attributes
- cell.textLabel.text = titleString;
- 
- 
- return cell;
- } */
+
+
 
 /*
 #pragma mark - Navigation
@@ -127,5 +113,10 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+-(IBAction)close:(UIStoryboardSegue*)segue
+{
+    
+}
 
 @end

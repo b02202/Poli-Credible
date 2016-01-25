@@ -8,11 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <UITextFieldDelegate>
 // Text Fields
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
 @property (weak, nonatomic) IBOutlet UITextField *reEnterPasswordField;
+
+// Active Field
+@property (strong, nonatomic) IBOutlet UITextField *activeField;
 
 // Login Buttons
 @property (weak, nonatomic) IBOutlet UIButton *loginBtn;

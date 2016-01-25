@@ -18,6 +18,25 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    // NSUser Defaults Implementation
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    if (![defaults boolForKey:@"registered"]) {
+        NSLog(@"No user registered");
+        _loginBtn.hidden = YES;
+    }
+    else {
+        NSLog(@"No user registered");
+        _reEnterPasswordField.hidden = YES;
+        _registerBtn.hidden = YES;
+    }
+    self.usernameField.delegate = self;
+    self.passwordField.delegate = self;
+    self.reEnterPasswordField.delegate = self;
+    
+    // Register for Keyboard Notifications
+    //[self registerForKeyboardNotifications];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -30,9 +49,83 @@
     // Execute here
 }
 
+// Dismiss keyboard from text fields
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.usernameField resignFirstResponder];
+    [self.passwordField resignFirstResponder];
+    [self.reEnterPasswordField resignFirstResponder];
+}
+
+// Register Button Implementation
 - (IBAction)registerUser:(id)sender {
+    if ([_usernameField.text isEqualToString:@""] || [_passwordField.text isEqualToString:@""] || [_reEnterPasswordField.text isEqualToString:@""]) {
+        
+        UIAlertView *error = [[UIAlertView alloc] initWithTitle:@"Oops" message:@"You must enter all fields" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        
+        [error show];
+    }
+    else
+    {
+        [self checkPasswordMatch];
+        
+    }
 }
 
 - (IBAction)loginUser:(id)sender {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    if ([_usernameField.text isEqualToString:[defaults objectForKey:@"username"]] && [_passwordField.text isEqualToString:[defaults objectForKey:@"password"]]) {
+        [self performSegueWithIdentifier:@"login" sender:self];
+    }
+    else
+    {
+        UIAlertView *error = [[UIAlertView alloc] initWithTitle:@"Oops" message:@"Your username and password are not valid" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        
+        [error show];
+    }
 }
+
+// Check Password Match
+-(void) checkPasswordMatch
+{
+    if ([_passwordField.text isEqualToString:_reEnterPasswordField.text]) {
+        NSLog(@"passwords match");
+        [self registerNewUser];
+    }
+    else
+    {
+        NSLog(@"password don't match");
+        UIAlertView *error = [[UIAlertView alloc] initWithTitle:@"Oops" message:@"Your entered passwords do not match" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        
+        [error show];
+    }
+}
+
+// Register New User
+- (void) registerNewUser
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    [defaults setObject:_usernameField.text forKey:@"username"];
+    [defaults setObject:_passwordField.text forKey:@"password"];
+    [defaults setBool:YES forKey:@"registered"];
+    
+    [defaults synchronize];
+    
+    UIAlertView *success = [[UIAlertView alloc] initWithTitle:@"Success" message:@"You have registered a new Assessment fit user" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    
+    [success show];
+    
+    [self performSegueWithIdentifier:@"login" sender:self];
+}
+
+// Register Button Show/Hide
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [_usernameField resignFirstResponder];
+    [_passwordField resignFirstResponder];
+    [_reEnterPasswordField resignFirstResponder];
+    return NO;
+}
+
 @end

@@ -28,6 +28,21 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GQl-dQ-Bye">
+                                <rect key="frame" x="421" y="182" width="78" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="78" id="bcJ-eq-f0e"/>
+                                    <constraint firstAttribute="height" constant="30" id="rCQ-FG-0ae"/>
+                                </constraints>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginUser:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sQ0-YJ-jOZ"/>
+                                    <segue destination="Lp2-2c-pRV" kind="presentation" identifier="login" id="oHJ-4L-tmN"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ebh-Cl-7yK">
                                 <rect key="frame" x="89" y="233" width="76" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -50,21 +65,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GQl-dQ-Bye">
-                                <rect key="frame" x="421" y="182" width="78" height="30"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="78" id="bcJ-eq-f0e"/>
-                                    <constraint firstAttribute="height" constant="30" id="rCQ-FG-0ae"/>
-                                </constraints>
-                                <state key="normal" title="Login">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="loginUser:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sQ0-YJ-jOZ"/>
-                                    <segue destination="Lp2-2c-pRV" kind="presentation" id="oHJ-4L-tmN"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -84,11 +84,11 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="emailField" destination="yd8-Ef-Ndo" id="RWL-vp-24T"/>
                         <outlet property="loginBtn" destination="GQl-dQ-Bye" id="fKf-oC-SfV"/>
-                        <outlet property="passwordField" destination="xFT-CU-jhT" id="p99-JO-Nrg"/>
+                        <outlet property="passwordField" destination="w2Y-cQ-3iI" id="nOA-HD-gsz"/>
+                        <outlet property="reEnterPasswordField" destination="xFT-CU-jhT" id="Y7e-O3-TeU"/>
                         <outlet property="registerBtn" destination="Ebh-Cl-7yK" id="7Va-O9-7O7"/>
-                        <outlet property="usernameField" destination="w2Y-cQ-3iI" id="VIT-z4-ig7"/>
+                        <outlet property="usernameField" destination="yd8-Ef-Ndo" id="FBO-lK-FsU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -285,7 +285,11 @@
                                 </constraints>
                                 <items>
                                     <navigationItem title="Results" id="HIR-fE-mb2">
-                                        <barButtonItem key="leftBarButtonItem" title="&lt;Back" id="Ybb-zi-PeO"/>
+                                        <barButtonItem key="leftBarButtonItem" title="&lt;Back" id="Ybb-zi-PeO">
+                                            <connections>
+                                                <segue destination="zKx-B8-AwI" kind="unwind" unwindAction="close:" id="250-2n-cyW"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -299,6 +303,7 @@
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mAn-9F-XQf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="zKx-B8-AwI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1400" y="-459"/>
         </scene>
