@@ -19,6 +19,7 @@
 		C71832AC1C50BA0F00388E02 /* search-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C71832AA1C50BA0F00388E02 /* search-icon.png */; };
 		C71832AD1C50BA0F00388E02 /* UIBarButtonSearch_2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C71832AB1C50BA0F00388E02 /* UIBarButtonSearch_2x.png */; };
 		C71832B31C513DFD00388E02 /* StateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C71832B21C513DFD00388E02 /* StateViewController.m */; };
+		C71832B51C56554800388E02 /* Logo-1.png in Resources */ = {isa = PBXBuildFile; fileRef = C71832B41C56554800388E02 /* Logo-1.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		C71832AB1C50BA0F00388E02 /* UIBarButtonSearch_2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UIBarButtonSearch_2x.png; sourceTree = "<group>"; };
 		C71832B11C513DFD00388E02 /* StateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StateViewController.h; sourceTree = "<group>"; };
 		C71832B21C513DFD00388E02 /* StateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StateViewController.m; sourceTree = "<group>"; };
+		C71832B41C56554800388E02 /* Logo-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Logo-1.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +158,7 @@
 		C71832AE1C50BA1A00388E02 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C71832B41C56554800388E02 /* Logo-1.png */,
 				C71832AA1C50BA0F00388E02 /* search-icon.png */,
 				C71832AB1C50BA0F00388E02 /* UIBarButtonSearch_2x.png */,
 			);
@@ -269,6 +272,7 @@
 				C71832841C50B85F00388E02 /* Assets.xcassets in Resources */,
 				C71832AC1C50BA0F00388E02 /* search-icon.png in Resources */,
 				C718327F1C50B85F00388E02 /* Main.storyboard in Resources */,
+				C71832B51C56554800388E02 /* Logo-1.png in Resources */,
 				C71832AD1C50BA0F00388E02 /* UIBarButtonSearch_2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -93,7 +93,7 @@
      UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"stateCell" forIndexPath:(NSIndexPath *)indexPath];
      //NSString *stateString = [[self.stateArray objectAtIndex:indexPath.row] objectForKey:@""];
      
-     cell.textLabel.text = self.stateArray[indexPath.row];
+     cell.textLabel.text = [self.stateArray[indexPath.row]uppercaseString];
      
      return cell;
  }
