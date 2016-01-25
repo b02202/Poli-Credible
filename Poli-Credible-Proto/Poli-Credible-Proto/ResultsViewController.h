@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ResultsViewController : UIViewController
+@interface ResultsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+
+@property (weak, nonatomic) IBOutlet UITableView *senateTableView;
+
+-(void)setMemberArray:(NSMutableArray*)array;
 
 @end

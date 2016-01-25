@@ -9,9 +9,11 @@
 #import "StateViewController.h"
 #import "MemberDataClass.h"
 #import "HTTPManager.h"
+#import "ResultsViewController.h"
 
-@interface StateViewController ()
+@interface StateViewController () <HTTPManagerDelegate>
 @property (nonatomic, strong) NSArray *stateArray;
+@property (nonatomic, strong) NSMutableArray *memberArray;
 @property (nonatomic, strong) HTTPManager *httpManager;
 
 @end
@@ -28,6 +30,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    // Test HttpManager
+    [self httpGetRequest];
     
     // self delegate
     // Make self delegate and datasource of table view
@@ -111,20 +116,57 @@
 
 // Http Get Request
 -(void)httpGetRequest {
-    NSString *urlString = @"http://congress.api.sunlightfoundation.com/legislators?state_name=Alabama&per_page=all&apikey=6f9f2e31124941a98e97110aeeaec3ff";
+    NSString *urlString = @"https://congress.api.sunlightfoundation.com/legislators?state_name=Alabama&per_page=all&apikey=6f9f2e31124941a98e97110aeeaec3ff";
     // Escape special characters
     //urlString = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSCharacterSet *set = [NSCharacterSet URLQueryAllowedCharacterSet];
     urlString = [urlString stringByAddingPercentEncodingWithAllowedCharacters:set];
     // Convert to URL
     NSURL *url = [NSURL URLWithString:urlString];
-   // self.httpManager.delegate = self.httpManager;
+    self.httpManager.delegate = self;
     [self.httpManager httpRequest:url];
     
     //NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     //[request setHTTPMethod:GET];
     //NSURL *urlRequest = [NSURLRequest requestWithURL:url];
    // [self.httpManager httpRequest:request];
+}
+
+-(void)getReceivedData:(NSData*)data sender:(HTTPManager*)sender {
+    NSError *error = nil;
+    NSDictionary *receivedData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
+    NSArray *resultsArray = [NSArray arrayWithArray:[receivedData objectForKey:@"results"]];
+    _memberArray = [[NSMutableArray alloc] init];
+    
+    //WordVectorObject *wVObject = [[WordVectorObject alloc] init];
+    
+    for (int i=0; i < resultsArray.count; i++) {
+        MemberDataClass *memberObj = [[MemberDataClass alloc] init];
+        memberObj.repFirstName = [[resultsArray objectAtIndex:i]objectForKey:@"first_name"];
+        memberObj.repLastName = [[resultsArray objectAtIndex:i]objectForKey:@"last_name"];
+        memberObj.party = [[resultsArray objectAtIndex:i]objectForKey:@"party"];
+        memberObj.chamber = [[resultsArray objectAtIndex:i]objectForKey:@"chamber"];
+        memberObj.bioGuideID = [[resultsArray objectAtIndex:i]objectForKey:@"bioguide_id"];
+        memberObj.repPhone = [[resultsArray objectAtIndex:i]objectForKey:@"phone"];
+        memberObj.repWebsite = [[resultsArray objectAtIndex:i]objectForKey:@"website"];
+        //memberObj.billTitle = [[resultsArray objectAtIndex:i]objectForKey:@"last_name"];
+        //memberObj.billNumber = [[resultsArray objectAtIndex:i]objectForKey:@"last_name"];
+        //memberObj.memberPosition = [[resultsArray objectAtIndex:i]objectForKey:@"last_name"];
+        memberObj.repAddress = [[resultsArray objectAtIndex:i]objectForKey:@"office"];
+        NSLog(@"%@ %@", memberObj.repFirstName, memberObj.repLastName);
+        [_memberArray addObject:memberObj];
+        
+    }
+}
+
+// Storyboard prepareForSeque
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"toResults"]) {
+        ResultsViewController *resultsVC = segue.destinationViewController;
+        [resultsVC setMemberArray:_memberArray];
+    }
 }
 
 

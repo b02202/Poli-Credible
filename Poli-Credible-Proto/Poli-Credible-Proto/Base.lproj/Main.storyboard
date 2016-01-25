@@ -240,7 +240,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="IZS-V5-xac" kind="presentation" id="Uwn-5v-Scg"/>
+                                            <segue destination="IZS-V5-xac" kind="presentation" identifier="toResults" id="Uwn-5v-Scg"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -269,7 +269,7 @@
         <!--Results View Controller-->
         <scene sceneID="ndV-EH-6LH">
             <objects>
-                <viewController id="IZS-V5-xac" customClass="ResultsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="resultsVC" id="IZS-V5-xac" customClass="ResultsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9XA-od-4Um"/>
                         <viewControllerLayoutGuide type="bottom" id="8a2-Nd-OgV"/>
@@ -293,14 +293,35 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="59" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gpm-Ml-vcG">
+                                <rect key="frame" x="0.0" y="107" width="600" height="143"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="resultsCell" rowHeight="59" id="g8J-GS-2DP">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="59"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="g8J-GS-2DP" id="nld-eL-rWq">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="58"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="gpm-Ml-vcG" firstAttribute="leading" secondItem="LVc-Zc-Nl9" secondAttribute="leadingMargin" constant="-20" id="Lx1-RZ-AnV"/>
                             <constraint firstItem="e09-Nc-R3d" firstAttribute="top" secondItem="9XA-od-4Um" secondAttribute="bottom" id="Oey-a4-gnL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gpm-Ml-vcG" secondAttribute="trailing" constant="-20" id="W4d-CT-BEJ"/>
                             <constraint firstItem="e09-Nc-R3d" firstAttribute="leading" secondItem="LVc-Zc-Nl9" secondAttribute="leadingMargin" constant="-20" id="Xqs-zG-JBl"/>
+                            <constraint firstItem="8a2-Nd-OgV" firstAttribute="top" secondItem="gpm-Ml-vcG" secondAttribute="bottom" constant="350" id="Yk5-bg-G0f"/>
+                            <constraint firstItem="gpm-Ml-vcG" firstAttribute="top" secondItem="9XA-od-4Um" secondAttribute="bottom" constant="87" id="gxv-Ie-yXx"/>
                             <constraint firstAttribute="trailingMargin" secondItem="e09-Nc-R3d" secondAttribute="trailing" constant="-20" id="r0B-Qg-IiQ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="senateTableView" destination="gpm-Ml-vcG" id="7Jr-ye-zfp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mAn-9F-XQf" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="zKx-B8-AwI" userLabel="Exit" sceneMemberID="exit"/>
