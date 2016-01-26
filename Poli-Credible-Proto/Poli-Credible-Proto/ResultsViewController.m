@@ -147,21 +147,18 @@
     NSLog(@"cellForRow is being called");
     //NSString *stateString = [[self.stateArray objectAtIndex:indexPath.row] objectForKey:@""];
     
-    
-    
     if (indexPath.section == 0) {
-        NSString *senateCellText = [NSString stringWithFormat:@"%@ %@",[[self.senateArray objectAtIndex:indexPath.row] valueForKey:@"repFirstName"],
-                                    [[self.senateArray objectAtIndex:indexPath.row] valueForKey:@"repLastName"]];
+        NSString *senateCellText = [NSString stringWithFormat:@"%@ %@ (%@)",[[self.senateArray objectAtIndex:indexPath.row] valueForKey:@"repFirstName"],
+                                    [[self.senateArray objectAtIndex:indexPath.row] valueForKey:@"repLastName"],
+                                    [[self.senateArray objectAtIndex:indexPath.row] valueForKey:@"party"]];
         cell.textLabel.text = senateCellText;
     }
     else {
-        NSString *houseCellText = [NSString stringWithFormat:@"%@ %@",[[self.houseArray objectAtIndex:indexPath.row] valueForKey:@"repFirstName"],
-                                   [[self.houseArray objectAtIndex:indexPath.row] valueForKey:@"repLastName"]];
+        NSString *houseCellText = [NSString stringWithFormat:@"%@ %@ (%@)",[[self.houseArray objectAtIndex:indexPath.row] valueForKey:@"repFirstName"],
+                                   [[self.houseArray objectAtIndex:indexPath.row] valueForKey:@"repLastName"],
+                                   [[self.houseArray objectAtIndex:indexPath.row] valueForKey:@"party"]];
         cell.textLabel.text = houseCellText;
     }
-    
-    //cell.textLabel.text = cellText;
-    
     return cell;
 }
 
