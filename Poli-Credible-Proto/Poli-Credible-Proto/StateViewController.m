@@ -171,10 +171,11 @@
         //NSIndexPath *indexPath = [self.stateTableView indexPathForSelectedRow];
         UITableViewCell *selectedCell = (UITableViewCell *)sender;
         NSString * stateQuery = selectedCell.textLabel.text;
+        NSString *urlString =[NSString stringWithFormat:@"%@%@%@", @"https://congress.api.sunlightfoundation.com/legislators?state_name=", stateQuery, @"&per_page=all&apikey=6f9f2e31124941a98e97110aeeaec3ff"];
         
         // Pass state string to results VC
         ResultsViewController *resultsVC = segue.destinationViewController;
-        resultsVC.searchStr = stateQuery;
+        resultsVC.searchStr = urlString;
         
         // run httpGetRequest
         //[self httpGetRequest:stateQuery];

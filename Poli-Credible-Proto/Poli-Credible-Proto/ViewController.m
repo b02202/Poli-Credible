@@ -44,10 +44,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-// Login Method
--(void)userLogin {
-    // Execute here
-}
+
 
 // Dismiss keyboard from text fields
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event

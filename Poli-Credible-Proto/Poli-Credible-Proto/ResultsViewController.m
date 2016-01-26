@@ -68,16 +68,17 @@
 }
 
 // Http Get Request
--(void)httpGetRequest:(NSString*)stateString {
+-(void)httpGetRequest:(NSString*)searchString {
     self.httpManager.delegate = self;
-    NSString *urlString =[NSString stringWithFormat:@"%@%@%@", @"https://congress.api.sunlightfoundation.com/legislators?state_name=", stateString, @"&per_page=all&apikey=6f9f2e31124941a98e97110aeeaec3ff" ];
-    NSLog(@"URLSTRING = %@", urlString);
+//    NSString *urlString =[NSString stringWithFormat:@"%@%@%@", @"https://congress.api.sunlightfoundation.com/legislators?state_name=", stateString, @"&per_page=all&apikey=6f9f2e31124941a98e97110aeeaec3ff" ];
+    
+    NSLog(@"SEARCH STRING = %@", searchString);
     // Escape special characters
     //urlString = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSCharacterSet *set = [NSCharacterSet URLQueryAllowedCharacterSet];
-    urlString = [urlString stringByAddingPercentEncodingWithAllowedCharacters:set];
+    searchString = [searchString stringByAddingPercentEncodingWithAllowedCharacters:set];
     // Convert to URL
-    NSURL *url = [NSURL URLWithString:urlString];
+    NSURL *url = [NSURL URLWithString:searchString];
     
     [self.httpManager httpRequest:url];
 }

@@ -98,7 +98,7 @@
         <!--Name-->
         <scene sceneID="LUf-Kp-QC2">
             <objects>
-                <viewController id="TQE-7b-CtF" sceneMemberID="viewController">
+                <viewController id="TQE-7b-CtF" customClass="NameViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NbJ-o5-oY6"/>
                         <viewControllerLayoutGuide type="bottom" id="tHD-RH-20P"/>
@@ -131,6 +131,9 @@
                                 <state key="normal" title="Search">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="searchBtn:" destination="TQE-7b-CtF" eventType="touchUpInside" id="oQH-Mu-GKd"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -146,6 +149,10 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Name" image="UIBarButtonSearch_2x.png" id="jXz-Al-h1i"/>
+                    <connections>
+                        <outlet property="nameField" destination="yVT-AT-d8Z" id="Xji-gX-dRB"/>
+                        <segue destination="IZS-V5-xac" kind="presentation" identifier="nameToResults" id="Hug-0e-c7w"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Zs-t8-9J0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -154,7 +161,7 @@
         <!--Zip Code-->
         <scene sceneID="kbG-qa-jUx">
             <objects>
-                <viewController id="sgv-7o-TPC" sceneMemberID="viewController">
+                <viewController id="sgv-7o-TPC" customClass="ZipCodeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="IXn-ll-qPB"/>
                         <viewControllerLayoutGuide type="bottom" id="60i-Xe-OSy"/>
@@ -187,6 +194,9 @@
                                 <state key="normal" title="Search">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="searchBtn:" destination="sgv-7o-TPC" eventType="touchUpInside" id="PhS-kM-DE8"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -202,6 +212,10 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Zip Code" image="UIBarButtonSearch_2x.png" id="SxI-QX-94S"/>
+                    <connections>
+                        <outlet property="zipCodeField" destination="7gp-Bg-xdo" id="Tkq-AK-BCK"/>
+                        <segue destination="IZS-V5-xac" kind="presentation" identifier="zipToResults" id="dLs-Ga-P8e"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vp2-Vm-CY9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -388,4 +402,7 @@
     <resources>
         <image name="UIBarButtonSearch_2x.png" width="20" height="20"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Hug-0e-c7w"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -23,6 +23,8 @@
 		C71832B81C567B9100388E02 /* ResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C71832B71C567B9100388E02 /* ResultsViewController.m */; };
 		C71832BB1C567D8900388E02 /* MemberDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = C71832BA1C567D8900388E02 /* MemberDataClass.m */; };
 		C71832BF1C56890A00388E02 /* HTTPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C71832BE1C56890A00388E02 /* HTTPManager.m */; };
+		C71832C21C57DB4A00388E02 /* ZipCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C71832C11C57DB4A00388E02 /* ZipCodeViewController.m */; };
+		C71832C51C57DB7E00388E02 /* NameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C71832C41C57DB7E00388E02 /* NameViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +73,10 @@
 		C71832BA1C567D8900388E02 /* MemberDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemberDataClass.m; sourceTree = "<group>"; };
 		C71832BD1C56890A00388E02 /* HTTPManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPManager.h; sourceTree = "<group>"; };
 		C71832BE1C56890A00388E02 /* HTTPManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPManager.m; sourceTree = "<group>"; };
+		C71832C01C57DB4A00388E02 /* ZipCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZipCodeViewController.h; sourceTree = "<group>"; };
+		C71832C11C57DB4A00388E02 /* ZipCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZipCodeViewController.m; sourceTree = "<group>"; };
+		C71832C31C57DB7E00388E02 /* NameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameViewController.h; sourceTree = "<group>"; };
+		C71832C41C57DB7E00388E02 /* NameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,7 +137,6 @@
 				C71832851C50B85F00388E02 /* LaunchScreen.storyboard */,
 				C71832881C50B85F00388E02 /* Info.plist */,
 				C71832801C50B85F00388E02 /* Poli_Credible_Proto.xcdatamodeld */,
-				C71832741C50B85F00388E02 /* Supporting Files */,
 				C71832B11C513DFD00388E02 /* StateViewController.h */,
 				C71832B21C513DFD00388E02 /* StateViewController.m */,
 				C71832B61C567B9100388E02 /* ResultsViewController.h */,
@@ -140,6 +145,11 @@
 				C71832BA1C567D8900388E02 /* MemberDataClass.m */,
 				C71832BD1C56890A00388E02 /* HTTPManager.h */,
 				C71832BE1C56890A00388E02 /* HTTPManager.m */,
+				C71832741C50B85F00388E02 /* Supporting Files */,
+				C71832C01C57DB4A00388E02 /* ZipCodeViewController.h */,
+				C71832C11C57DB4A00388E02 /* ZipCodeViewController.m */,
+				C71832C31C57DB7E00388E02 /* NameViewController.h */,
+				C71832C41C57DB7E00388E02 /* NameViewController.m */,
 			);
 			path = "Poli-Credible-Proto";
 			sourceTree = "<group>";
@@ -317,8 +327,10 @@
 				C718327C1C50B85F00388E02 /* ViewController.m in Sources */,
 				C71832791C50B85F00388E02 /* AppDelegate.m in Sources */,
 				C71832BF1C56890A00388E02 /* HTTPManager.m in Sources */,
+				C71832C21C57DB4A00388E02 /* ZipCodeViewController.m in Sources */,
 				C71832B81C567B9100388E02 /* ResultsViewController.m in Sources */,
 				C71832BB1C567D8900388E02 /* MemberDataClass.m in Sources */,
+				C71832C51C57DB7E00388E02 /* NameViewController.m in Sources */,
 				C71832761C50B85F00388E02 /* main.m in Sources */,
 				C71832B31C513DFD00388E02 /* StateViewController.m in Sources */,
 			);
