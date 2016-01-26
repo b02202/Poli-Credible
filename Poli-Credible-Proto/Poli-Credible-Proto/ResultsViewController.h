@@ -11,7 +11,8 @@
 @interface ResultsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *senateTableView;
+@property (strong, nonatomic)NSString *searchStr;
 
--(void)setMemberArray:(NSMutableArray*)array;
+//-(void)setMemberArray:(NSMutableArray*)array;
 
 @end

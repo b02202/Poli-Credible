@@ -294,14 +294,14 @@
                                 </items>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="59" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gpm-Ml-vcG">
-                                <rect key="frame" x="0.0" y="107" width="600" height="143"/>
+                                <rect key="frame" x="0.0" y="107" width="600" height="473"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="resultsCell" rowHeight="59" id="g8J-GS-2DP">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="resultsCell" rowHeight="59" id="g8J-GS-2DP">
                                         <rect key="frame" x="0.0" y="28" width="600" height="59"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="g8J-GS-2DP" id="nld-eL-rWq">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="58"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="567" height="58"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -313,8 +313,8 @@
                             <constraint firstItem="gpm-Ml-vcG" firstAttribute="leading" secondItem="LVc-Zc-Nl9" secondAttribute="leadingMargin" constant="-20" id="Lx1-RZ-AnV"/>
                             <constraint firstItem="e09-Nc-R3d" firstAttribute="top" secondItem="9XA-od-4Um" secondAttribute="bottom" id="Oey-a4-gnL"/>
                             <constraint firstAttribute="trailingMargin" secondItem="gpm-Ml-vcG" secondAttribute="trailing" constant="-20" id="W4d-CT-BEJ"/>
+                            <constraint firstItem="8a2-Nd-OgV" firstAttribute="top" secondItem="gpm-Ml-vcG" secondAttribute="bottom" constant="20" id="Wnc-ja-uN0"/>
                             <constraint firstItem="e09-Nc-R3d" firstAttribute="leading" secondItem="LVc-Zc-Nl9" secondAttribute="leadingMargin" constant="-20" id="Xqs-zG-JBl"/>
-                            <constraint firstItem="8a2-Nd-OgV" firstAttribute="top" secondItem="gpm-Ml-vcG" secondAttribute="bottom" constant="350" id="Yk5-bg-G0f"/>
                             <constraint firstItem="gpm-Ml-vcG" firstAttribute="top" secondItem="9XA-od-4Um" secondAttribute="bottom" constant="87" id="gxv-Ie-yXx"/>
                             <constraint firstAttribute="trailingMargin" secondItem="e09-Nc-R3d" secondAttribute="trailing" constant="-20" id="r0B-Qg-IiQ"/>
                         </constraints>

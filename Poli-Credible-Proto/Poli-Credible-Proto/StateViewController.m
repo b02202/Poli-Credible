@@ -32,7 +32,7 @@
     // Do any additional setup after loading the view.
     
     // Test HttpManager
-    [self httpGetRequest];
+    //[self httpGetRequest];
     
     // self delegate
     // Make self delegate and datasource of table view
@@ -109,14 +109,15 @@
      UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"stateCell" forIndexPath:(NSIndexPath *)indexPath];
      //NSString *stateString = [[self.stateArray objectAtIndex:indexPath.row] objectForKey:@""];
      
-     cell.textLabel.text = [self.stateArray[indexPath.row]uppercaseString];
+     cell.textLabel.text = self.stateArray[indexPath.row];
      
      return cell;
  }
 
 // Http Get Request
--(void)httpGetRequest {
-    NSString *urlString = @"https://congress.api.sunlightfoundation.com/legislators?state_name=Alabama&per_page=all&apikey=6f9f2e31124941a98e97110aeeaec3ff";
+-(void)httpGetRequest:(NSString*)stateString {
+    NSString *urlString =[NSString stringWithFormat:@"%@%@%@", @"https://congress.api.sunlightfoundation.com/legislators?state_name=", stateString, @"&per_page=all&apikey=6f9f2e31124941a98e97110aeeaec3ff" ];
+    NSLog(@"URLSTRING = %@", urlString);
     // Escape special characters
     //urlString = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSCharacterSet *set = [NSCharacterSet URLQueryAllowedCharacterSet];
@@ -157,6 +158,9 @@
         [_memberArray addObject:memberObj];
         
     }
+    
+    //ResultsViewController *resultsVC = [[ResultsViewController alloc] init];
+    //[resultsVC setMemberArray:_memberArray];
 }
 
 // Storyboard prepareForSeque
@@ -164,8 +168,18 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     if ([segue.identifier isEqualToString:@"toResults"]) {
+        //NSIndexPath *indexPath = [self.stateTableView indexPathForSelectedRow];
+        UITableViewCell *selectedCell = (UITableViewCell *)sender;
+        NSString * stateQuery = selectedCell.textLabel.text;
+        
+        // Pass state string to results VC
         ResultsViewController *resultsVC = segue.destinationViewController;
-        [resultsVC setMemberArray:_memberArray];
+        resultsVC.searchStr = stateQuery;
+        
+        // run httpGetRequest
+        //[self httpGetRequest:stateQuery];
+       
+       //[resultsVC setMemberArray:_memberArray];
     }
 }
 
