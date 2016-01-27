@@ -363,10 +363,10 @@
             </objects>
             <point key="canvasLocation" x="-143" y="-459"/>
         </scene>
-        <!--View Controller-->
+        <!--Favorites View Controller-->
         <scene sceneID="zlX-On-brT">
             <objects>
-                <viewController id="gYc-Tj-lxH" sceneMemberID="viewController">
+                <viewController id="gYc-Tj-lxH" customClass="FavoritesViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hsV-9w-kFN"/>
                         <viewControllerLayoutGuide type="bottom" id="Pid-Of-Un8"/>
@@ -384,6 +384,20 @@
                                     <navigationItem title="Favorites" id="fs3-4r-PUV"/>
                                 </items>
                             </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="66" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zG7-uY-ipa">
+                                <rect key="frame" x="0.0" y="81" width="600" height="462"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="favoriteCell" rowHeight="66" id="nee-bk-g20">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="66"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nee-bk-g20" id="Ddb-Wd-kVb">
+                                            <rect key="frame" x="0.0" y="0.0" width="567" height="65"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -393,10 +407,13 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="favorites" id="fqU-CG-OLD"/>
+                    <connections>
+                        <outlet property="favoritesTableView" destination="zG7-uY-ipa" id="9Qq-uT-Cpo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oYa-DN-BGY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="536" y="565"/>
+            <point key="canvasLocation" x="538" y="581"/>
         </scene>
     </scenes>
     <resources>

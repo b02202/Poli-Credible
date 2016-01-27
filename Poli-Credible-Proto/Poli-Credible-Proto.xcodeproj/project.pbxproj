@@ -25,6 +25,7 @@
 		C71832BF1C56890A00388E02 /* HTTPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C71832BE1C56890A00388E02 /* HTTPManager.m */; };
 		C71832C21C57DB4A00388E02 /* ZipCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C71832C11C57DB4A00388E02 /* ZipCodeViewController.m */; };
 		C71832C51C57DB7E00388E02 /* NameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C71832C41C57DB7E00388E02 /* NameViewController.m */; };
+		C71832C81C59615B00388E02 /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C71832C71C59615B00388E02 /* FavoritesViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,8 @@
 		C71832C11C57DB4A00388E02 /* ZipCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZipCodeViewController.m; sourceTree = "<group>"; };
 		C71832C31C57DB7E00388E02 /* NameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameViewController.h; sourceTree = "<group>"; };
 		C71832C41C57DB7E00388E02 /* NameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameViewController.m; sourceTree = "<group>"; };
+		C71832C61C59615B00388E02 /* FavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesViewController.h; sourceTree = "<group>"; };
+		C71832C71C59615B00388E02 /* FavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +153,8 @@
 				C71832C11C57DB4A00388E02 /* ZipCodeViewController.m */,
 				C71832C31C57DB7E00388E02 /* NameViewController.h */,
 				C71832C41C57DB7E00388E02 /* NameViewController.m */,
+				C71832C61C59615B00388E02 /* FavoritesViewController.h */,
+				C71832C71C59615B00388E02 /* FavoritesViewController.m */,
 			);
 			path = "Poli-Credible-Proto";
 			sourceTree = "<group>";
@@ -331,6 +336,7 @@
 				C71832B81C567B9100388E02 /* ResultsViewController.m in Sources */,
 				C71832BB1C567D8900388E02 /* MemberDataClass.m in Sources */,
 				C71832C51C57DB7E00388E02 /* NameViewController.m in Sources */,
+				C71832C81C59615B00388E02 /* FavoritesViewController.m in Sources */,
 				C71832761C50B85F00388E02 /* main.m in Sources */,
 				C71832B31C513DFD00388E02 /* StateViewController.m in Sources */,
 			);
