@@ -9,7 +9,7 @@
 #import "DetailViewController.h"
 
 @implementation DetailViewController
-@synthesize detailView, contributionView, segmentControl;
+@synthesize detailView, contributionView, segmentControl, memberDataContainer, contributionsViewContainer;
 
 -(void)viewDidLoad {
     [super viewDidLoad];
@@ -21,17 +21,28 @@
     switch (sender.selectedSegmentIndex) {
             // Detail View
         case 0:
-            self.contributionView.hidden = YES;
-            self.detailView.hidden = NO;
+            self.contributionsViewContainer.hidden = YES;
+            self.memberDataContainer.hidden = NO;
+            //self.contributionView.hidden = YES;
+            //self.detailView.hidden = NO;
             break;
             // Contributions View
         case 1:
-            self.contributionView.hidden = NO;
-            self.detailView.hidden = YES;
+            self.contributionsViewContainer.hidden = NO;
+            self.memberDataContainer.hidden = YES;
+            //self.contributionView.hidden = NO;
+            //self.detailView.hidden = YES;
             
         default:
             break;
     }
+}
+
+- (IBAction)launchShare:(id)sender {
+    UIActivityViewController *shareAVC = [[UIActivityViewController alloc] initWithActivityItems:@[@"Poli-Credible", @"Information to share"] applicationActivities:nil];
+    
+    [self presentViewController:shareAVC animated:YES completion:nil];
+    
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

@@ -11,7 +11,12 @@
 @interface DetailViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UIView *detailView;
 @property (strong, nonatomic) IBOutlet UIView *contributionView;
+@property (strong, nonatomic) IBOutlet UIView *memberDataContainer;
+
+@property (strong, nonatomic) IBOutlet UIView *contributionsViewContainer;
+
 @property (strong, nonatomic) IBOutlet UISegmentedControl *segmentControl;
 - (IBAction)segmantValueChanged:(id)sender;
+- (IBAction)launchShare:(id)sender;
 
 @end

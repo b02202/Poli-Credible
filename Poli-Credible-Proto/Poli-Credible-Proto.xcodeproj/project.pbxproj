@@ -27,6 +27,7 @@
 		C71832C51C57DB7E00388E02 /* NameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C71832C41C57DB7E00388E02 /* NameViewController.m */; };
 		C71832C81C59615B00388E02 /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C71832C71C59615B00388E02 /* FavoritesViewController.m */; };
 		C71832CB1C5994C700388E02 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C71832CA1C5994C700388E02 /* DetailViewController.m */; };
+		C71832CD1C5A4A2400388E02 /* Shelby-Image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C71832CC1C5A4A2400388E02 /* Shelby-Image.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		C71832C71C59615B00388E02 /* FavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesViewController.m; sourceTree = "<group>"; };
 		C71832C91C5994C700388E02 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		C71832CA1C5994C700388E02 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		C71832CC1C5A4A2400388E02 /* Shelby-Image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Shelby-Image.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +195,7 @@
 		C71832AE1C50BA1A00388E02 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C71832CC1C5A4A2400388E02 /* Shelby-Image.jpg */,
 				C71832B41C56554800388E02 /* Logo-1.png */,
 				C71832AA1C50BA0F00388E02 /* search-icon.png */,
 				C71832AB1C50BA0F00388E02 /* UIBarButtonSearch_2x.png */,
@@ -305,6 +308,7 @@
 			files = (
 				C71832871C50B85F00388E02 /* LaunchScreen.storyboard in Resources */,
 				C71832841C50B85F00388E02 /* Assets.xcassets in Resources */,
+				C71832CD1C5A4A2400388E02 /* Shelby-Image.jpg in Resources */,
 				C71832AC1C50BA0F00388E02 /* search-icon.png in Resources */,
 				C718327F1C50B85F00388E02 /* Main.storyboard in Resources */,
 				C71832B51C56554800388E02 /* Logo-1.png in Resources */,
