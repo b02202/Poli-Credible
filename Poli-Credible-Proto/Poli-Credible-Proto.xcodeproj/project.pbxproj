@@ -26,6 +26,7 @@
 		C71832C21C57DB4A00388E02 /* ZipCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C71832C11C57DB4A00388E02 /* ZipCodeViewController.m */; };
 		C71832C51C57DB7E00388E02 /* NameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C71832C41C57DB7E00388E02 /* NameViewController.m */; };
 		C71832C81C59615B00388E02 /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C71832C71C59615B00388E02 /* FavoritesViewController.m */; };
+		C71832CB1C5994C700388E02 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C71832CA1C5994C700388E02 /* DetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,8 @@
 		C71832C41C57DB7E00388E02 /* NameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameViewController.m; sourceTree = "<group>"; };
 		C71832C61C59615B00388E02 /* FavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesViewController.h; sourceTree = "<group>"; };
 		C71832C71C59615B00388E02 /* FavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesViewController.m; sourceTree = "<group>"; };
+		C71832C91C5994C700388E02 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		C71832CA1C5994C700388E02 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +158,8 @@
 				C71832C41C57DB7E00388E02 /* NameViewController.m */,
 				C71832C61C59615B00388E02 /* FavoritesViewController.h */,
 				C71832C71C59615B00388E02 /* FavoritesViewController.m */,
+				C71832C91C5994C700388E02 /* DetailViewController.h */,
+				C71832CA1C5994C700388E02 /* DetailViewController.m */,
 			);
 			path = "Poli-Credible-Proto";
 			sourceTree = "<group>";
@@ -339,6 +344,7 @@
 				C71832C81C59615B00388E02 /* FavoritesViewController.m in Sources */,
 				C71832761C50B85F00388E02 /* main.m in Sources */,
 				C71832B31C513DFD00388E02 /* StateViewController.m in Sources */,
+				C71832CB1C5994C700388E02 /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

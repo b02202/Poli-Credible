@@ -318,6 +318,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="567" height="58"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="ZRg-mu-Hhm" kind="presentation" identifier="toDetail" id="LRa-D8-FT2"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -341,6 +344,101 @@
                 <exit id="zKx-B8-AwI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1400" y="-459"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="1pe-sI-xFt">
+            <objects>
+                <viewController id="ZRg-mu-Hhm" customClass="DetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="P01-KV-qAq"/>
+                        <viewControllerLayoutGuide type="bottom" id="8ww-Wb-OcS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1D7-YN-bGJ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="do4-PP-GXQ">
+                                <rect key="frame" x="135" y="73" width="330" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="slc-gk-ZVI"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmantValueChanged:" destination="ZRg-mu-Hhm" eventType="valueChanged" id="eAQ-Mi-raR"/>
+                                </connections>
+                            </segmentedControl>
+                            <navigationBar contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="XMZ-EB-qa8">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="HZ8-pz-6sK"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Sen. Richard Shelby" id="HIj-yH-ra3"/>
+                                </items>
+                            </navigationBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Ja-5U-tff" userLabel="DetailView">
+                                <rect key="frame" x="0.0" y="115" width="600" height="465"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detail View" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kjw-vi-NUq">
+                                        <rect key="frame" x="257" y="24" width="86" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.92589051573426573" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="Kjw-vi-NUq" firstAttribute="top" secondItem="3Ja-5U-tff" secondAttribute="top" constant="24" id="14P-i0-plk"/>
+                                    <constraint firstItem="Kjw-vi-NUq" firstAttribute="centerX" secondItem="3Ja-5U-tff" secondAttribute="centerX" id="EMf-Ut-e6Z"/>
+                                </constraints>
+                            </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="72W-JL-gsB" userLabel="ContributionView">
+                                <rect key="frame" x="0.0" y="115" width="600" height="465"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contributions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5hD-2j-WCr">
+                                        <rect key="frame" x="248" y="19" width="104" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.80908544580419584" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="5hD-2j-WCr" firstAttribute="centerX" secondItem="72W-JL-gsB" secondAttribute="centerX" id="MOB-c3-wa7"/>
+                                    <constraint firstItem="5hD-2j-WCr" firstAttribute="top" secondItem="72W-JL-gsB" secondAttribute="top" constant="19" id="XLE-jr-aWM"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="72W-JL-gsB" firstAttribute="leading" secondItem="1D7-YN-bGJ" secondAttribute="leadingMargin" constant="-20" id="5NP-rM-mWl"/>
+                            <constraint firstItem="8ww-Wb-OcS" firstAttribute="top" secondItem="72W-JL-gsB" secondAttribute="bottom" constant="20" id="A36-mc-iV8"/>
+                            <constraint firstItem="3Ja-5U-tff" firstAttribute="top" secondItem="do4-PP-GXQ" secondAttribute="bottom" constant="14" id="B6T-IL-bvJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="3Ja-5U-tff" secondAttribute="trailing" constant="-20" id="BFt-dx-Hym"/>
+                            <constraint firstItem="XMZ-EB-qa8" firstAttribute="leading" secondItem="1D7-YN-bGJ" secondAttribute="leadingMargin" constant="-20" id="GIi-PK-JcO"/>
+                            <constraint firstItem="do4-PP-GXQ" firstAttribute="leading" secondItem="1D7-YN-bGJ" secondAttribute="leadingMargin" constant="115" id="HOU-oc-iF8"/>
+                            <constraint firstItem="XMZ-EB-qa8" firstAttribute="top" secondItem="P01-KV-qAq" secondAttribute="bottom" id="Ife-G3-9Uc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="do4-PP-GXQ" secondAttribute="trailing" constant="115" id="JIH-kF-ZVb"/>
+                            <constraint firstItem="3Ja-5U-tff" firstAttribute="leading" secondItem="1D7-YN-bGJ" secondAttribute="leadingMargin" constant="-20" id="KML-9a-Wyc"/>
+                            <constraint firstItem="do4-PP-GXQ" firstAttribute="top" secondItem="XMZ-EB-qa8" secondAttribute="bottom" constant="9" id="Vpw-mc-laP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="XMZ-EB-qa8" secondAttribute="trailing" constant="-20" id="isF-Hl-Kuh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="72W-JL-gsB" secondAttribute="trailing" constant="-20" id="r0e-yb-esG"/>
+                            <constraint firstItem="72W-JL-gsB" firstAttribute="top" secondItem="do4-PP-GXQ" secondAttribute="bottom" constant="14" id="u4C-J7-HDe"/>
+                            <constraint firstItem="8ww-Wb-OcS" firstAttribute="top" secondItem="3Ja-5U-tff" secondAttribute="bottom" constant="20" id="zOP-zN-0Hz"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="contributionView" destination="72W-JL-gsB" id="xtX-nf-BGj"/>
+                        <outlet property="detailView" destination="3Ja-5U-tff" id="zge-EQ-oVL"/>
+                        <outlet property="segmentControl" destination="do4-PP-GXQ" id="Kgo-28-lje"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Ka-t3-vmM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2092" y="-459"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="gYa-CD-SbS">
