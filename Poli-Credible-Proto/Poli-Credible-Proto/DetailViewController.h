@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DetailViewController : UIViewController
+@interface DetailViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+
 @property (strong, nonatomic) IBOutlet UIView *detailView;
 @property (strong, nonatomic) IBOutlet UIView *contributionView;
 @property (strong, nonatomic) IBOutlet UIView *memberDataContainer;
@@ -16,6 +17,11 @@
 @property (strong, nonatomic) IBOutlet UIView *contributionsViewContainer;
 
 @property (strong, nonatomic) IBOutlet UISegmentedControl *segmentControl;
+
+// Contributors
+
+@property (strong, nonatomic) IBOutlet UITableView *contributorsTableView;
+
 - (IBAction)segmantValueChanged:(id)sender;
 - (IBAction)launchShare:(id)sender;
 

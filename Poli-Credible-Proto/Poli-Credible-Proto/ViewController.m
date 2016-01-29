@@ -110,7 +110,7 @@
     
     [defaults synchronize];
     
-    UIAlertView *success = [[UIAlertView alloc] initWithTitle:@"Success" message:@"You have registered a new Assessment fit user" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    UIAlertView *success = [[UIAlertView alloc] initWithTitle:@"Success" message:@"You have registered a new Poli-Credible user" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
     
     [success show];
     

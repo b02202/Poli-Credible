@@ -43,8 +43,8 @@
     // Set Chamber Arrays
     //[self setChamberArrays];
     
-   // self.senateTableView.delegate = self;
-   // self.senateTableView.dataSource = self;
+    self.senateTableView.delegate = self;
+    self.senateTableView.dataSource = self;
     
    
     
@@ -111,8 +111,11 @@
     
     [self setChamberArrays];
     
-    self.senateTableView.delegate = self;
-    self.senateTableView.dataSource = self;
+    
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.senateTableView reloadData];
+    });
 }
 
 // Sections
@@ -190,6 +193,12 @@
         NSLog(@"%@ %@ - %@", [memberObj valueForKey:@"repFirstName"],[memberObj valueForKey:@"repLastName"],[memberObj valueForKey:@"chamber"]);
     }
 }
+
+-(IBAction)back:(UIStoryboardSegue*)segue
+{
+    
+}
+
 
 
 

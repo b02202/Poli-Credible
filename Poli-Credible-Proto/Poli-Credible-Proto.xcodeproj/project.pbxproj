@@ -270,6 +270,7 @@
 				TargetAttributes = {
 					C71832701C50B85F00388E02 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = NEDUKB8W3F;
 					};
 					C718328C1C50B85F00388E02 = {
 						CreatedOnToolsVersion = 7.2;
@@ -489,6 +490,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Poli-Credible-Proto/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.robertbrooks.Poli-Credible-Proto";
@@ -500,6 +502,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Poli-Credible-Proto/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.robertbrooks.Poli-Credible-Proto";
@@ -574,6 +577,7 @@
 				C71832A31C50B85F00388E02 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C71832A41C50B85F00388E02 /* Build configuration list for PBXNativeTarget "Poli-Credible-ProtoTests" */ = {
 			isa = XCConfigurationList;
@@ -582,6 +586,7 @@
 				C71832A61C50B85F00388E02 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C71832A71C50B85F00388E02 /* Build configuration list for PBXNativeTarget "Poli-Credible-ProtoUITests" */ = {
 			isa = XCConfigurationList;
@@ -590,6 +595,7 @@
 				C71832A91C50B85F00388E02 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
