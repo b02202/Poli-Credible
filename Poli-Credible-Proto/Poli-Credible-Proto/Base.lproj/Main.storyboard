@@ -432,7 +432,7 @@
                                         <barButtonItem key="leftBarButtonItem" title="&lt;Back" id="bea-iN-lve">
                                             <color key="tintColor" white="0.92589051570000003" alpha="1" colorSpace="calibratedWhite"/>
                                             <connections>
-                                                <segue destination="T9v-fY-2zX" kind="unwind" unwindAction="back:" id="4JJ-zK-q91"/>
+                                                <segue destination="T9v-fY-2zX" kind="unwind" unwindAction="close:" id="b0r-u1-9vB"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="action" id="aFw-xz-6W8">
@@ -546,6 +546,9 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.99215686270000003" green="0.98823529409999999" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <segue destination="ZRg-mu-Hhm" kind="presentation" identifier="favoritesToDetail" id="kZz-eM-z3k"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -698,7 +701,7 @@
                                         </attributedString>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AFX-Rk-AGy">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AFX-Rk-AGy">
                                         <rect key="frame" x="20" y="225" width="537" height="245"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="234" id="Djk-rO-onv"/>
@@ -908,5 +911,6 @@ Cgo
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Hug-0e-c7w"/>
+        <segue reference="LRa-D8-FT2"/>
     </inferredMetricsTieBreakers>
 </document>

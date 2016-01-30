@@ -17,6 +17,12 @@
     self.nameField.delegate = self;
 }
 
+// Dismiss keyboard from text fields
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.nameField resignFirstResponder];
+   
+}
 
 
 
@@ -33,6 +39,9 @@
         //Pass to zip string to results VC
         ResultsViewController *resultsVC = segue.destinationViewController;
         resultsVC.searchStr = urlString;
+        
+        // Reset Name field text
+        self.nameField.text = @"";
     }
     
 }
