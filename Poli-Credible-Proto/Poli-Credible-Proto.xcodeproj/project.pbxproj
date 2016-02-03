@@ -28,6 +28,9 @@
 		C71832C81C59615B00388E02 /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C71832C71C59615B00388E02 /* FavoritesViewController.m */; };
 		C71832CB1C5994C700388E02 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C71832CA1C5994C700388E02 /* DetailViewController.m */; };
 		C71832CD1C5A4A2400388E02 /* Shelby-Image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C71832CC1C5A4A2400388E02 /* Shelby-Image.jpg */; };
+		C7D5B2861C61BAC90092A5D5 /* bg-1.png in Resources */ = {isa = PBXBuildFile; fileRef = C7D5B2851C61BAC90092A5D5 /* bg-1.png */; };
+		C7D5B2881C61BDF70092A5D5 /* bg-2.png in Resources */ = {isa = PBXBuildFile; fileRef = C7D5B2871C61BDF70092A5D5 /* bg-2.png */; };
+		C7D5B28A1C61CA170092A5D5 /* Logo-2.png in Resources */ = {isa = PBXBuildFile; fileRef = C7D5B2891C61CA170092A5D5 /* Logo-2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +88,9 @@
 		C71832C91C5994C700388E02 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		C71832CA1C5994C700388E02 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		C71832CC1C5A4A2400388E02 /* Shelby-Image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Shelby-Image.jpg"; sourceTree = "<group>"; };
+		C7D5B2851C61BAC90092A5D5 /* bg-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-1.png"; sourceTree = "<group>"; };
+		C7D5B2871C61BDF70092A5D5 /* bg-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-2.png"; sourceTree = "<group>"; };
+		C7D5B2891C61CA170092A5D5 /* Logo-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Logo-2.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,8 +201,11 @@
 		C71832AE1C50BA1A00388E02 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C7D5B2851C61BAC90092A5D5 /* bg-1.png */,
+				C7D5B2871C61BDF70092A5D5 /* bg-2.png */,
 				C71832CC1C5A4A2400388E02 /* Shelby-Image.jpg */,
 				C71832B41C56554800388E02 /* Logo-1.png */,
+				C7D5B2891C61CA170092A5D5 /* Logo-2.png */,
 				C71832AA1C50BA0F00388E02 /* search-icon.png */,
 				C71832AB1C50BA0F00388E02 /* UIBarButtonSearch_2x.png */,
 			);
@@ -308,7 +317,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C71832871C50B85F00388E02 /* LaunchScreen.storyboard in Resources */,
+				C7D5B28A1C61CA170092A5D5 /* Logo-2.png in Resources */,
 				C71832841C50B85F00388E02 /* Assets.xcassets in Resources */,
+				C7D5B2881C61BDF70092A5D5 /* bg-2.png in Resources */,
+				C7D5B2861C61BAC90092A5D5 /* bg-1.png in Resources */,
 				C71832CD1C5A4A2400388E02 /* Shelby-Image.jpg in Resources */,
 				C71832AC1C50BA0F00388E02 /* search-icon.png in Resources */,
 				C718327F1C50B85F00388E02 /* Main.storyboard in Resources */,
