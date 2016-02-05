@@ -16,6 +16,10 @@
 @implementation FavoritesViewController
 
 - (void)viewDidLoad {
+    
+    // set background color
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg-2.png"]];
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.favoritesTableView.delegate = self;
@@ -37,8 +41,22 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"favoriteCell" forIndexPath:(NSIndexPath *)indexPath];
     //NSString *stateString = [[self.stateArray objectAtIndex:indexPath.row] objectForKey:@""];
     
+    // Change selected cells background color
+    if (![cell viewWithTag:1]) {
+        UIView *selectedView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, cell.frame.size.width, cell.frame.size.height)];
+        selectedView.tag = 1;
+        selectedView.backgroundColor = [UIColor colorWithRed:92.0/255.0 green:152.0/255.0 blue:198.0/255.0 alpha:0.75];
+        cell.selectedBackgroundView = selectedView;
+    }
+    
     cell.textLabel.text = self.favoritesArray[indexPath.row];
     
     return cell;
 }
+
+// Deselect cell after selection
+-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
 @end

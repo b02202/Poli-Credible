@@ -9,6 +9,6 @@
 #import "MemberDataClass.h"
 
 @implementation MemberDataClass
-@synthesize memberName, repFirstName, repLastName, party, chamber, bioGuideID, repPhone, repWebsite, billTitle, billNumber, memberPosition, repAddress;
+@synthesize memberName, repFirstName, repLastName, party, chamber, bioGuideID, repPhone, repWebsite, billTitle, billNumber, memberPosition, repAddress, stateName, repDistrict, repTitle;
 
 @end

@@ -12,6 +12,10 @@
 @implementation NameViewController
 
 -(void)viewDidLoad {
+    
+    // set background color
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg-2.png"]];
+    
     [super viewDidLoad];
     
     self.nameField.delegate = self;

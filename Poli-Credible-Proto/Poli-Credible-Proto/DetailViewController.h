@@ -18,11 +18,22 @@
 
 @property (strong, nonatomic) IBOutlet UISegmentedControl *segmentControl;
 
+// Member Info
+
+@property (strong, nonatomic) NSString *memberNameString;
+@property (strong, nonatomic) NSString *imageUrlString;
+@property (strong, nonatomic) UIImage *memImage;
+@property (strong, nonatomic) NSString *partyString;
+@property (strong, nonatomic) NSString *phoneString;
+
+
+
 // Contributors
 
 @property (strong, nonatomic) IBOutlet UITableView *contributorsTableView;
 
 - (IBAction)segmantValueChanged:(id)sender;
 - (IBAction)launchShare:(id)sender;
+- (IBAction)backDismiss:(id)sender;
 
 @end

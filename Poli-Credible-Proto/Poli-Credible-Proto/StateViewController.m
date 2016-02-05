@@ -28,6 +28,29 @@
 }
 
 - (void)viewDidLoad {
+    
+    // set background color
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg-2.png"]];
+    
+    // Tab Bar Color Change
+    UITabBarController *tabBarController = [self tabBarController];
+    UITabBar *tabBar = tabBarController.tabBar;
+    tabBar.tintColor = [UIColor whiteColor];
+    
+    //[[UITabBarItem appearance] setTitleTextAttributes:@{ NSForegroundColorAttributeName: [UIColor whiteColor]}] forState:UIControlStateNormal];
+    
+    for (UITabBarItem *tab in tabBar.items) {
+        tab.image = [tab.image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        
+        tab.selectedImage = [tab.image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                           [UIColor whiteColor], NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
+        
+        tab.selectedImage = [tab.image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                           [UIColor whiteColor], NSForegroundColorAttributeName, nil] forState:UIControlStateSelected];
+    }
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
@@ -104,15 +127,28 @@
     //return self.addressArray.count;
     return self.stateArray.count;
 }
-
+// TableView Cell
  - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
      UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"stateCell" forIndexPath:(NSIndexPath *)indexPath];
      //NSString *stateString = [[self.stateArray objectAtIndex:indexPath.row] objectForKey:@""];
+     
+     // Change selected cells background color
+     if (![cell viewWithTag:1]) {
+         UIView *selectedView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, cell.frame.size.width, cell.frame.size.height)];
+         selectedView.tag = 1;
+         selectedView.backgroundColor = [UIColor colorWithRed:92.0/255.0 green:152.0/255.0 blue:198.0/255.0 alpha:0.75];
+         cell.selectedBackgroundView = selectedView;
+     }
      
      cell.textLabel.text = self.stateArray[indexPath.row];
      
      return cell;
  }
+
+// Deselect cell after selection
+-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
 
 // Http Get Request
 -(void)httpGetRequest:(NSString*)stateString {

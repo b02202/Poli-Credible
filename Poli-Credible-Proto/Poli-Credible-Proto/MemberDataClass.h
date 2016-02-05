@@ -26,5 +26,8 @@
 @property (nonatomic, strong)NSString *billNumber;
 @property (nonatomic, strong)NSString *memberPosition;
 @property (nonatomic, strong)NSString *repAddress;
+@property (nonatomic, strong)NSString *stateName;
+@property (nonatomic, strong)NSString *repTitle;
+@property (nonatomic, strong)NSString *repDistrict;
 
 @end

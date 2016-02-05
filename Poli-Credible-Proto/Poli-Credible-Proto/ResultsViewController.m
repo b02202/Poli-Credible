@@ -9,6 +9,7 @@
 #import "ResultsViewController.h"
 #import "MemberDataClass.h"
 #import "HTTPManager.h"
+#import "DetailViewController.h"
 
 @interface ResultsViewController () <HTTPManagerDelegate>
 
@@ -32,6 +33,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // set background color
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg-2.png"]];
+    
     // Do any additional setup after loading the view.
     NSLog(@"ViewDidLoad is being Called");
     _memberArray = [[NSMutableArray alloc] init];
@@ -57,6 +62,7 @@
 //        }
 //    }
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -99,12 +105,17 @@
         memberObj.chamber = [[resultsArray objectAtIndex:i]objectForKey:@"chamber"];
         memberObj.bioGuideID = [[resultsArray objectAtIndex:i]objectForKey:@"bioguide_id"];
         memberObj.repPhone = [[resultsArray objectAtIndex:i]objectForKey:@"phone"];
-        memberObj.repWebsite = [[resultsArray objectAtIndex:i]objectForKey:@"website"];
+        memberObj.repTitle = [[resultsArray objectAtIndex:i]objectForKey:@"title"];
+        memberObj.repDistrict = [[resultsArray objectAtIndex:i]objectForKey:@"district"];
+        memberObj.stateName = [[resultsArray objectAtIndex:i]objectForKey:@"state_name"];
+        
         //memberObj.billTitle = [[resultsArray objectAtIndex:i]objectForKey:@"last_name"];
         //memberObj.billNumber = [[resultsArray objectAtIndex:i]objectForKey:@"last_name"];
         //memberObj.memberPosition = [[resultsArray objectAtIndex:i]objectForKey:@"last_name"];
         memberObj.repAddress = [[resultsArray objectAtIndex:i]objectForKey:@"office"];
-        NSLog(@"%@ %@", memberObj.repFirstName, memberObj.repLastName);
+        //NSLog(@"%@ %@ Phone - %@", memberObj.repFirstName, memberObj.repLastName, memberObj.repPhone);
+        
+        
         [_memberArray addObject:memberObj];
         
     }
@@ -122,6 +133,16 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     //return _sectionArray.count;
     return 2;
+}
+
+// Table Header View Customization
+-(void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
+    // Change Header Color
+    UITableViewHeaderFooterView *headerView = (UITableViewHeaderFooterView*) view;
+    headerView.contentView.backgroundColor = [UIColor colorWithRed:92.0/255.0 green:152.0/255.0 blue:198.0/255.0 alpha:0.95];
+    //view.backgroundColor = [UIColor colorWithRed:92.0/255.0 green:152.0/255.0 blue:198.0/255.0 alpha:1];
+    
+    headerView.textLabel.textColor = [UIColor whiteColor];
 }
 
 // Table Section Header Titles
@@ -150,20 +171,35 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"resultsCell" forIndexPath:(NSIndexPath *)indexPath];
     NSLog(@"cellForRow is being called");
     //NSString *stateString = [[self.stateArray objectAtIndex:indexPath.row] objectForKey:@""];
+    // Change selected cells background color
+    if (![cell viewWithTag:1]) {
+        UIView *selectedView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, cell.frame.size.width, cell.frame.size.height)];
+        selectedView.tag = 1;
+        selectedView.backgroundColor = [UIColor colorWithRed:92.0/255.0 green:152.0/255.0 blue:198.0/255.0 alpha:0.75];
+        cell.selectedBackgroundView = selectedView;
+    }
     
     if (indexPath.section == 0) {
         NSString *senateCellText = [NSString stringWithFormat:@"%@ %@ (%@)",[[self.senateArray objectAtIndex:indexPath.row] valueForKey:@"repFirstName"],
                                     [[self.senateArray objectAtIndex:indexPath.row] valueForKey:@"repLastName"],
                                     [[self.senateArray objectAtIndex:indexPath.row] valueForKey:@"party"]];
+        NSString *senateCellSubText = [NSString stringWithFormat:@"%@",[[self.senateArray objectAtIndex:indexPath.row] valueForKey:@"stateName"]];
         cell.textLabel.text = senateCellText;
+        cell.detailTextLabel.text = senateCellSubText;
     }
     else {
         NSString *houseCellText = [NSString stringWithFormat:@"%@ %@ (%@)",[[self.houseArray objectAtIndex:indexPath.row] valueForKey:@"repFirstName"],
                                    [[self.houseArray objectAtIndex:indexPath.row] valueForKey:@"repLastName"],
                                    [[self.houseArray objectAtIndex:indexPath.row] valueForKey:@"party"]];
+        NSString *houseCellSubText = [NSString stringWithFormat:@"%@, District %@",[[self.houseArray objectAtIndex:indexPath.row] valueForKey:@"stateName"], [[self.houseArray objectAtIndex:indexPath.row] valueForKey:@"repDistrict"]];
         cell.textLabel.text = houseCellText;
+        cell.detailTextLabel.text = houseCellSubText;
     }
     return cell;
+}
+// Deselect cell after selection
+-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 // set Chamber Arrays
@@ -203,14 +239,64 @@
 
 
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    NSString *bioGuideID;
+    NSString *memFullName;
+    NSString *memParty;
+    NSString *repPhone;
+    
+    if ([segue.identifier isEqualToString:@"toDetail"]) {
+        NSIndexPath *indexPath = [self.senateTableView indexPathForSelectedRow];
+        
+        if (indexPath.section == 0) {
+            bioGuideID = [[self.senateArray objectAtIndex:indexPath.row] valueForKey:@"bioGuideID"];
+            memFullName = [NSString stringWithFormat:@"%@. %@ %@ (%@)", [[self.senateArray objectAtIndex:indexPath.row] valueForKey:@"repTitle"], [[self.senateArray objectAtIndex:indexPath.row] valueForKey:@"repFirstName"], [[self.senateArray objectAtIndex:indexPath.row] valueForKey:@"repLastName"], [[self.senateArray objectAtIndex:indexPath.row] valueForKey:@"party"]];
+            memParty = [[self.senateArray objectAtIndex:indexPath.row] valueForKey:@"party"];
+            repPhone = [[self.senateArray objectAtIndex:indexPath.row] valueForKey:@"repPhone"];
+        }
+        else {
+            bioGuideID = [[self.houseArray objectAtIndex:indexPath.row] valueForKey:@"bioGuideID"];
+            memFullName = [NSString stringWithFormat:@"%@. %@ %@ (%@)", [[self.houseArray objectAtIndex:indexPath.row] valueForKey:@"repTitle"], [[self.houseArray objectAtIndex:indexPath.row] valueForKey:@"repFirstName"], [[self.houseArray objectAtIndex:indexPath.row] valueForKey:@"repLastName"], [[self.houseArray objectAtIndex:indexPath.row] valueForKey:@"party"]];
+            memParty = [[self.houseArray objectAtIndex:indexPath.row] valueForKey:@"party"];
+            repPhone = [[self.houseArray objectAtIndex:indexPath.row] valueForKey:@"repPhone"];
+        }
+        
+        // Create Image Url
+        NSString *imageUrl = [NSString stringWithFormat:@"https://theunitedstates.io/images/congress/225x275/%@.jpg", bioGuideID];
+        NSURL *imgUrl = [NSURL URLWithString:imageUrl];
+        NSData *imageData = [NSData dataWithContentsOfURL:imgUrl];
+        UIImage *image = [UIImage imageWithData:imageData];
+        
+        // Get member data
+        
+        
+        // Pass data to detail view
+        DetailViewController *detailVC = segue.destinationViewController;
+        detailVC.memImage = image;
+        // ** MIGHT WANT TO CHECK FOR NIL HERE **
+        detailVC.memberNameString = memFullName;
+        detailVC.partyString = memParty;
+        detailVC.phoneString = repPhone;
+        
+        
+        
+        
+    }
+    
+    
 }
-*/
+
+/*
+ dispatch_async(dispatch_get_main_queue(), ^{
+ // Update the UI
+ self.imageView.image = [UIImage imageWithData:imageData];
+ });
+ */
 
 @end

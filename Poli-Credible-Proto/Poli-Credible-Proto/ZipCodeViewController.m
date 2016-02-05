@@ -12,6 +12,10 @@
 @implementation ZipCodeViewController
 
 -(void)viewDidLoad {
+    
+    // set background color
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg-2.png"]];
+    
     [super viewDidLoad];
     
     self.zipCodeField.delegate = self;
