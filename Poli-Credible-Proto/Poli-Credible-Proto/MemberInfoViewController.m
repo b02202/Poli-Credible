@@ -36,7 +36,6 @@
     NSURL *repBioUrl = [NSURL URLWithString:bioguideUrl];
     NSData *repBioData = [NSData dataWithContentsOfURL:repBioUrl];
     
-    //TFHpple *bioParser = [TFHpple hppleWithHTMLData:repBioData];
     NSString *bioXpathQueryString = @"//p";
     
     TFHpple *doc = [[TFHpple alloc] initWithHTMLData:repBioData];
@@ -44,11 +43,11 @@
     
     TFHppleElement *element = [elements objectAtIndex:0];
     RepBio *repBio = [[RepBio alloc] init];
-    repBio.title = [element text];
+    repBio.bioText = [element text];
     
     
     //NSString *testString = [repBio.title stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]];
-    NSString *noLineBreaks = [repBio.title stringByReplacingOccurrencesOfString:@"\r\n" withString:@""];
+    NSString *noLineBreaks = [repBio.bioText stringByReplacingOccurrencesOfString:@"\r\n" withString:@""];
     //NSLog(@"TEXT = %@", testString);
     
     NSString *bioString = [NSString stringWithFormat:@"%@ %@", self.recievedName, noLineBreaks];

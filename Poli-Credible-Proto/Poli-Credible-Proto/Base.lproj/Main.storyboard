@@ -150,11 +150,12 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GhO-kt-vuF">
                                 <rect key="frame" x="431" y="144" width="78" height="35"/>
-                                <color key="backgroundColor" red="0.21176470589999999" green="0.33725490200000002" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.59607843140000005" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="78" id="SNQ-eM-5D9"/>
                                     <constraint firstAttribute="height" constant="35" id="f44-fd-YoB"/>
                                 </constraints>
+                                <color key="tintColor" red="0.36078431370000003" green="0.59607843140000005" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Search">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                 </state>
@@ -216,13 +217,14 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a7v-bm-OL3">
                                 <rect key="frame" x="431" y="163" width="78" height="35"/>
-                                <color key="backgroundColor" red="0.21176470589999999" green="0.33725490200000002" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.59607843140000005" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="Y3m-Um-JKy"/>
                                     <constraint firstAttribute="width" constant="78" id="nbx-Io-STH"/>
                                 </constraints>
+                                <color key="tintColor" red="0.36078431370000003" green="0.59607843140000005" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Search">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="searchBtn:" destination="sgv-7o-TPC" eventType="touchUpInside" id="PhS-kM-DE8"/>
@@ -938,7 +940,7 @@
         <image name="twitter-icon.png" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Uwn-5v-Scg"/>
+        <segue reference="Hug-0e-c7w"/>
         <segue reference="LRa-D8-FT2"/>
     </inferredMetricsTieBreakers>
 </document>

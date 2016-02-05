@@ -9,5 +9,5 @@
 #import "RepBio.h"
 
 @implementation RepBio
-@synthesize title, url;
+@synthesize bioText;
 @end

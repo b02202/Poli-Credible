@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo-1.png" translatesAutoresizingMaskIntoConstraints="NO" id="eJL-JK-dLk">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo-2.png" translatesAutoresizingMaskIntoConstraints="NO" id="eJL-JK-dLk">
                                 <rect key="frame" x="125" y="160" width="350" height="280"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="350" id="Azi-iz-hTZ"/>
@@ -38,6 +38,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Logo-1.png" width="733" height="604"/>
+        <image name="Logo-2.png" width="733" height="604"/>
     </resources>
 </document>
