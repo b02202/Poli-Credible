@@ -283,6 +283,7 @@
         detailVC.memberNameString = memFullName;
         detailVC.partyString = memParty;
         detailVC.phoneString = repPhone;
+        detailVC.memBioID = bioGuideID;
         
         
         

@@ -7,6 +7,9 @@
 //
 
 #import "MemberInfoViewController.h"
+#import "TFHpple.h"
+#import "RepBio.h"
+
 
 @implementation MemberInfoViewController
 
@@ -19,7 +22,43 @@
     // Populate Name
     [self populateName];
     
+    [self loadBiography];
+    
+    
 }
+
+// Html parse
+// Load a web page.
+-(void)loadBiography {
+    
+    NSString *bioguideUrl = [NSString stringWithFormat:@"http://bioguide.congress.gov/scripts/biodisplay.pl?index=%@", self.recievedBioID];
+    
+    NSURL *repBioUrl = [NSURL URLWithString:bioguideUrl];
+    NSData *repBioData = [NSData dataWithContentsOfURL:repBioUrl];
+    
+    //TFHpple *bioParser = [TFHpple hppleWithHTMLData:repBioData];
+    NSString *bioXpathQueryString = @"//p";
+    
+    TFHpple *doc = [[TFHpple alloc] initWithHTMLData:repBioData];
+    NSArray *elements = [doc searchWithXPathQuery:bioXpathQueryString];
+    
+    TFHppleElement *element = [elements objectAtIndex:0];
+    RepBio *repBio = [[RepBio alloc] init];
+    repBio.title = [element text];
+    
+    
+    //NSString *testString = [repBio.title stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+    NSString *noLineBreaks = [repBio.title stringByReplacingOccurrencesOfString:@"\r\n" withString:@""];
+    //NSLog(@"TEXT = %@", testString);
+    
+    NSString *bioString = [NSString stringWithFormat:@"%@ %@", self.recievedName, noLineBreaks];
+    
+    self.bioTextLabel.text = bioString;
+    
+    
+}
+
+
 
 // Populate Member Image
 -(void)populateImage {

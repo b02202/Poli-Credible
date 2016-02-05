@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+
+
 @interface MemberInfoViewController : UIViewController
 
 @property (strong, nonatomic) IBOutlet UIImageView *memberImage;
@@ -19,6 +21,8 @@
 @property (strong, nonatomic) NSString *recievedName;
 @property (strong, nonatomic) NSString *recievedParty;
 @property (strong, nonatomic) NSString *recievedPhone;
+@property (strong, nonatomic) NSString *recievedBioID;
+
 
 
 - (IBAction)makeCall:(id)sender;

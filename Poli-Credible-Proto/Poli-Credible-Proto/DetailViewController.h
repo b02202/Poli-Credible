@@ -25,6 +25,7 @@
 @property (strong, nonatomic) UIImage *memImage;
 @property (strong, nonatomic) NSString *partyString;
 @property (strong, nonatomic) NSString *phoneString;
+@property (strong, nonatomic) NSString *memBioID;
 
 
 

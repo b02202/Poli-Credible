@@ -132,6 +132,7 @@
         memberInfoVC.recievedName = self.memberNameString;
         memberInfoVC.recievedParty = self.partyString;
         memberInfoVC.recievedPhone = self.phoneString;
+        memberInfoVC.recievedBioID = self.memBioID;
         
     }
 }
