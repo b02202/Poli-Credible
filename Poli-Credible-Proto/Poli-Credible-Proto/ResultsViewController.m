@@ -108,14 +108,9 @@
         memberObj.repTitle = [[resultsArray objectAtIndex:i]objectForKey:@"title"];
         memberObj.repDistrict = [[resultsArray objectAtIndex:i]objectForKey:@"district"];
         memberObj.stateName = [[resultsArray objectAtIndex:i]objectForKey:@"state_name"];
-        
-        //memberObj.billTitle = [[resultsArray objectAtIndex:i]objectForKey:@"last_name"];
-        //memberObj.billNumber = [[resultsArray objectAtIndex:i]objectForKey:@"last_name"];
-        //memberObj.memberPosition = [[resultsArray objectAtIndex:i]objectForKey:@"last_name"];
         memberObj.repAddress = [[resultsArray objectAtIndex:i]objectForKey:@"office"];
-        //NSLog(@"%@ %@ Phone - %@", memberObj.repFirstName, memberObj.repLastName, memberObj.repPhone);
-        
-        
+        memberObj.crpID = [[resultsArray objectAtIndex:i]objectForKey:@"crp_id"];
+  
         [_memberArray addObject:memberObj];
         
     }
@@ -147,7 +142,7 @@
 
 // Table Section Header Titles
 -(NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    //NSArray *sectionArray = [NSArray arrayWithObjects:@"U.S. Senate", @"U.S House of Representatives", nil ];
+    
     return [_sectionArray objectAtIndex:section];
 }
 
@@ -250,6 +245,7 @@
     NSString *memFullName;
     NSString *memParty;
     NSString *repPhone;
+    NSString *repCRPID;
     
     if ([segue.identifier isEqualToString:@"toDetail"]) {
         NSIndexPath *indexPath = [self.senateTableView indexPathForSelectedRow];
@@ -259,12 +255,14 @@
             memFullName = [NSString stringWithFormat:@"%@. %@ %@ (%@)", [[self.senateArray objectAtIndex:indexPath.row] valueForKey:@"repTitle"], [[self.senateArray objectAtIndex:indexPath.row] valueForKey:@"repFirstName"], [[self.senateArray objectAtIndex:indexPath.row] valueForKey:@"repLastName"], [[self.senateArray objectAtIndex:indexPath.row] valueForKey:@"party"]];
             memParty = [[self.senateArray objectAtIndex:indexPath.row] valueForKey:@"party"];
             repPhone = [[self.senateArray objectAtIndex:indexPath.row] valueForKey:@"repPhone"];
+            repCRPID = [[self.senateArray objectAtIndex:indexPath.row] valueForKey:@"crpID"];
         }
         else {
             bioGuideID = [[self.houseArray objectAtIndex:indexPath.row] valueForKey:@"bioGuideID"];
             memFullName = [NSString stringWithFormat:@"%@. %@ %@ (%@)", [[self.houseArray objectAtIndex:indexPath.row] valueForKey:@"repTitle"], [[self.houseArray objectAtIndex:indexPath.row] valueForKey:@"repFirstName"], [[self.houseArray objectAtIndex:indexPath.row] valueForKey:@"repLastName"], [[self.houseArray objectAtIndex:indexPath.row] valueForKey:@"party"]];
             memParty = [[self.houseArray objectAtIndex:indexPath.row] valueForKey:@"party"];
             repPhone = [[self.houseArray objectAtIndex:indexPath.row] valueForKey:@"repPhone"];
+            repCRPID = [[self.houseArray objectAtIndex:indexPath.row] valueForKey:@"crpID"];
         }
         
         // Create Image Url
@@ -284,6 +282,7 @@
         detailVC.partyString = memParty;
         detailVC.phoneString = repPhone;
         detailVC.memBioID = bioGuideID;
+        detailVC.memCRPID = repCRPID;
         
         
         

@@ -8,12 +8,8 @@
 
 #import "DetailViewController.h"
 #import "MemberInfoViewController.h"
+#import "ContributionsViewController.h"
 
-@interface DetailViewController ()
-@property (nonatomic, strong) NSArray *contributorArray;
-@property (nonatomic, strong) NSArray *totalArray;
-
-@end
 
 @implementation DetailViewController
 @synthesize detailView, contributionView, segmentControl, memberDataContainer, contributionsViewContainer;
@@ -26,67 +22,12 @@
     // set background color
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg-2.png"]];
     [super viewDidLoad];
-    
-    // Populate Member Image
-    //[self populateImage];
-    
-    self.contributorArray = [NSArray arrayWithObjects:@"David Allen Co",
-                             @"Exxon Mobil",
-                             @"AT&T Inc",
-                             @"CSX Corp",
-                             @"Deere & Co",
-                             @"GOP Fund",
-                             @"Home Depot",
-                             @"Pfizer Inc",
-                             @"TRUST PAC",
-                             @"Time Warner Cable",
-                             @"McKesson Corp",
-                             @"Flint Water Co",
-                             nil];
-    // 12 - Erase
-    
-    self.totalArray = [NSArray arrayWithObjects:@"$11,600",
-                       @"$10,250",
-                       @"$10,000",
-                       @"$10,000",
-                       @"$10,000",
-                       @"$10,000",
-                       @"$10,000",
-                       @"$10,000",
-                       @"$10,000",
-                       @"$10,000",
-                       @"$10,000",
-                       @"$10,000",
-                       nil];
-    
-    self.contributorsTableView.delegate = self;
-    self.contributorsTableView.dataSource =self;
-    
-    
-    
-    
-    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
    
-//    dispatch_async(dispatch_get_main_queue(), ^{
-//        [self populateImage];
-//    });
-//    if (self.memImage != nil) {
-//        [self.memberImage setImage:self.memImage];
-//    }
-//    else {
-//        NSLog(@"memImage = nil");
-//    }
-    
     
 }
-
-
-
-
-
 
 - (IBAction)segmantValueChanged:(UISegmentedControl *)sender {
     switch (sender.selectedSegmentIndex) {
@@ -133,7 +74,11 @@
         memberInfoVC.recievedParty = self.partyString;
         memberInfoVC.recievedPhone = self.phoneString;
         memberInfoVC.recievedBioID = self.memBioID;
-        
+    }
+    
+    if ([segue.identifier isEqualToString:@"toContributions"]) {
+        ContributionsViewController *contributionsVC = segue.destinationViewController;
+        contributionsVC.recievedCRPID = self.memCRPID;
     }
 }
 
@@ -155,37 +100,7 @@
 }
 
 // Contributors View
-// TableView Number of Rows
-// Specify number of rows displayed
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    //return self.addressArray.count;
-    return self.contributorArray.count;
-}
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"contributorCell" forIndexPath:(NSIndexPath *)indexPath];
-    //NSString *stateString = [[self.stateArray objectAtIndex:indexPath.row] objectForKey:@""];
-    
-    // Change selected cells background color
-    if (![cell viewWithTag:1]) {
-        UIView *selectedView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, cell.frame.size.width, cell.frame.size.height)];
-        selectedView.tag = 1;
-        selectedView.backgroundColor = [UIColor colorWithRed:92.0/255.0 green:152.0/255.0 blue:198.0/255.0 alpha:0.75];
-        cell.selectedBackgroundView = selectedView;
-    }
-    
-    // Set Cell Text
-    cell.textLabel.text = self.contributorArray[indexPath.row];
-    // Set Cell Detail Text
-    cell.detailTextLabel.text = self.totalArray[indexPath.row];
-    
-    return cell;
-}
-
-// Deselect cell after selection
--(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-}
 
 
 @end

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DetailViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface DetailViewController : UIViewController 
 
 @property (strong, nonatomic) IBOutlet UIView *detailView;
 @property (strong, nonatomic) IBOutlet UIView *contributionView;
@@ -26,12 +26,13 @@
 @property (strong, nonatomic) NSString *partyString;
 @property (strong, nonatomic) NSString *phoneString;
 @property (strong, nonatomic) NSString *memBioID;
+@property (strong, nonatomic) NSString *memCRPID;
 
 
 
 // Contributors
 
-@property (strong, nonatomic) IBOutlet UITableView *contributorsTableView;
+
 
 - (IBAction)segmantValueChanged:(id)sender;
 - (IBAction)launchShare:(id)sender;

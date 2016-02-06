@@ -43,6 +43,8 @@
 		C7D5B3941C6532680092A5D5 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = C7D5B3911C6532680092A5D5 /* XPathQuery.m */; };
 		C7D5B3981C6535330092A5D5 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C7D5B3971C6535330092A5D5 /* libxml2.tbd */; };
 		C7D5B39B1C6535E20092A5D5 /* RepBio.m in Sources */ = {isa = PBXBuildFile; fileRef = C7D5B39A1C6535E20092A5D5 /* RepBio.m */; };
+		C7D5B39E1C655EE80092A5D5 /* ContributionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7D5B39D1C655EE80092A5D5 /* ContributionsViewController.m */; };
+		C7D5B3A11C6573CE0092A5D5 /* ContributorDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = C7D5B3A01C6573CE0092A5D5 /* ContributorDataClass.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +122,10 @@
 		C7D5B3971C6535330092A5D5 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
 		C7D5B3991C6535E20092A5D5 /* RepBio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RepBio.h; sourceTree = "<group>"; };
 		C7D5B39A1C6535E20092A5D5 /* RepBio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RepBio.m; sourceTree = "<group>"; };
+		C7D5B39C1C655EE80092A5D5 /* ContributionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContributionsViewController.h; sourceTree = "<group>"; };
+		C7D5B39D1C655EE80092A5D5 /* ContributionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContributionsViewController.m; sourceTree = "<group>"; };
+		C7D5B39F1C6573CE0092A5D5 /* ContributorDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContributorDataClass.h; sourceTree = "<group>"; };
+		C7D5B3A01C6573CE0092A5D5 /* ContributorDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContributorDataClass.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,7 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				C7D5B38B1C6531CD0092A5D5 /* hpple */,
-				C7D5B38A1C6530F70092A5D5 /* Model */,
+				C7D5B38A1C6530F70092A5D5 /* DataModels */,
 				C71832AE1C50BA1A00388E02 /* Images */,
 				C71832771C50B85F00388E02 /* AppDelegate.h */,
 				C71832781C50B85F00388E02 /* AppDelegate.m */,
@@ -190,8 +196,6 @@
 				C71832B21C513DFD00388E02 /* StateViewController.m */,
 				C71832B61C567B9100388E02 /* ResultsViewController.h */,
 				C71832B71C567B9100388E02 /* ResultsViewController.m */,
-				C71832B91C567D8900388E02 /* MemberDataClass.h */,
-				C71832BA1C567D8900388E02 /* MemberDataClass.m */,
 				C71832BD1C56890A00388E02 /* HTTPManager.h */,
 				C71832BE1C56890A00388E02 /* HTTPManager.m */,
 				C71832741C50B85F00388E02 /* Supporting Files */,
@@ -203,6 +207,8 @@
 				C71832C71C59615B00388E02 /* FavoritesViewController.m */,
 				C71832C91C5994C700388E02 /* DetailViewController.h */,
 				C71832CA1C5994C700388E02 /* DetailViewController.m */,
+				C7D5B39C1C655EE80092A5D5 /* ContributionsViewController.h */,
+				C7D5B39D1C655EE80092A5D5 /* ContributionsViewController.m */,
 			);
 			path = "Poli-Credible-Proto";
 			sourceTree = "<group>";
@@ -253,13 +259,17 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
-		C7D5B38A1C6530F70092A5D5 /* Model */ = {
+		C7D5B38A1C6530F70092A5D5 /* DataModels */ = {
 			isa = PBXGroup;
 			children = (
+				C71832B91C567D8900388E02 /* MemberDataClass.h */,
+				C71832BA1C567D8900388E02 /* MemberDataClass.m */,
 				C7D5B3991C6535E20092A5D5 /* RepBio.h */,
 				C7D5B39A1C6535E20092A5D5 /* RepBio.m */,
+				C7D5B39F1C6573CE0092A5D5 /* ContributorDataClass.h */,
+				C7D5B3A01C6573CE0092A5D5 /* ContributorDataClass.m */,
 			);
-			name = Model;
+			name = DataModels;
 			sourceTree = "<group>";
 		};
 		C7D5B38B1C6531CD0092A5D5 /* hpple */ = {
@@ -421,6 +431,7 @@
 			files = (
 				C71832821C50B85F00388E02 /* Poli_Credible_Proto.xcdatamodeld in Sources */,
 				C718327C1C50B85F00388E02 /* ViewController.m in Sources */,
+				C7D5B3A11C6573CE0092A5D5 /* ContributorDataClass.m in Sources */,
 				C7D5B3941C6532680092A5D5 /* XPathQuery.m in Sources */,
 				C71832791C50B85F00388E02 /* AppDelegate.m in Sources */,
 				C7D5B3921C6532680092A5D5 /* TFHpple.m in Sources */,
@@ -431,6 +442,7 @@
 				C7D5B2A31C644D240092A5D5 /* MemberInfoViewController.m in Sources */,
 				C7D5B3931C6532680092A5D5 /* TFHppleElement.m in Sources */,
 				C71832C51C57DB7E00388E02 /* NameViewController.m in Sources */,
+				C7D5B39E1C655EE80092A5D5 /* ContributionsViewController.m in Sources */,
 				C71832C81C59615B00388E02 /* FavoritesViewController.m in Sources */,
 				C7D5B39B1C6535E20092A5D5 /* RepBio.m in Sources */,
 				C71832761C50B85F00388E02 /* main.m in Sources */,

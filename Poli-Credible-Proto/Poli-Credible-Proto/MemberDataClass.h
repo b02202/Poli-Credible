@@ -29,5 +29,6 @@
 @property (nonatomic, strong)NSString *stateName;
 @property (nonatomic, strong)NSString *repTitle;
 @property (nonatomic, strong)NSString *repDistrict;
+@property (nonatomic, strong)NSString *crpID;
 
 @end
