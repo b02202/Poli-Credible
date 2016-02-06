@@ -12,16 +12,19 @@
 
 
 @implementation DetailViewController
-@synthesize detailView, contributionView, segmentControl, memberDataContainer, contributionsViewContainer;
+@synthesize detailView, contributionView, segmentControl, memberDataContainer, contributionsViewContainer, NavTitle;
 
 // url for member image - https://theunitedstates.i0/images/congress/225x275/bioid.jpg
 
 
 -(void)viewDidLoad {
-    
+    [super viewDidLoad];
     // set background color
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg-2.png"]];
-    [super viewDidLoad];
+    // Set Nav Bar Title
+    NavTitle.title = self.memberNameString;
+    
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated{

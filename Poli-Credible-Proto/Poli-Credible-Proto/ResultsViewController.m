@@ -174,21 +174,51 @@
         cell.selectedBackgroundView = selectedView;
     }
     
+    NSString *repParty;
+    
     if (indexPath.section == 0) {
         NSString *senateCellText = [NSString stringWithFormat:@"%@ %@ (%@)",[[self.senateArray objectAtIndex:indexPath.row] valueForKey:@"repFirstName"],
                                     [[self.senateArray objectAtIndex:indexPath.row] valueForKey:@"repLastName"],
                                     [[self.senateArray objectAtIndex:indexPath.row] valueForKey:@"party"]];
         NSString *senateCellSubText = [NSString stringWithFormat:@"%@",[[self.senateArray objectAtIndex:indexPath.row] valueForKey:@"stateName"]];
+        repParty = [[self.senateArray objectAtIndex:indexPath.row] valueForKey:@"party"];
         cell.textLabel.text = senateCellText;
         cell.detailTextLabel.text = senateCellSubText;
+        
+        if ([repParty isEqualToString:@"R"]) {
+            cell.textLabel.textColor = [UIColor redColor];
+        }
+        else if ([repParty isEqualToString:@"D"]) {
+            cell.textLabel.textColor = [UIColor blueColor];
+        }
+        else if ([repParty isEqualToString:@"I"]) {
+            cell.textLabel.textColor = [UIColor colorWithRed:0.0/255.0 green:85.0/255.0 blue:64.0/255.0 alpha:0.75];
+        }
+        
+        
+        
     }
     else {
         NSString *houseCellText = [NSString stringWithFormat:@"%@ %@ (%@)",[[self.houseArray objectAtIndex:indexPath.row] valueForKey:@"repFirstName"],
                                    [[self.houseArray objectAtIndex:indexPath.row] valueForKey:@"repLastName"],
                                    [[self.houseArray objectAtIndex:indexPath.row] valueForKey:@"party"]];
+       
+        repParty = [[self.houseArray objectAtIndex:indexPath.row] valueForKey:@"party"];
+        
         NSString *houseCellSubText = [NSString stringWithFormat:@"%@, District %@",[[self.houseArray objectAtIndex:indexPath.row] valueForKey:@"stateName"], [[self.houseArray objectAtIndex:indexPath.row] valueForKey:@"repDistrict"]];
         cell.textLabel.text = houseCellText;
         cell.detailTextLabel.text = houseCellSubText;
+        
+        if ([repParty isEqualToString:@"R"]) {
+            cell.textLabel.textColor = [UIColor redColor];
+        }
+        else if ([repParty isEqualToString:@"D"]) {
+            cell.textLabel.textColor = [UIColor blueColor];
+        }
+        else if ([repParty isEqualToString:@"I"]) {
+            cell.textLabel.textColor = [UIColor colorWithRed:0.0/255.0 green:85.0/255.0 blue:64.0/255.0 alpha:0.75];
+        }
+        
     }
     return cell;
 }

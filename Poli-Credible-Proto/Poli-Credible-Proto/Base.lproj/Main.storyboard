@@ -507,6 +507,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="NavTitle" destination="HIj-yH-ra3" id="Drg-gH-SLq"/>
                         <outlet property="contributionView" destination="72W-JL-gsB" id="xtX-nf-BGj"/>
                         <outlet property="contributionsViewContainer" destination="lXd-hv-fSW" id="k4F-UI-En9"/>
                         <outlet property="detailView" destination="3Ja-5U-tff" id="zge-EQ-oVL"/>
@@ -641,7 +642,7 @@
                                                     <constraint firstAttribute="width" constant="204" id="D1j-AQ-v7b"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                <color key="textColor" red="0.21176470589999999" green="0.33725490200000002" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="textColor" red="0.0" green="0.33320843937993921" blue="0.25283261064741641" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W6d-hB-Xo0">
@@ -839,7 +840,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="476"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="59" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NmD-3n-dDc">
-                                        <rect key="frame" x="15" y="3" width="578" height="461"/>
+                                        <rect key="frame" x="15" y="3" width="578" height="450"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <prototypes>
@@ -873,21 +874,31 @@
                                         </prototypes>
                                         <sections/>
                                     </tableView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data Provided by The Center for Responsive Politics" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xi0-pl-HqB">
+                                        <rect key="frame" x="174" y="459" width="252" height="12"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <color key="textColor" red="0.058823529630899429" green="0.098039217293262482" blue="0.25490197539329529" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="NmD-3n-dDc" firstAttribute="top" secondItem="72W-JL-gsB" secondAttribute="top" constant="3" id="2TO-pd-MSO"/>
-                                    <constraint firstAttribute="bottom" secondItem="NmD-3n-dDc" secondAttribute="bottom" constant="12" id="AXc-dW-cku"/>
                                     <constraint firstAttribute="bottom" secondItem="NmD-3n-dDc" secondAttribute="bottom" id="DiS-dM-0eg"/>
                                     <constraint firstItem="NmD-3n-dDc" firstAttribute="leading" secondItem="72W-JL-gsB" secondAttribute="leading" id="ODo-xH-SCo"/>
+                                    <constraint firstItem="Xi0-pl-HqB" firstAttribute="centerX" secondItem="72W-JL-gsB" secondAttribute="centerX" id="OgF-zV-zue"/>
                                     <constraint firstAttribute="trailing" secondItem="NmD-3n-dDc" secondAttribute="trailing" constant="7" id="YH4-O8-gyu"/>
                                     <constraint firstAttribute="trailing" secondItem="NmD-3n-dDc" secondAttribute="trailing" id="b8n-P7-svr"/>
                                     <constraint firstItem="NmD-3n-dDc" firstAttribute="leading" secondItem="72W-JL-gsB" secondAttribute="leading" constant="15" id="fXE-YL-L8V"/>
+                                    <constraint firstAttribute="bottom" secondItem="Xi0-pl-HqB" secondAttribute="bottom" constant="5" id="glP-tn-6hy"/>
+                                    <constraint firstAttribute="bottom" secondItem="Xi0-pl-HqB" secondAttribute="bottom" constant="1" id="khh-Hg-WRc"/>
+                                    <constraint firstItem="Xi0-pl-HqB" firstAttribute="top" secondItem="NmD-3n-dDc" secondAttribute="bottom" constant="6" id="m3S-Ie-bac"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="DiS-dM-0eg"/>
                                         <exclude reference="ODo-xH-SCo"/>
                                         <exclude reference="b8n-P7-svr"/>
+                                        <exclude reference="khh-Hg-WRc"/>
                                     </mask>
                                 </variation>
                             </view>

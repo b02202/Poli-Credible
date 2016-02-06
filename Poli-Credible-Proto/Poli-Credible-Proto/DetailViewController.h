@@ -18,6 +18,8 @@
 
 @property (strong, nonatomic) IBOutlet UISegmentedControl *segmentControl;
 
+@property (strong, nonatomic) IBOutlet UINavigationItem *NavTitle;
+
 // Member Info
 
 @property (strong, nonatomic) NSString *memberNameString;
