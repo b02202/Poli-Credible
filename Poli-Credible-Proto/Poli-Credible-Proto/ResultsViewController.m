@@ -113,6 +113,9 @@
         memberObj.facebookId = [[resultsArray objectAtIndex:i]objectForKey:@"facebook_id"];
         memberObj.twitterId = [[resultsArray objectAtIndex:i]objectForKey:@"twitter_id"];
         memberObj.repWebsite = [[resultsArray objectAtIndex:i]objectForKey:@"website"];
+        memberObj.memberBirthday = [[resultsArray objectAtIndex:i]objectForKey:@"birthday"];
+        memberObj.contactForm = [[resultsArray objectAtIndex:i]objectForKey:@"contact_form"];
+        
   
         [_memberArray addObject:memberObj];
         
@@ -284,6 +287,9 @@
     NSString *twitterId;
     NSString *facebookId;
     NSString *websiteUrl;
+    NSString *repDOB;
+    NSString *memState;
+    NSString *memContactForm;
     
     if ([segue.identifier isEqualToString:@"toDetail"]) {
         NSIndexPath *indexPath = [self.senateTableView indexPathForSelectedRow];
@@ -299,6 +305,10 @@
             facebookId = [[self.senateArray objectAtIndex:indexPath.row] valueForKey:@"facebookId"];
             twitterId = [[self.senateArray objectAtIndex:indexPath.row] valueForKey:@"twitterId"];
             websiteUrl = [[self.senateArray objectAtIndex:indexPath.row] valueForKey:@"repWebsite"];
+            repDOB = [[self.senateArray objectAtIndex:indexPath.row] valueForKey:@"memberBirthday"];
+            memState = [[self.senateArray objectAtIndex:indexPath.row] valueForKey:@"stateName"];
+            memContactForm = [[self.senateArray objectAtIndex:indexPath.row] valueForKey:@"contactForm"];
+            
         }
         else {
             bioGuideID = [[self.houseArray objectAtIndex:indexPath.row] valueForKey:@"bioGuideID"];
@@ -311,6 +321,9 @@
             facebookId = [[self.houseArray objectAtIndex:indexPath.row] valueForKey:@"facebookId"];
             twitterId = [[self.houseArray objectAtIndex:indexPath.row] valueForKey:@"twitterId"];
             websiteUrl = [[self.houseArray objectAtIndex:indexPath.row] valueForKey:@"repWebsite"];
+            repDOB = [[self.houseArray objectAtIndex:indexPath.row] valueForKey:@"memberBirthday"];
+            memState = [[self.houseArray objectAtIndex:indexPath.row] valueForKey:@"stateName"];
+            memContactForm = [[self.houseArray objectAtIndex:indexPath.row] valueForKey:@"contactForm"];
         }
         
         // Create Image Url
@@ -335,6 +348,9 @@
         detailVC.facebookID = facebookId;
         detailVC.twitterID = twitterId;
         detailVC.websiteURL = websiteUrl;
+        detailVC.dateOfBirth = repDOB;
+        detailVC.memState = memState;
+        detailVC.contactForm = memContactForm;
 
     }
     

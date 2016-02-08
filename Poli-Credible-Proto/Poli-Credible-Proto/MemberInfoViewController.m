@@ -77,7 +77,8 @@
 
 // Populate Name and set label text color according to party affiliation
 -(void)populateName {
-    
+    self.stateDistrictLabel.text = self.recievedState;
+    self.birthDate.text = self.recievedDOB;
     self.memberNameLabel.text = self.recievedName;
     
     if ([self.recievedParty isEqualToString:@"R"]) {
@@ -87,13 +88,13 @@
         self.memberNameLabel.textColor = [UIColor blueColor];
     }
     else if ([self.recievedParty isEqualToString:@"I"]) {
-        self.memberNameLabel.textColor = [UIColor greenColor];
+        self.memberNameLabel.textColor = [UIColor colorWithRed:0.0/255.0 green:85.0/255.0 blue:64.0/255.0 alpha:0.75];
     }
 }
 
 
 
-// For Website Link - NSString *websiteUrl = [NSString stringWithFormat:@"http://facebook.com/%@", self.recievedWebsiteUrl];
+
 
 
 - (IBAction)openFacebook:(id)sender {
@@ -136,6 +137,15 @@
    // NSString *number = @"telpromt://1-703-655-1031";
     //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:number]];
     
+}
+
+- (IBAction)openContactForm:(id)sender {
+    NSString *contactUrl = self.recievedContactForm;
+    if ([[UIApplication sharedApplication]
+         canOpenURL:[NSURL URLWithString:contactUrl]])
+    {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:contactUrl]];
+    }
 }
 
 

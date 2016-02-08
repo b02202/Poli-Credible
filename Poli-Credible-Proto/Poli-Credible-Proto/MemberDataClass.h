@@ -32,5 +32,8 @@
 @property (nonatomic, strong)NSString *crpID;
 @property (nonatomic,strong)NSString *facebookId;
 @property (nonatomic,strong)NSString *twitterId;
+@property (nonatomic,strong)NSString *memberBirthday;
+@property (nonatomic,strong)NSString *contactForm;
+
 
 @end

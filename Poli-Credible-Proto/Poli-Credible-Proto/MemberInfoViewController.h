@@ -17,7 +17,7 @@
 }
 @property (strong, nonatomic) IBOutlet UILabel *birthDate;
 
-@property (strong, nonatomic) IBOutlet UILabel *stateDistrictLAbel;
+@property (strong, nonatomic) IBOutlet UILabel *stateDistrictLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *memberImage;
 @property (strong, nonatomic) IBOutlet UILabel *bioTextLabel;
 @property (strong, nonatomic) IBOutlet UILabel *memberNameLabel;
@@ -35,11 +35,14 @@
 @property (strong, nonatomic) NSString *recievedTwittterId;
 @property (strong, nonatomic) NSString *recievedFacebookId;
 @property (strong, nonatomic) NSString *recievedWebsiteUrl;
+@property (strong, nonatomic) NSString *recievedDOB;
+@property (strong, nonatomic) NSString *recievedContactForm;
 
 
 - (IBAction)openFacebook:(id)sender;
 - (IBAction)openTwitter:(id)sender;
 - (IBAction)openWebsite:(id)sender;
 - (IBAction)makeCall:(id)sender;
+- (IBAction)openContactForm:(id)sender;
 
 @end

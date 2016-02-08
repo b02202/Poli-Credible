@@ -17,9 +17,7 @@
 - (void)viewDidLoad {
     // set background color
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg-2.png"]];
-    // set navbar color
-    //self.navBar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg-2.png"]];
-    
+
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     

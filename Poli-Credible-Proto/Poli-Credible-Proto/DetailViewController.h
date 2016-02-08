@@ -37,6 +37,8 @@
 @property (strong, nonatomic) NSString *twitterID;
 @property (strong, nonatomic) NSString *facebookID;
 @property (strong, nonatomic) NSString *websiteURL;
+@property (strong, nonatomic) NSString *dateOfBirth;
+@property (strong, nonatomic) NSString *contactForm;
 
 
 

@@ -796,6 +796,9 @@
                                                     <constraint firstAttribute="height" constant="35" id="eTP-41-A6z"/>
                                                 </constraints>
                                                 <state key="normal" image="mail-icon.png"/>
+                                                <connections>
+                                                    <action selector="openContactForm:" destination="qJ8-wb-Qwu" eventType="touchUpInside" id="lr1-xJ-kuo"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CfT-KL-BKq">
                                                 <rect key="frame" x="314" y="136" width="35" height="35"/>
@@ -917,7 +920,7 @@
                         <outlet property="birthDate" destination="qse-kb-ZQp" id="fQQ-2w-Dx0"/>
                         <outlet property="memberImage" destination="A4S-hE-dAH" id="tgo-XQ-3OJ"/>
                         <outlet property="memberNameLabel" destination="vHk-0j-U2T" id="BUR-TL-LzX"/>
-                        <outlet property="stateDistrictLAbel" destination="W6d-hB-Xo0" id="v4z-6B-3t0"/>
+                        <outlet property="stateDistrictLabel" destination="W6d-hB-Xo0" id="RNQ-5j-U8z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="35G-XH-omj" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -88,6 +88,8 @@
         memberInfoVC.recievedTwittterId = self.twitterID;
         memberInfoVC.recievedFacebookId = self.facebookID;
         memberInfoVC.recievedWebsiteUrl = self.websiteURL;
+        memberInfoVC.recievedDOB = self.dateOfBirth;
+        memberInfoVC.recievedContactForm = self.contactForm;
     }
     
     if ([segue.identifier isEqualToString:@"toContributions"]) {
