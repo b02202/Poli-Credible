@@ -9,10 +9,12 @@
 #import "DetailViewController.h"
 #import "MemberInfoViewController.h"
 #import "ContributionsViewController.h"
+#import "VotesViewController.h"
 
 
 @implementation DetailViewController
 @synthesize detailView, contributionView, segmentControl, memberDataContainer, contributionsViewContainer, NavTitle;
+
 
 // url for member image - https://theunitedstates.i0/images/congress/225x275/bioid.jpg
 
@@ -38,19 +40,22 @@
         case 0:
             self.segmentControl.tintColor = [UIColor colorWithRed:92.0/255.0 green:152.0/255.0 blue:198.0/255.0 alpha:0.95];
             self.contributionsViewContainer.hidden = YES;
+            self.votesContainer.hidden = YES;
             self.memberDataContainer.hidden = NO;
-           
-            //self.contributionView.hidden = YES;
-            //self.detailView.hidden = NO;
             break;
             // Contributions View
         case 1:
             self.segmentControl.tintColor = [UIColor colorWithRed:92.0/255.0 green:152.0/255.0 blue:198.0/255.0 alpha:0.95];
             self.contributionsViewContainer.hidden = NO;
             self.memberDataContainer.hidden = YES;
-            //self.contributionView.hidden = NO;
-            //self.detailView.hidden = YES;
-            
+            self.votesContainer.hidden = YES;
+            break;
+            // Votes View
+        case 2:
+            self.segmentControl.tintColor = [UIColor colorWithRed:92.0/255.0 green:152.0/255.0 blue:198.0/255.0 alpha:0.95];
+            self.votesContainer.hidden = NO;
+            self.contributionsViewContainer.hidden = YES;
+            self.memberDataContainer.hidden = YES;    
         default:
             break;
     }
@@ -77,30 +82,28 @@
         memberInfoVC.recievedParty = self.partyString;
         memberInfoVC.recievedPhone = self.phoneString;
         memberInfoVC.recievedBioID = self.memBioID;
+        memberInfoVC.recievedCRPID = self.memCRPID;
+        memberInfoVC.recievedState = self.memState;
+        memberInfoVC.recievedDistrict = self.memDistrict;
+        memberInfoVC.recievedTwittterId = self.twitterID;
+        memberInfoVC.recievedFacebookId = self.facebookID;
+        memberInfoVC.recievedWebsiteUrl = self.websiteURL;
     }
     
     if ([segue.identifier isEqualToString:@"toContributions"]) {
         ContributionsViewController *contributionsVC = segue.destinationViewController;
         contributionsVC.recievedCRPID = self.memCRPID;
     }
+    
+    if ([segue.identifier isEqualToString:@"detailToVotes"]) {
+        VotesViewController *votesVC = segue.destinationViewController;
+        votesVC.recievedBioID = self.memBioID;
+    }
 }
 
-// Member Info View
 
-// Populate Member Image
--(void)populateImage {
-   // NSURL *imageUrl = [NSURL URLWithString:self.imageUrlString];
-    
-    //NSData *data = [NSData dataWithContentsOfURL:imageUrl];
-    //UIImage *image = [UIImage imageWithData:data];
-    //dispatch_async(dispatch_get_main_queue(), ^{
-    //[self.memberImage setImage:self.memImage];
-    //self.memberImage.image = self.memImage;
-   // });
-    
-    
-    
-}
+
+
 
 // Contributors View
 

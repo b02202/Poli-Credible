@@ -110,6 +110,9 @@
         memberObj.stateName = [[resultsArray objectAtIndex:i]objectForKey:@"state_name"];
         memberObj.repAddress = [[resultsArray objectAtIndex:i]objectForKey:@"office"];
         memberObj.crpID = [[resultsArray objectAtIndex:i]objectForKey:@"crp_id"];
+        memberObj.facebookId = [[resultsArray objectAtIndex:i]objectForKey:@"facebook_id"];
+        memberObj.twitterId = [[resultsArray objectAtIndex:i]objectForKey:@"twitter_id"];
+        memberObj.repWebsite = [[resultsArray objectAtIndex:i]objectForKey:@"website"];
   
         [_memberArray addObject:memberObj];
         
@@ -276,6 +279,11 @@
     NSString *memParty;
     NSString *repPhone;
     NSString *repCRPID;
+    NSString *stateName;
+    NSString *district;
+    NSString *twitterId;
+    NSString *facebookId;
+    NSString *websiteUrl;
     
     if ([segue.identifier isEqualToString:@"toDetail"]) {
         NSIndexPath *indexPath = [self.senateTableView indexPathForSelectedRow];
@@ -286,6 +294,11 @@
             memParty = [[self.senateArray objectAtIndex:indexPath.row] valueForKey:@"party"];
             repPhone = [[self.senateArray objectAtIndex:indexPath.row] valueForKey:@"repPhone"];
             repCRPID = [[self.senateArray objectAtIndex:indexPath.row] valueForKey:@"crpID"];
+            stateName = [[self.senateArray objectAtIndex:indexPath.row] valueForKey:@"stateName"];
+            district = [[self.senateArray objectAtIndex:indexPath.row] valueForKey:@"repDistrict"];
+            facebookId = [[self.senateArray objectAtIndex:indexPath.row] valueForKey:@"facebookId"];
+            twitterId = [[self.senateArray objectAtIndex:indexPath.row] valueForKey:@"twitterId"];
+            websiteUrl = [[self.senateArray objectAtIndex:indexPath.row] valueForKey:@"repWebsite"];
         }
         else {
             bioGuideID = [[self.houseArray objectAtIndex:indexPath.row] valueForKey:@"bioGuideID"];
@@ -293,6 +306,11 @@
             memParty = [[self.houseArray objectAtIndex:indexPath.row] valueForKey:@"party"];
             repPhone = [[self.houseArray objectAtIndex:indexPath.row] valueForKey:@"repPhone"];
             repCRPID = [[self.houseArray objectAtIndex:indexPath.row] valueForKey:@"crpID"];
+            stateName = [[self.houseArray objectAtIndex:indexPath.row] valueForKey:@"stateName"];
+            district = [[self.houseArray objectAtIndex:indexPath.row] valueForKey:@"repDistrict"];
+            facebookId = [[self.houseArray objectAtIndex:indexPath.row] valueForKey:@"facebookId"];
+            twitterId = [[self.houseArray objectAtIndex:indexPath.row] valueForKey:@"twitterId"];
+            websiteUrl = [[self.houseArray objectAtIndex:indexPath.row] valueForKey:@"repWebsite"];
         }
         
         // Create Image Url
@@ -307,26 +325,22 @@
         // Pass data to detail view
         DetailViewController *detailVC = segue.destinationViewController;
         detailVC.memImage = image;
-        // ** MIGHT WANT TO CHECK FOR NIL HERE **
         detailVC.memberNameString = memFullName;
         detailVC.partyString = memParty;
         detailVC.phoneString = repPhone;
         detailVC.memBioID = bioGuideID;
         detailVC.memCRPID = repCRPID;
-        
-        
-        
-        
+        detailVC.memState = stateName;
+        detailVC.memDistrict = district;
+        detailVC.facebookID = facebookId;
+        detailVC.twitterID = twitterId;
+        detailVC.websiteURL = websiteUrl;
+
     }
     
     
 }
 
-/*
- dispatch_async(dispatch_get_main_queue(), ^{
- // Update the UI
- self.imageView.image = [UIImage imageWithData:imageData];
- });
- */
+
 
 @end

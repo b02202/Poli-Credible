@@ -7,8 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppDelegate.h"
 
 @interface FavoritesViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+
+{
+    AppDelegate *appDelegate;
+}
 
 @property (weak, nonatomic) IBOutlet UITableView *favoritesTableView;
 

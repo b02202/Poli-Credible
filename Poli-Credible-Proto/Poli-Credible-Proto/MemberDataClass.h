@@ -30,5 +30,7 @@
 @property (nonatomic, strong)NSString *repTitle;
 @property (nonatomic, strong)NSString *repDistrict;
 @property (nonatomic, strong)NSString *crpID;
+@property (nonatomic,strong)NSString *facebookId;
+@property (nonatomic,strong)NSString *twitterId;
 
 @end

@@ -13,6 +13,16 @@
 
 @implementation MemberInfoViewController
 
+// Core Data
+- (NSManagedObjectContext *)managedObjectContext {
+    NSManagedObjectContext *context = nil;
+    id delegate = [[UIApplication sharedApplication] delegate];
+    if ([delegate performSelector:@selector(managedObjectContext)]) {
+        context = [delegate managedObjectContext];
+    }
+    return context;
+}
+
 
 -(void)viewDidLoad {
     [super viewDidLoad];
@@ -83,6 +93,38 @@
 
 
 
+// For Website Link - NSString *websiteUrl = [NSString stringWithFormat:@"http://facebook.com/%@", self.recievedWebsiteUrl];
+
+
+- (IBAction)openFacebook:(id)sender {
+  NSString *facebookUrl = [NSString stringWithFormat:@"http://facebook.com/%@", self.recievedFacebookId];
+    
+    if ([[UIApplication sharedApplication]
+         canOpenURL:[NSURL URLWithString:facebookUrl]])
+    {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:facebookUrl]];
+    }
+}
+
+- (IBAction)openTwitter:(id)sender {
+    NSString *twitterUrl = [NSString stringWithFormat:@"http://twitter.com/%@", self.recievedTwittterId];
+    if ([[UIApplication sharedApplication]
+         canOpenURL:[NSURL URLWithString:twitterUrl]])
+    {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:twitterUrl]];
+    }
+}
+
+- (IBAction)openWebsite:(id)sender {
+    
+    NSString *websiteUrl = self.recievedWebsiteUrl;
+    if ([[UIApplication sharedApplication]
+         canOpenURL:[NSURL URLWithString:websiteUrl]])
+    {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:websiteUrl]];
+    }
+}
+
 - (IBAction)makeCall:(id)sender {
     
     NSString *callNumber = [NSString stringWithFormat:@"1-%@", self.recievedPhone];
@@ -94,5 +136,40 @@
    // NSString *number = @"telpromt://1-703-655-1031";
     //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:number]];
     
+}
+
+
+// Core Data Save Legislator
+-(void)saveToFavorites {
+    NSManagedObjectContext *context = [self managedObjectContext];
+    appDelegate = [[UIApplication sharedApplication] delegate];
+    // Create a new managed object
+    NSManagedObject *newLegislator = [NSEntityDescription insertNewObjectForEntityForName:@"Legislator" inManagedObjectContext:context];
+    [newLegislator setValue:self.recievedName forKey:@"fullName"];
+    [newLegislator setValue:self.recievedParty forKey:@"party"];
+    [newLegislator setValue:self.recievedPhone forKey:@"phone"];
+    [newLegislator setValue:self.recievedBioID forKey:@"bioGuideID"];
+    [newLegislator setValue:self.recievedCRPID forKey:@"crpID"];
+    [newLegislator setValue:self.recievedState forKey:@"stateName"];
+//    if (![self.recievedDistrict isEqual:[NSNull null]]) {
+//        
+//        [newLegislator setValue:self.recievedDistrict forKey:@"district"];
+//    }
+   
+    
+    NSError *error = nil;
+    // Save the object to Core Data
+    if (![context save:&error]) {
+        // Handle Error
+        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+    } else {
+        UIAlertView *successAlert = [[UIAlertView alloc] initWithTitle:@"Success" message:@"Legislator has been added to your favorites." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        
+        [successAlert show];
+    }
+}
+- (IBAction)addFavorite:(id)sender {
+    
+    [self saveToFavorites];
 }
 @end

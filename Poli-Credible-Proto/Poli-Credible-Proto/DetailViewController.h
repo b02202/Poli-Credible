@@ -7,14 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppDelegate.h"
 
-@interface DetailViewController : UIViewController 
+@interface DetailViewController : UIViewController
+
 
 @property (strong, nonatomic) IBOutlet UIView *detailView;
 @property (strong, nonatomic) IBOutlet UIView *contributionView;
 @property (strong, nonatomic) IBOutlet UIView *memberDataContainer;
 
 @property (strong, nonatomic) IBOutlet UIView *contributionsViewContainer;
+@property (strong, nonatomic) IBOutlet UIView *votesContainer;
 
 @property (strong, nonatomic) IBOutlet UISegmentedControl *segmentControl;
 
@@ -29,6 +32,11 @@
 @property (strong, nonatomic) NSString *phoneString;
 @property (strong, nonatomic) NSString *memBioID;
 @property (strong, nonatomic) NSString *memCRPID;
+@property (strong, nonatomic) NSString *memState;
+@property (strong, nonatomic) NSString *memDistrict;
+@property (strong, nonatomic) NSString *twitterID;
+@property (strong, nonatomic) NSString *facebookID;
+@property (strong, nonatomic) NSString *websiteURL;
 
 
 
