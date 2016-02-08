@@ -10,10 +10,13 @@
 #import "MemberDataClass.h"
 #import "HTTPManager.h"
 #import "ResultsViewController.h"
+#import "StateDataClass.h"
+#import "CustomStateCell.h"
 
 @interface StateViewController () <HTTPManagerDelegate>
-@property (nonatomic, strong) NSArray *stateArray;
+@property (nonatomic, strong) NSMutableArray *stateArray;
 @property (nonatomic, strong) NSMutableArray *memberArray;
+@property (nonatomic, strong) NSMutableArray *stateDataArray;
 @property (nonatomic, strong) HTTPManager *httpManager;
 
 @end
@@ -62,7 +65,15 @@
     self.stateTableView.delegate = self;
     self.stateTableView.dataSource = self;
     
-    self.stateArray = [NSArray arrayWithObjects: @"Alabama",
+    [self setArray];
+    
+    
+    
+
+}
+
+-(void)setArray {
+    self.stateArray = [NSMutableArray arrayWithObjects: @"Alabama",
                        @"Alaska",
                        @"Arizona",
                        @"Arkansas",
@@ -111,9 +122,23 @@
                        @"Washington",
                        @"West Virginia",
                        @"Wisconsin",
-                       @"Wyoming",
-                       nil];
-
+                       @"Wyoming", nil];
+    
+    self.stateDataArray = [[NSMutableArray alloc] init];
+    
+    
+    
+    for (int i = 0; i < [self.stateArray count]; i++) {
+        StateDataClass *stateDataOBJ = [[StateDataClass alloc]init];
+        NSString *stateString = [self.stateArray objectAtIndex:i];
+        NSString *correctedString = [stateString stringByReplacingOccurrencesOfString:@" " withString:@"-"];
+        NSString *imgString = [[NSString stringWithFormat:@"state-%@.png", correctedString] lowercaseString];
+        stateDataOBJ.stateName = stateString;
+        stateDataOBJ.imageString = imgString;
+        
+        [self.stateDataArray addObject:stateDataOBJ];
+        NSLog(@"stateName = %@", [[self.stateDataArray objectAtIndex:i]valueForKey:@"stateName"]);
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -125,12 +150,13 @@
 // Specify number of rows displayed
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     //return self.addressArray.count;
-    return self.stateArray.count;
+    return self.stateDataArray.count;
 }
 // TableView Cell
  - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"stateCell" forIndexPath:(NSIndexPath *)indexPath];
+     //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"stateCell" forIndexPath:(NSIndexPath *)indexPath];
      //NSString *stateString = [[self.stateArray objectAtIndex:indexPath.row] objectForKey:@""];
+     CustomStateCell *cell = (CustomStateCell *)[tableView dequeueReusableCellWithIdentifier:@"stateCell" forIndexPath:(NSIndexPath *)indexPath];
      
      // Change selected cells background color
      if (![cell viewWithTag:1]) {
@@ -140,7 +166,12 @@
          cell.selectedBackgroundView = selectedView;
      }
      
-     cell.textLabel.text = self.stateArray[indexPath.row];
+     //cell.textLabel.text = self.stateArray[indexPath.row];
+     
+     cell.stateLabel.text = [[self.stateDataArray objectAtIndex:indexPath.row] valueForKey:@"stateName"];
+     cell.stateImage.image = [UIImage imageNamed:[[self.stateDataArray objectAtIndex:indexPath.row] valueForKey:@"imageString"]];
+     
+     [cell layoutIfNeeded];
      
      return cell;
  }
@@ -186,17 +217,12 @@
         memberObj.bioGuideID = [[resultsArray objectAtIndex:i]objectForKey:@"bioguide_id"];
         memberObj.repPhone = [[resultsArray objectAtIndex:i]objectForKey:@"phone"];
         memberObj.repWebsite = [[resultsArray objectAtIndex:i]objectForKey:@"website"];
-        //memberObj.billTitle = [[resultsArray objectAtIndex:i]objectForKey:@"last_name"];
-        //memberObj.billNumber = [[resultsArray objectAtIndex:i]objectForKey:@"last_name"];
-        //memberObj.memberPosition = [[resultsArray objectAtIndex:i]objectForKey:@"last_name"];
         memberObj.repAddress = [[resultsArray objectAtIndex:i]objectForKey:@"office"];
         NSLog(@"%@ %@", memberObj.repFirstName, memberObj.repLastName);
         [_memberArray addObject:memberObj];
         
     }
-    
-    //ResultsViewController *resultsVC = [[ResultsViewController alloc] init];
-    //[resultsVC setMemberArray:_memberArray];
+
 }
 
 // Storyboard prepareForSeque
@@ -204,10 +230,12 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     if ([segue.identifier isEqualToString:@"toResults"]) {
-        //NSIndexPath *indexPath = [self.stateTableView indexPathForSelectedRow];
-        UITableViewCell *selectedCell = (UITableViewCell *)sender;
-        NSString * stateQuery = selectedCell.textLabel.text;
-        NSString *urlString =[NSString stringWithFormat:@"%@%@%@", @"https://congress.api.sunlightfoundation.com/legislators?state_name=", stateQuery, @"&per_page=all&apikey=6f9f2e31124941a98e97110aeeaec3ff"];
+        NSIndexPath *indexPath = [self.stateTableView indexPathForSelectedRow];
+        NSString * stateString = [[self.stateDataArray objectAtIndex:indexPath.row] valueForKey:@"stateName"];
+        //UITableViewCell *selectedCell = (UITableViewCell *)sender;
+        //NSString * stateQuery = selectedCell.textLabel.text;
+        
+        NSString *urlString =[NSString stringWithFormat:@"%@%@%@", @"https://congress.api.sunlightfoundation.com/legislators?state_name=", stateString, @"&per_page=all&apikey=6f9f2e31124941a98e97110aeeaec3ff"];
         
         // Pass state string to results VC
         ResultsViewController *resultsVC = segue.destinationViewController;

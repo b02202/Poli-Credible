@@ -9,6 +9,7 @@
 #import "VotesViewController.h"
 #import "HTTPManager.h"
 #import "VoteDataClass.h"
+#import "CustomVoteCell.h"
 
 @interface VotesViewController () <HTTPManagerDelegate>
 @property (nonatomic, strong) NSMutableArray *votesArray;
@@ -135,9 +136,9 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"voteCell" forIndexPath:(NSIndexPath *)indexPath];
+    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"voteCell" forIndexPath:(NSIndexPath *)indexPath];
     //NSString *stateString = [[self.stateArray objectAtIndex:indexPath.row] objectForKey:@""];
-    
+    CustomVoteCell *cell = [tableView dequeueReusableCellWithIdentifier:@"voteCell" forIndexPath:(NSIndexPath *)indexPath];
     // Change selected cells background color
     if (![cell viewWithTag:1]) {
         UIView *selectedView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, cell.frame.size.width, cell.frame.size.height)];
@@ -148,10 +149,12 @@
     NSString *voteTitleString = [[self.votesArray objectAtIndex:indexPath.row] valueForKey:@"billTitle"];
     NSString *memPosString = [NSString stringWithFormat:@"Voted: %@",[[self.votesArray objectAtIndex:indexPath.row] valueForKey:@"memberPos"]];
     // Set Cell Text
-    cell.textLabel.text = voteTitleString;
-    // Set Cell Detail Text
-    cell.detailTextLabel.text = memPosString;
+    //cell.textLabel.text = voteTitleString;
+    cell.cellTitle.text = voteTitleString;
     
+    // Set Cell Detail Text
+    //cell.detailTextLabel.text = memPosString;
+    cell.cellSubText.text = memPosString;
     [cell layoutIfNeeded];
     
     return cell;
