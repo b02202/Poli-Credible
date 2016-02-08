@@ -29,7 +29,7 @@
     
     // Populate Image
     [self populateImage];
-    // Populate Name
+    // Populate Name, state, and DOB
     [self populateName];
     
     [self loadBiography];
@@ -76,9 +76,10 @@
 }
 
 // Populate Name and set label text color according to party affiliation
+// Set DOB and State
 -(void)populateName {
     self.stateDistrictLabel.text = self.recievedState;
-    self.birthDate.text = self.recievedDOB;
+    self.birthDate.text = [NSString stringWithFormat:@"D.O.B.: %@", self.recievedDOB];
     self.memberNameLabel.text = self.recievedName;
     
     if ([self.recievedParty isEqualToString:@"R"]) {
@@ -91,11 +92,6 @@
         self.memberNameLabel.textColor = [UIColor colorWithRed:0.0/255.0 green:85.0/255.0 blue:64.0/255.0 alpha:0.75];
     }
 }
-
-
-
-
-
 
 - (IBAction)openFacebook:(id)sender {
   NSString *facebookUrl = [NSString stringWithFormat:@"http://facebook.com/%@", self.recievedFacebookId];
@@ -161,11 +157,19 @@
     [newLegislator setValue:self.recievedBioID forKey:@"bioGuideID"];
     [newLegislator setValue:self.recievedCRPID forKey:@"crpID"];
     [newLegislator setValue:self.recievedState forKey:@"stateName"];
+    [newLegislator setValue:self.recievedTwittterId forKey:@"twitterID"];
+    [newLegislator setValue:self.recievedFacebookId forKey:@"facebookID"];
+    [newLegislator setValue:self.recievedWebsiteUrl forKey:@"website"];
+    [newLegislator setValue:self.recievedDOB forKey:@"birthday"];
+    [newLegislator setValue:self.recievedContactForm forKey:@"contactURL"];
+    
+    
+    
 //    if (![self.recievedDistrict isEqual:[NSNull null]]) {
 //        
 //        [newLegislator setValue:self.recievedDistrict forKey:@"district"];
 //    }
-   
+
     
     NSError *error = nil;
     // Save the object to Core Data

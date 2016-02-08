@@ -45,22 +45,9 @@
     
     // Run API Get
     [self httpGetRequest:self.searchStr];
-    // Set Chamber Arrays
-    //[self setChamberArrays];
     
     self.senateTableView.delegate = self;
     self.senateTableView.dataSource = self;
-    
-   
-    
-//    for (int i = 0; i < _memberArray.count; i++) {
-//        NSString *memFirst = [[_memberArray objectAtIndex:i] valueForKey:@"repFirstName"];
-//        NSString *chamber = [[_memberArray objectAtIndex:i] valueForKey:@"chamber"];
-//        NSLog(@"%@ - %@", memFirst, chamber );
-//        if (chamber isEqualToString:@"senate") {
-//            
-//        }
-//    }
 }
 
 
@@ -155,9 +142,6 @@
 // TableView Number of Rows per Section
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     NSLog(@"numberofRows is being called");
-    //return self.addressArray.count;
-    // return self.stateArray.count;
-    //return self.senateArray.count; // self.senateArray.count;
     
     if (section == 0) {
         return [_senateArray count];

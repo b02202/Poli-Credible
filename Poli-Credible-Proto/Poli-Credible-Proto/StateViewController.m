@@ -57,9 +57,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    // Test HttpManager
-    //[self httpGetRequest];
-    
     // self delegate
     // Make self delegate and datasource of table view
     self.stateTableView.delegate = self;
@@ -232,19 +229,13 @@
     if ([segue.identifier isEqualToString:@"toResults"]) {
         NSIndexPath *indexPath = [self.stateTableView indexPathForSelectedRow];
         NSString * stateString = [[self.stateDataArray objectAtIndex:indexPath.row] valueForKey:@"stateName"];
-        //UITableViewCell *selectedCell = (UITableViewCell *)sender;
-        //NSString * stateQuery = selectedCell.textLabel.text;
+        
         
         NSString *urlString =[NSString stringWithFormat:@"%@%@%@", @"https://congress.api.sunlightfoundation.com/legislators?state_name=", stateString, @"&per_page=all&apikey=6f9f2e31124941a98e97110aeeaec3ff"];
         
         // Pass state string to results VC
         ResultsViewController *resultsVC = segue.destinationViewController;
         resultsVC.searchStr = urlString;
-        
-        // run httpGetRequest
-        //[self httpGetRequest:stateQuery];
-       
-       //[resultsVC setMemberArray:_memberArray];
     }
 }
 

@@ -71,7 +71,6 @@
 		C7D5B4611C68F0C40092A5D5 /* state-louisiana.png in Resources */ = {isa = PBXBuildFile; fileRef = C7D5B42F1C68F0C40092A5D5 /* state-louisiana.png */; };
 		C7D5B4621C68F0C40092A5D5 /* state-maine.png in Resources */ = {isa = PBXBuildFile; fileRef = C7D5B4301C68F0C40092A5D5 /* state-maine.png */; };
 		C7D5B4631C68F0C40092A5D5 /* state-maryland.png in Resources */ = {isa = PBXBuildFile; fileRef = C7D5B4311C68F0C40092A5D5 /* state-maryland.png */; };
-		C7D5B4641C68F0C40092A5D5 /* state-massachussets.png in Resources */ = {isa = PBXBuildFile; fileRef = C7D5B4321C68F0C40092A5D5 /* state-massachussets.png */; };
 		C7D5B4651C68F0C40092A5D5 /* state-michigan.png in Resources */ = {isa = PBXBuildFile; fileRef = C7D5B4331C68F0C40092A5D5 /* state-michigan.png */; };
 		C7D5B4661C68F0C40092A5D5 /* state-minnesota.png in Resources */ = {isa = PBXBuildFile; fileRef = C7D5B4341C68F0C40092A5D5 /* state-minnesota.png */; };
 		C7D5B4671C68F0C40092A5D5 /* state-mississippi.png in Resources */ = {isa = PBXBuildFile; fileRef = C7D5B4351C68F0C40092A5D5 /* state-mississippi.png */; };
@@ -102,6 +101,7 @@
 		C7D5B4801C68F0C40092A5D5 /* state-wisconsin.png in Resources */ = {isa = PBXBuildFile; fileRef = C7D5B44E1C68F0C40092A5D5 /* state-wisconsin.png */; };
 		C7D5B4811C68F0C40092A5D5 /* state-wyoming.png in Resources */ = {isa = PBXBuildFile; fileRef = C7D5B44F1C68F0C40092A5D5 /* state-wyoming.png */; };
 		C7D5B4851C68F1B10092A5D5 /* CustomStateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C7D5B4841C68F1B10092A5D5 /* CustomStateCell.m */; };
+		C7D5B4891C6911250092A5D5 /* state-massachusetts.png in Resources */ = {isa = PBXBuildFile; fileRef = C7D5B4881C6911250092A5D5 /* state-massachusetts.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -213,7 +213,6 @@
 		C7D5B42F1C68F0C40092A5D5 /* state-louisiana.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "state-louisiana.png"; sourceTree = "<group>"; };
 		C7D5B4301C68F0C40092A5D5 /* state-maine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "state-maine.png"; sourceTree = "<group>"; };
 		C7D5B4311C68F0C40092A5D5 /* state-maryland.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "state-maryland.png"; sourceTree = "<group>"; };
-		C7D5B4321C68F0C40092A5D5 /* state-massachussets.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "state-massachussets.png"; sourceTree = "<group>"; };
 		C7D5B4331C68F0C40092A5D5 /* state-michigan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "state-michigan.png"; sourceTree = "<group>"; };
 		C7D5B4341C68F0C40092A5D5 /* state-minnesota.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "state-minnesota.png"; sourceTree = "<group>"; };
 		C7D5B4351C68F0C40092A5D5 /* state-mississippi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "state-mississippi.png"; sourceTree = "<group>"; };
@@ -245,6 +244,7 @@
 		C7D5B44F1C68F0C40092A5D5 /* state-wyoming.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "state-wyoming.png"; sourceTree = "<group>"; };
 		C7D5B4831C68F1B10092A5D5 /* CustomStateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomStateCell.h; sourceTree = "<group>"; };
 		C7D5B4841C68F1B10092A5D5 /* CustomStateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomStateCell.m; sourceTree = "<group>"; };
+		C7D5B4881C6911250092A5D5 /* state-massachusetts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "state-massachusetts.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -445,7 +445,7 @@
 				C7D5B42F1C68F0C40092A5D5 /* state-louisiana.png */,
 				C7D5B4301C68F0C40092A5D5 /* state-maine.png */,
 				C7D5B4311C68F0C40092A5D5 /* state-maryland.png */,
-				C7D5B4321C68F0C40092A5D5 /* state-massachussets.png */,
+				C7D5B4881C6911250092A5D5 /* state-massachusetts.png */,
 				C7D5B4331C68F0C40092A5D5 /* state-michigan.png */,
 				C7D5B4341C68F0C40092A5D5 /* state-minnesota.png */,
 				C7D5B4351C68F0C40092A5D5 /* state-mississippi.png */,
@@ -623,7 +623,6 @@
 				C7D5B4531C68F0C40092A5D5 /* state-arkansas.png in Resources */,
 				C7D5B4501C68F0C40092A5D5 /* state-alabama.png in Resources */,
 				C7D5B45A1C68F0C40092A5D5 /* state-hawaii.png in Resources */,
-				C7D5B4641C68F0C40092A5D5 /* state-massachussets.png in Resources */,
 				C7D5B4741C68F0C40092A5D5 /* state-oregon.png in Resources */,
 				C71832841C50B85F00388E02 /* Assets.xcassets in Resources */,
 				C7D5B2881C61BDF70092A5D5 /* bg-2.png in Resources */,
@@ -647,6 +646,7 @@
 				C7D5B45F1C68F0C40092A5D5 /* state-kansas.png in Resources */,
 				C7D5B4801C68F0C40092A5D5 /* state-wisconsin.png in Resources */,
 				C7D5B4811C68F0C40092A5D5 /* state-wyoming.png in Resources */,
+				C7D5B4891C6911250092A5D5 /* state-massachusetts.png in Resources */,
 				C7D5B4521C68F0C40092A5D5 /* state-arizona.png in Resources */,
 				C7D5B3A31C668CDA0092A5D5 /* addFavoriteIcon.png in Resources */,
 				C7D5B4751C68F0C40092A5D5 /* state-pennsylvania.png in Resources */,

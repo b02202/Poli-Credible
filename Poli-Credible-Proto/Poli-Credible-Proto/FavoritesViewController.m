@@ -171,6 +171,11 @@
     NSString *repPhone;
     NSString *repCRPID;
     NSString *stateName;
+    NSString *twitterID;
+    NSString *facebookID;
+    NSString *website;
+    NSString *birthday;
+    NSString *contactURL;
     
     if ([segue.identifier isEqualToString:@"favoritesToDetail"]) {
         NSIndexPath *indexPath = [self.favoritesTableView indexPathForSelectedRow];
@@ -181,6 +186,12 @@
         repPhone = [[self.favoritesArray objectAtIndex:indexPath.row] valueForKey:@"phone"];
         repCRPID = [[self.favoritesArray objectAtIndex:indexPath.row] valueForKey:@"crpID"];
         stateName = [[self.favoritesArray objectAtIndex:indexPath.row] valueForKey:@"stateName"];
+        twitterID = [[self.favoritesArray objectAtIndex:indexPath.row] valueForKey:@"twitterID"];
+        facebookID = [[self.favoritesArray objectAtIndex:indexPath.row] valueForKey:@"facebookID"];
+        website = [[self.favoritesArray objectAtIndex:indexPath.row] valueForKey:@"website"];
+        birthday = [[self.favoritesArray objectAtIndex:indexPath.row] valueForKey:@"birthday"];
+        contactURL = [[self.favoritesArray objectAtIndex:indexPath.row] valueForKey:@"contactURL"];
+        
         
         // Create Image Url
         NSString *imageUrl = [NSString stringWithFormat:@"https://theunitedstates.io/images/congress/225x275/%@.jpg", bioGuideID];
@@ -199,6 +210,11 @@
         detailVC.memCRPID = repCRPID;
         detailVC.memState = stateName;
         //detailVC.memDistrict = district;
+        detailVC.twitterID = twitterID;
+        detailVC.facebookID =facebookID;
+        detailVC.websiteURL = website;
+        detailVC.dateOfBirth = birthday;
+        detailVC.contactForm = contactURL;
         
     }
     
