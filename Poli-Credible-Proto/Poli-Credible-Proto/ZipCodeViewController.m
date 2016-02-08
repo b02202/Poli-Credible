@@ -44,6 +44,7 @@
         //Pass to zip string to results VC
         ResultsViewController *resultsVC = segue.destinationViewController;
         resultsVC.searchStr = urlString;
+        resultsVC.titleString = zipQuery;
         
         // Reset zip code field
         self.zipCodeField.text = @"";

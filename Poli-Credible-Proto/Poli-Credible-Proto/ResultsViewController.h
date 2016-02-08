@@ -12,6 +12,8 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *senateTableView;
 @property (strong, nonatomic)NSString *searchStr;
+@property (strong, nonatomic) IBOutlet UINavigationItem *NavTitle;
+@property (strong, nonatomic)NSString *titleString;
 
 //-(void)setMemberArray:(NSMutableArray*)array;
 

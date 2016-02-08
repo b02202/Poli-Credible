@@ -22,6 +22,7 @@
 @end
 
 @implementation ResultsViewController
+@synthesize NavTitle;
 
 -(HTTPManager*)httpManager {
     if (!_httpManager) {
@@ -36,6 +37,9 @@
     
     // set background color
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg-2.png"]];
+    
+    // set nav title
+    NavTitle.title = self.titleString;
     
     // Do any additional setup after loading the view.
     NSLog(@"ViewDidLoad is being Called");

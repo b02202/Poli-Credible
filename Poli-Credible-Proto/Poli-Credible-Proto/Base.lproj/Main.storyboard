@@ -441,6 +441,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="NavTitle" destination="HIR-fE-mb2" id="NDQ-KA-BO7"/>
                         <outlet property="senateTableView" destination="gpm-Ml-vcG" id="7Jr-ye-zfp"/>
                     </connections>
                 </viewController>
@@ -1128,7 +1129,7 @@
         <image name="website-link.png" width="245" height="245"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kZz-eM-z3k"/>
         <segue reference="Uwn-5v-Scg"/>
+        <segue reference="LRa-D8-FT2"/>
     </inferredMetricsTieBreakers>
 </document>

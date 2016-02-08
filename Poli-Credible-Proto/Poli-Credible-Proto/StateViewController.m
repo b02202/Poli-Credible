@@ -236,6 +236,7 @@
         // Pass state string to results VC
         ResultsViewController *resultsVC = segue.destinationViewController;
         resultsVC.searchStr = urlString;
+        resultsVC.titleString = stateString;
     }
 }
 

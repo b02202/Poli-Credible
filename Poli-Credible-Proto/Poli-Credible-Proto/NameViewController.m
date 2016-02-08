@@ -43,6 +43,7 @@
         //Pass to zip string to results VC
         ResultsViewController *resultsVC = segue.destinationViewController;
         resultsVC.searchStr = urlString;
+        resultsVC.titleString = @"Results";
         
         // Reset Name field text
         self.nameField.text = @"";
