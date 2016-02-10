@@ -8,6 +8,7 @@
 
 #import "FavoritesViewController.h"
 #import "DetailViewController.h"
+#import "SWRevealViewController.h"
 
 @interface FavoritesViewController ()
 @property (nonatomic, strong) NSMutableArray *favoritesArray;
@@ -29,6 +30,11 @@
     
     // set background color
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg-2.png"]];
+    
+    _menuButton.target = self.revealViewController;
+    _menuButton.action = @selector(revealToggle:);
+    
+    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -84,19 +90,19 @@
         cell.selectedBackgroundView = selectedView;
     }
     
-    //NSString *district = [[self.favoritesArray objectAtIndex:indexPath.row] valueForKey:@"district"];
+    NSString *district = [[self.favoritesArray objectAtIndex:indexPath.row] valueForKey:@"district"];
     NSString *subText;
     
     NSString *labelText = [[self.favoritesArray objectAtIndex:indexPath.row] valueForKey:@"fullName"];
     subText = [[self.favoritesArray objectAtIndex:indexPath.row] valueForKey:@"stateName"];
     NSString *repParty = [[self.favoritesArray objectAtIndex:indexPath.row] valueForKey:@"party"];
     
-//    if (![district isEqual:[NSNull null]]) {
-//        subText = [NSString stringWithFormat:@"%@, District %@", [[self.favoritesArray objectAtIndex:indexPath.row] valueForKey:@"stateName"], [[self.favoritesArray objectAtIndex:indexPath.row] valueForKey:@"district"]];
-//    }
-//    else {
-//        subText = [[self.favoritesArray objectAtIndex:indexPath.row] valueForKey:@"stateName"];
-//    }
+    if (![district isEqual:[NSNull null]] || ![district isEqualToString:@"0"]) {
+        subText = [NSString stringWithFormat:@"%@, District %@", [[self.favoritesArray objectAtIndex:indexPath.row] valueForKey:@"stateName"], [[self.favoritesArray objectAtIndex:indexPath.row] valueForKey:@"district"]];
+    }
+    else {
+        subText = [[self.favoritesArray objectAtIndex:indexPath.row] valueForKey:@"stateName"];
+    }
     
     cell.textLabel.text = labelText;
     cell.detailTextLabel.text = subText;
@@ -176,9 +182,14 @@
     NSString *website;
     NSString *birthday;
     NSString *contactURL;
+    NSString *district;
+    
+    
     
     if ([segue.identifier isEqualToString:@"favoritesToDetail"]) {
         NSIndexPath *indexPath = [self.favoritesTableView indexPathForSelectedRow];
+        
+        district = [[self.favoritesArray objectAtIndex:indexPath.row] valueForKey:@"bioGuideID"];
         
         bioGuideID = [[self.favoritesArray objectAtIndex:indexPath.row] valueForKey:@"bioGuideID"];
         memFullName = [[self.favoritesArray objectAtIndex:indexPath.row] valueForKey:@"fullName"];
@@ -209,7 +220,12 @@
         detailVC.memBioID = bioGuideID;
         detailVC.memCRPID = repCRPID;
         detailVC.memState = stateName;
-        //detailVC.memDistrict = district;
+        
+        if (![district isEqual:[NSNull null]]) {
+            detailVC.memDistrict = district;
+        }
+        
+        
         detailVC.twitterID = twitterID;
         detailVC.facebookID =facebookID;
         detailVC.websiteURL = website;

@@ -9,6 +9,6 @@
 #import "VoteDataClass.h"
 
 @implementation VoteDataClass
-@synthesize billTitle, billDesc, billDate, memberPos;
+@synthesize billTitle, billDesc, billDate, memberPos, billID;
 
 @end

@@ -67,20 +67,12 @@
 -(void)getReceivedData:(NSData*)data sender:(HTTPManager*)sender {
     NSError *error = nil;
     NSDictionary *receivedData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
-//    NSObject *responseObj = [receivedData objectForKey:@"response"];
-//    NSObject *contributorsObj = [responseObj valueForKey:@"contributors"];
-    //NSArray *resultsArray = [NSArray arrayWithArray:[contributorsObj valueForKey:@"contributor"]];
     NSArray *resultsArray = [NSArray arrayWithArray:[receivedData objectForKey:@"results"]];
     NSObject *resultsObj = [resultsArray objectAtIndex:0];
     NSArray *votingArray = [NSArray arrayWithArray:[resultsObj valueForKey:@"votes"]];
     
     for (int i=0; i < votingArray.count; i++) {
         VoteDataClass *voteDataObj = [[VoteDataClass alloc] init];
-        //cdcObj.contributorName = [[[resultsArray objectAtIndex:i]objectForKey:@"@attributes"]valueForKey:@"org_name"];
-        //cdcObj.contributionTotal = [[[resultsArray objectAtIndex:i]objectForKey:@"@attributes"]valueForKey:@"total"];
-        
-        //voteDataObj.billTitle = [[resultsArray objectAtIndex:i] objectForKey:@"title"];
-        
         NSObject *billOBJ = [votingArray objectAtIndex:i];
         NSObject *posOBJ = [votingArray objectAtIndex:i];
         NSObject *billInfoOBJ = [billOBJ valueForKey:@"bill"];

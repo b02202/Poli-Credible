@@ -102,6 +102,13 @@
 		C7D5B4811C68F0C40092A5D5 /* state-wyoming.png in Resources */ = {isa = PBXBuildFile; fileRef = C7D5B44F1C68F0C40092A5D5 /* state-wyoming.png */; };
 		C7D5B4851C68F1B10092A5D5 /* CustomStateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C7D5B4841C68F1B10092A5D5 /* CustomStateCell.m */; };
 		C7D5B4891C6911250092A5D5 /* state-massachusetts.png in Resources */ = {isa = PBXBuildFile; fileRef = C7D5B4881C6911250092A5D5 /* state-massachusetts.png */; };
+		C7D5B4DF1C6A67E40092A5D5 /* Logo-Menu.png in Resources */ = {isa = PBXBuildFile; fileRef = C7D5B4DE1C6A67E40092A5D5 /* Logo-Menu.png */; };
+		C7D5B4E21C6A6B010092A5D5 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7D5B4E11C6A6B010092A5D5 /* MenuViewController.m */; };
+		C7D5B4E51C6A6BCD0092A5D5 /* SearchByStateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7D5B4E41C6A6BCD0092A5D5 /* SearchByStateViewController.m */; };
+		C7D5B4E71C6A71770092A5D5 /* menu-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C7D5B4E61C6A71770092A5D5 /* menu-icon.png */; };
+		C7D5B4EA1C6A76B40092A5D5 /* SearchByZipViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7D5B4E91C6A76B40092A5D5 /* SearchByZipViewController.m */; };
+		C7D5B4ED1C6A76CF0092A5D5 /* SearchByNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7D5B4EC1C6A76CF0092A5D5 /* SearchByNameViewController.m */; };
+		C7D5B4F11C6AD3420092A5D5 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7D5B4F01C6AD3420092A5D5 /* SWRevealViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -245,6 +252,18 @@
 		C7D5B4831C68F1B10092A5D5 /* CustomStateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomStateCell.h; sourceTree = "<group>"; };
 		C7D5B4841C68F1B10092A5D5 /* CustomStateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomStateCell.m; sourceTree = "<group>"; };
 		C7D5B4881C6911250092A5D5 /* state-massachusetts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "state-massachusetts.png"; sourceTree = "<group>"; };
+		C7D5B4DE1C6A67E40092A5D5 /* Logo-Menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Logo-Menu.png"; sourceTree = "<group>"; };
+		C7D5B4E01C6A6B010092A5D5 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		C7D5B4E11C6A6B010092A5D5 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		C7D5B4E31C6A6BCD0092A5D5 /* SearchByStateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchByStateViewController.h; sourceTree = "<group>"; };
+		C7D5B4E41C6A6BCD0092A5D5 /* SearchByStateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchByStateViewController.m; sourceTree = "<group>"; };
+		C7D5B4E61C6A71770092A5D5 /* menu-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-icon.png"; sourceTree = "<group>"; };
+		C7D5B4E81C6A76B40092A5D5 /* SearchByZipViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchByZipViewController.h; sourceTree = "<group>"; };
+		C7D5B4E91C6A76B40092A5D5 /* SearchByZipViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchByZipViewController.m; sourceTree = "<group>"; };
+		C7D5B4EB1C6A76CF0092A5D5 /* SearchByNameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchByNameViewController.h; sourceTree = "<group>"; };
+		C7D5B4EC1C6A76CF0092A5D5 /* SearchByNameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchByNameViewController.m; sourceTree = "<group>"; };
+		C7D5B4EF1C6AD3420092A5D5 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		C7D5B4F01C6AD3420092A5D5 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -311,19 +330,22 @@
 				C71832851C50B85F00388E02 /* LaunchScreen.storyboard */,
 				C71832881C50B85F00388E02 /* Info.plist */,
 				C71832801C50B85F00388E02 /* Poli_Credible_Proto.xcdatamodeld */,
-				C71832B11C513DFD00388E02 /* StateViewController.h */,
-				C71832B21C513DFD00388E02 /* StateViewController.m */,
 				C71832B61C567B9100388E02 /* ResultsViewController.h */,
 				C71832B71C567B9100388E02 /* ResultsViewController.m */,
 				C71832BD1C56890A00388E02 /* HTTPManager.h */,
 				C71832BE1C56890A00388E02 /* HTTPManager.m */,
-				C71832C01C57DB4A00388E02 /* ZipCodeViewController.h */,
-				C71832C11C57DB4A00388E02 /* ZipCodeViewController.m */,
-				C71832C31C57DB7E00388E02 /* NameViewController.h */,
-				C71832C41C57DB7E00388E02 /* NameViewController.m */,
 				C71832C61C59615B00388E02 /* FavoritesViewController.h */,
 				C71832C71C59615B00388E02 /* FavoritesViewController.m */,
+				C7D5B4F21C6BC1600092A5D5 /* OldAlphaFiles */,
 				C71832741C50B85F00388E02 /* Supporting Files */,
+				C7D5B4E01C6A6B010092A5D5 /* MenuViewController.h */,
+				C7D5B4E11C6A6B010092A5D5 /* MenuViewController.m */,
+				C7D5B4E31C6A6BCD0092A5D5 /* SearchByStateViewController.h */,
+				C7D5B4E41C6A6BCD0092A5D5 /* SearchByStateViewController.m */,
+				C7D5B4E81C6A76B40092A5D5 /* SearchByZipViewController.h */,
+				C7D5B4E91C6A76B40092A5D5 /* SearchByZipViewController.m */,
+				C7D5B4EB1C6A76CF0092A5D5 /* SearchByNameViewController.h */,
+				C7D5B4EC1C6A76CF0092A5D5 /* SearchByNameViewController.m */,
 			);
 			path = "Poli-Credible-Proto";
 			sourceTree = "<group>";
@@ -331,6 +353,7 @@
 		C71832741C50B85F00388E02 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C7D5B4EE1C6AD3420092A5D5 /* SlideOutMenuFiles */,
 				C71832751C50B85F00388E02 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -357,6 +380,8 @@
 		C71832AE1C50BA1A00388E02 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C7D5B4E61C6A71770092A5D5 /* menu-icon.png */,
+				C7D5B4DE1C6A67E40092A5D5 /* Logo-Menu.png */,
 				C7D5B3B61C68E9B60092A5D5 /* StateImages */,
 				C7D5B3AE1C67FE7C0092A5D5 /* website-link.png */,
 				C7D5B3A21C668CDA0092A5D5 /* addFavoriteIcon.png */,
@@ -488,6 +513,28 @@
 				C7D5B4841C68F1B10092A5D5 /* CustomStateCell.m */,
 			);
 			name = CustomCells;
+			sourceTree = "<group>";
+		};
+		C7D5B4EE1C6AD3420092A5D5 /* SlideOutMenuFiles */ = {
+			isa = PBXGroup;
+			children = (
+				C7D5B4EF1C6AD3420092A5D5 /* SWRevealViewController.h */,
+				C7D5B4F01C6AD3420092A5D5 /* SWRevealViewController.m */,
+			);
+			path = SlideOutMenuFiles;
+			sourceTree = "<group>";
+		};
+		C7D5B4F21C6BC1600092A5D5 /* OldAlphaFiles */ = {
+			isa = PBXGroup;
+			children = (
+				C71832B11C513DFD00388E02 /* StateViewController.h */,
+				C71832B21C513DFD00388E02 /* StateViewController.m */,
+				C71832C01C57DB4A00388E02 /* ZipCodeViewController.h */,
+				C71832C11C57DB4A00388E02 /* ZipCodeViewController.m */,
+				C71832C31C57DB7E00388E02 /* NameViewController.h */,
+				C71832C41C57DB7E00388E02 /* NameViewController.m */,
+			);
+			name = OldAlphaFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -633,6 +680,7 @@
 				C7D5B4731C68F0C40092A5D5 /* state-oklahoma.png in Resources */,
 				C7D5B2861C61BAC90092A5D5 /* bg-1.png in Resources */,
 				C71832CD1C5A4A2400388E02 /* Shelby-Image.jpg in Resources */,
+				C7D5B4E71C6A71770092A5D5 /* menu-icon.png in Resources */,
 				C7D5B46D1C68F0C40092A5D5 /* state-new-jersey.png in Resources */,
 				C7D5B2981C62E8710092A5D5 /* facebook-icon.png in Resources */,
 				C7D5B3AF1C67FE7C0092A5D5 /* website-link.png in Resources */,
@@ -654,6 +702,7 @@
 				C7D5B46F1C68F0C40092A5D5 /* state-new-york.png in Resources */,
 				C7D5B46C1C68F0C40092A5D5 /* state-new-hampshire.png in Resources */,
 				C7D5B47F1C68F0C40092A5D5 /* state-west-virginia.png in Resources */,
+				C7D5B4DF1C6A67E40092A5D5 /* Logo-Menu.png in Resources */,
 				C71832B51C56554800388E02 /* Logo-1.png in Resources */,
 				C7D5B4711C68F0C40092A5D5 /* state-north-dakota.png in Resources */,
 				C7D5B4691C68F0C40092A5D5 /* state-montana.png in Resources */,
@@ -690,11 +739,13 @@
 				C71832821C50B85F00388E02 /* Poli_Credible_Proto.xcdatamodeld in Sources */,
 				C718327C1C50B85F00388E02 /* ViewController.m in Sources */,
 				C7D5B3A11C6573CE0092A5D5 /* ContributorDataClass.m in Sources */,
+				C7D5B4ED1C6A76CF0092A5D5 /* SearchByNameViewController.m in Sources */,
 				C7D5B3941C6532680092A5D5 /* XPathQuery.m in Sources */,
 				C71832791C50B85F00388E02 /* AppDelegate.m in Sources */,
 				C7D5B3921C6532680092A5D5 /* TFHpple.m in Sources */,
 				C71832BF1C56890A00388E02 /* HTTPManager.m in Sources */,
 				C7D5B3B21C68D0E70092A5D5 /* VoteDataClass.m in Sources */,
+				C7D5B4EA1C6A76B40092A5D5 /* SearchByZipViewController.m in Sources */,
 				C71832C21C57DB4A00388E02 /* ZipCodeViewController.m in Sources */,
 				C71832B81C567B9100388E02 /* ResultsViewController.m in Sources */,
 				C71832BB1C567D8900388E02 /* MemberDataClass.m in Sources */,
@@ -702,14 +753,17 @@
 				C7D5B3931C6532680092A5D5 /* TFHppleElement.m in Sources */,
 				C7D5B3AA1C6784FF0092A5D5 /* VotesViewController.m in Sources */,
 				C7D5B3B51C68DFD20092A5D5 /* CustomVoteCell.m in Sources */,
+				C7D5B4E21C6A6B010092A5D5 /* MenuViewController.m in Sources */,
 				C71832C51C57DB7E00388E02 /* NameViewController.m in Sources */,
 				C7D5B39E1C655EE80092A5D5 /* ContributionsViewController.m in Sources */,
 				C71832C81C59615B00388E02 /* FavoritesViewController.m in Sources */,
 				C7D5B3B91C68EB090092A5D5 /* StateDataClass.m in Sources */,
+				C7D5B4F11C6AD3420092A5D5 /* SWRevealViewController.m in Sources */,
 				C7D5B39B1C6535E20092A5D5 /* RepBio.m in Sources */,
 				C71832761C50B85F00388E02 /* main.m in Sources */,
 				C71832B31C513DFD00388E02 /* StateViewController.m in Sources */,
 				C71832CB1C5994C700388E02 /* DetailViewController.m in Sources */,
+				C7D5B4E51C6A6BCD0092A5D5 /* SearchByStateViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -17,5 +17,6 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *favoritesTableView;
 
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *menuButton;
 
 @end

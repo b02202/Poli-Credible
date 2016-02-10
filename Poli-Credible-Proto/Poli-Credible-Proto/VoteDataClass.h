@@ -14,5 +14,6 @@
 @property (nonatomic, strong)NSString *billDesc;
 @property (nonatomic, strong)NSString *billDate;
 @property (nonatomic, strong)NSString *memberPos;
+@property (nonatomic, strong)NSString *billID;
 
 @end

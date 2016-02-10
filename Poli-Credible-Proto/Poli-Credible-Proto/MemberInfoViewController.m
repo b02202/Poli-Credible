@@ -80,6 +80,13 @@
 -(void)populateName {
     self.stateDistrictLabel.text = self.recievedState;
     self.birthDate.text = [NSString stringWithFormat:@"D.O.B.: %@", self.recievedDOB];
+    
+    if (![self.recievedDistrict isEqual:[NSNull null]]) {
+        self.stateDistrictLabel.text = [NSString stringWithFormat:@"%@, District %@", self.recievedState, self.recievedDistrict];
+    } else
+    {
+      self.stateDistrictLabel.text = self.recievedState;
+    }
     self.memberNameLabel.text = self.recievedName;
     
     if ([self.recievedParty isEqualToString:@"R"]) {
@@ -145,6 +152,8 @@
 }
 
 
+
+
 // Core Data Save Legislator
 -(void)saveToFavorites {
     NSManagedObjectContext *context = [self managedObjectContext];
@@ -157,11 +166,31 @@
     [newLegislator setValue:self.recievedBioID forKey:@"bioGuideID"];
     [newLegislator setValue:self.recievedCRPID forKey:@"crpID"];
     [newLegislator setValue:self.recievedState forKey:@"stateName"];
-    [newLegislator setValue:self.recievedTwittterId forKey:@"twitterID"];
-    [newLegislator setValue:self.recievedFacebookId forKey:@"facebookID"];
+    
+    
     [newLegislator setValue:self.recievedWebsiteUrl forKey:@"website"];
     [newLegislator setValue:self.recievedDOB forKey:@"birthday"];
-    [newLegislator setValue:self.recievedContactForm forKey:@"contactURL"];
+    
+    
+    // Twitter Validation
+    if (![self.recievedTwittterId isEqual:[NSNull null]]) {
+        [newLegislator setValue:self.recievedTwittterId forKey:@"twitterID"];
+    }
+    // Facebook Validation
+    if (![self.recievedFacebookId isEqual:[NSNull null]]) {
+        [newLegislator setValue:self.recievedFacebookId forKey:@"facebookID"];
+    }
+    // ContactUrl Validation
+    if (![self.recievedContactForm isEqual:[NSNull null]]) {
+        [newLegislator setValue:self.recievedContactForm forKey:@"contactURL"];
+    }
+    // District Validation
+    if (![self.recievedDistrict isEqual:[NSNull null]]) {
+        NSNumber  *districtNum = [NSNumber numberWithInteger: [self.recievedDistrict integerValue]];
+        [newLegislator setValue:districtNum forKey:@"district"];
+        
+    }
+    
     
     
     

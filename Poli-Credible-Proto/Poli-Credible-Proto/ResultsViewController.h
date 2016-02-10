@@ -16,5 +16,6 @@
 @property (strong, nonatomic)NSString *titleString;
 
 //-(void)setMemberArray:(NSMutableArray*)array;
+- (IBAction)dismissView:(id)sender;
 
 @end
