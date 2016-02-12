@@ -109,6 +109,8 @@
 		C7D5B4EA1C6A76B40092A5D5 /* SearchByZipViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7D5B4E91C6A76B40092A5D5 /* SearchByZipViewController.m */; };
 		C7D5B4ED1C6A76CF0092A5D5 /* SearchByNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7D5B4EC1C6A76CF0092A5D5 /* SearchByNameViewController.m */; };
 		C7D5B4F11C6AD3420092A5D5 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7D5B4F01C6AD3420092A5D5 /* SWRevealViewController.m */; };
+		C7D5B4F51C6BC6FF0092A5D5 /* IndustryDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = C7D5B4F41C6BC6FF0092A5D5 /* IndustryDataClass.m */; };
+		C7D5B4F81C6D05DC0092A5D5 /* CustomIndustryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C7D5B4F71C6D05DC0092A5D5 /* CustomIndustryCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -264,6 +266,10 @@
 		C7D5B4EC1C6A76CF0092A5D5 /* SearchByNameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchByNameViewController.m; sourceTree = "<group>"; };
 		C7D5B4EF1C6AD3420092A5D5 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		C7D5B4F01C6AD3420092A5D5 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		C7D5B4F31C6BC6FF0092A5D5 /* IndustryDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndustryDataClass.h; sourceTree = "<group>"; };
+		C7D5B4F41C6BC6FF0092A5D5 /* IndustryDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndustryDataClass.m; sourceTree = "<group>"; };
+		C7D5B4F61C6D05DC0092A5D5 /* CustomIndustryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomIndustryCell.h; sourceTree = "<group>"; };
+		C7D5B4F71C6D05DC0092A5D5 /* CustomIndustryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomIndustryCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -415,6 +421,8 @@
 				C7D5B3B11C68D0E70092A5D5 /* VoteDataClass.m */,
 				C7D5B3B71C68EB090092A5D5 /* StateDataClass.h */,
 				C7D5B3B81C68EB090092A5D5 /* StateDataClass.m */,
+				C7D5B4F31C6BC6FF0092A5D5 /* IndustryDataClass.h */,
+				C7D5B4F41C6BC6FF0092A5D5 /* IndustryDataClass.m */,
 			);
 			name = DataModels;
 			sourceTree = "<group>";
@@ -511,6 +519,8 @@
 				C7D5B3B41C68DFD20092A5D5 /* CustomVoteCell.m */,
 				C7D5B4831C68F1B10092A5D5 /* CustomStateCell.h */,
 				C7D5B4841C68F1B10092A5D5 /* CustomStateCell.m */,
+				C7D5B4F61C6D05DC0092A5D5 /* CustomIndustryCell.h */,
+				C7D5B4F71C6D05DC0092A5D5 /* CustomIndustryCell.m */,
 			);
 			name = CustomCells;
 			sourceTree = "<group>";
@@ -742,6 +752,7 @@
 				C7D5B4ED1C6A76CF0092A5D5 /* SearchByNameViewController.m in Sources */,
 				C7D5B3941C6532680092A5D5 /* XPathQuery.m in Sources */,
 				C71832791C50B85F00388E02 /* AppDelegate.m in Sources */,
+				C7D5B4F81C6D05DC0092A5D5 /* CustomIndustryCell.m in Sources */,
 				C7D5B3921C6532680092A5D5 /* TFHpple.m in Sources */,
 				C71832BF1C56890A00388E02 /* HTTPManager.m in Sources */,
 				C7D5B3B21C68D0E70092A5D5 /* VoteDataClass.m in Sources */,
@@ -751,6 +762,7 @@
 				C71832BB1C567D8900388E02 /* MemberDataClass.m in Sources */,
 				C7D5B2A31C644D240092A5D5 /* MemberInfoViewController.m in Sources */,
 				C7D5B3931C6532680092A5D5 /* TFHppleElement.m in Sources */,
+				C7D5B4F51C6BC6FF0092A5D5 /* IndustryDataClass.m in Sources */,
 				C7D5B3AA1C6784FF0092A5D5 /* VotesViewController.m in Sources */,
 				C7D5B3B51C68DFD20092A5D5 /* CustomVoteCell.m in Sources */,
 				C7D5B4E21C6A6B010092A5D5 /* MenuViewController.m in Sources */,
@@ -905,11 +917,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = "Poli-Credible-Proto/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.robertbrooks.Poli-Credible-Proto";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -918,11 +932,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = "Poli-Credible-Proto/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.robertbrooks.Poli-Credible-Proto";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

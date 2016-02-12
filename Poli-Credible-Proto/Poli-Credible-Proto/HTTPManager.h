@@ -12,6 +12,7 @@
 @class HTTPManager;
 @protocol HTTPManagerDelegate
 -(void)getReceivedData:(NSData*)data sender:(HTTPManager*)sender;
+
 @end
 
 @interface HTTPManager : NSObject
