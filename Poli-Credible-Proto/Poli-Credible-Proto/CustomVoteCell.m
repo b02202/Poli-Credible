@@ -9,5 +9,5 @@
 #import "CustomVoteCell.h"
 
 @implementation CustomVoteCell
-@synthesize cellTitle, cellSubText;
+@synthesize cellTitle, cellSubText, cellSubText2;
 @end

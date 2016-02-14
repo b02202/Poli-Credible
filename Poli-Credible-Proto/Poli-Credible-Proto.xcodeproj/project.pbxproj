@@ -28,6 +28,8 @@
 		C71832C81C59615B00388E02 /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C71832C71C59615B00388E02 /* FavoritesViewController.m */; };
 		C71832CB1C5994C700388E02 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C71832CA1C5994C700388E02 /* DetailViewController.m */; };
 		C71832CD1C5A4A2400388E02 /* Shelby-Image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C71832CC1C5A4A2400388E02 /* Shelby-Image.jpg */; };
+		C7334F471C6E4FAC00449CD3 /* FundraisingDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = C7334F461C6E4FAC00449CD3 /* FundraisingDataClass.m */; };
+		C7334F4A1C6E5BA200449CD3 /* CustomFundraisingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C7334F491C6E5BA200449CD3 /* CustomFundraisingCell.m */; };
 		C7D5B2861C61BAC90092A5D5 /* bg-1.png in Resources */ = {isa = PBXBuildFile; fileRef = C7D5B2851C61BAC90092A5D5 /* bg-1.png */; };
 		C7D5B2881C61BDF70092A5D5 /* bg-2.png in Resources */ = {isa = PBXBuildFile; fileRef = C7D5B2871C61BDF70092A5D5 /* bg-2.png */; };
 		C7D5B28A1C61CA170092A5D5 /* Logo-2.png in Resources */ = {isa = PBXBuildFile; fileRef = C7D5B2891C61CA170092A5D5 /* Logo-2.png */; };
@@ -168,6 +170,10 @@
 		C71832C91C5994C700388E02 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		C71832CA1C5994C700388E02 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		C71832CC1C5A4A2400388E02 /* Shelby-Image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Shelby-Image.jpg"; sourceTree = "<group>"; };
+		C7334F451C6E4FAC00449CD3 /* FundraisingDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FundraisingDataClass.h; sourceTree = "<group>"; };
+		C7334F461C6E4FAC00449CD3 /* FundraisingDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FundraisingDataClass.m; sourceTree = "<group>"; };
+		C7334F481C6E5BA200449CD3 /* CustomFundraisingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomFundraisingCell.h; sourceTree = "<group>"; };
+		C7334F491C6E5BA200449CD3 /* CustomFundraisingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomFundraisingCell.m; sourceTree = "<group>"; };
 		C7D5B2851C61BAC90092A5D5 /* bg-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-1.png"; sourceTree = "<group>"; };
 		C7D5B2871C61BDF70092A5D5 /* bg-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-2.png"; sourceTree = "<group>"; };
 		C7D5B2891C61CA170092A5D5 /* Logo-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Logo-2.png"; sourceTree = "<group>"; };
@@ -423,6 +429,8 @@
 				C7D5B3B81C68EB090092A5D5 /* StateDataClass.m */,
 				C7D5B4F31C6BC6FF0092A5D5 /* IndustryDataClass.h */,
 				C7D5B4F41C6BC6FF0092A5D5 /* IndustryDataClass.m */,
+				C7334F451C6E4FAC00449CD3 /* FundraisingDataClass.h */,
+				C7334F461C6E4FAC00449CD3 /* FundraisingDataClass.m */,
 			);
 			name = DataModels;
 			sourceTree = "<group>";
@@ -521,6 +529,8 @@
 				C7D5B4841C68F1B10092A5D5 /* CustomStateCell.m */,
 				C7D5B4F61C6D05DC0092A5D5 /* CustomIndustryCell.h */,
 				C7D5B4F71C6D05DC0092A5D5 /* CustomIndustryCell.m */,
+				C7334F481C6E5BA200449CD3 /* CustomFundraisingCell.h */,
+				C7334F491C6E5BA200449CD3 /* CustomFundraisingCell.m */,
 			);
 			name = CustomCells;
 			sourceTree = "<group>";
@@ -745,6 +755,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7334F4A1C6E5BA200449CD3 /* CustomFundraisingCell.m in Sources */,
 				C7D5B4851C68F1B10092A5D5 /* CustomStateCell.m in Sources */,
 				C71832821C50B85F00388E02 /* Poli_Credible_Proto.xcdatamodeld in Sources */,
 				C718327C1C50B85F00388E02 /* ViewController.m in Sources */,
@@ -772,6 +783,7 @@
 				C7D5B3B91C68EB090092A5D5 /* StateDataClass.m in Sources */,
 				C7D5B4F11C6AD3420092A5D5 /* SWRevealViewController.m in Sources */,
 				C7D5B39B1C6535E20092A5D5 /* RepBio.m in Sources */,
+				C7334F471C6E4FAC00449CD3 /* FundraisingDataClass.m in Sources */,
 				C71832761C50B85F00388E02 /* main.m in Sources */,
 				C71832B31C513DFD00388E02 /* StateViewController.m in Sources */,
 				C71832CB1C5994C700388E02 /* DetailViewController.m in Sources */,

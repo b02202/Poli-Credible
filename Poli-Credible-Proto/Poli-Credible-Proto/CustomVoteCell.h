@@ -11,5 +11,7 @@
 @interface CustomVoteCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UILabel *cellTitle;
 @property (strong, nonatomic) IBOutlet UILabel *cellSubText;
+@property (strong, nonatomic) IBOutlet UILabel *cellSubText2;
+
 
 @end

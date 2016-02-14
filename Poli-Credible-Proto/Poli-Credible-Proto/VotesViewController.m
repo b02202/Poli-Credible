@@ -41,13 +41,16 @@
     self.votesTableView.rowHeight = UITableViewAutomaticDimension;
     
     // Run NYTimes Query
-    [self runNYQuery];
+    [self runSLQuery];
     
 }
 
 // Set URL for NYTimes API Query and run
--(void)runNYQuery {
-    NSString *urlString = [NSString stringWithFormat:@"http://api.nytimes.com/svc/politics/v3/us/legislative/congress/members/%@/votes.json?api-key=5a6a3fe8f0cf2954781b10bdce9761fd:16:72239310", self.recievedBioID];
+-(void)runSLQuery {
+   // NSString *urlString = [NSString stringWithFormat:@"http://api.nytimes.com/svc/politics/v3/us/legislative/congress/members/%@/votes.json?api-key=5a6a3fe8f0cf2954781b10bdce9761fd:16:72239310", self.recievedBioID];
+    
+   NSString *urlString = [NSString stringWithFormat:@"http://congress.api.sunlightfoundation.com/votes?voter_ids.%@__exists=true&fields=voter_ids.%@,bill,result,breakdown,nomination,question&apikey=6f9f2e31124941a98e97110aeeaec3ff", self.recievedBioID, self.recievedBioID];
+    
     [self httpGetRequest:urlString];
 }
 
@@ -68,38 +71,38 @@
     NSError *error = nil;
     NSDictionary *receivedData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
     NSArray *resultsArray = [NSArray arrayWithArray:[receivedData objectForKey:@"results"]];
-    NSObject *resultsObj = [resultsArray objectAtIndex:0];
-    NSArray *votingArray = [NSArray arrayWithArray:[resultsObj valueForKey:@"votes"]];
+    NSLog(@"TEST OBJ = %@", [[[resultsArray objectAtIndex:0]objectForKey:@"bill"]valueForKey:@"bill_id"]);
+  
+    //NSArray *votingArray = [NSArray arrayWithArray:[resultsObj valueForKey:@"votes"]];
     
-    for (int i=0; i < votingArray.count; i++) {
+    
+    for (int i=0; i < resultsArray.count; i++) {
         VoteDataClass *voteDataObj = [[VoteDataClass alloc] init];
-        NSObject *billOBJ = [votingArray objectAtIndex:i];
-        NSObject *posOBJ = [votingArray objectAtIndex:i];
-        NSObject *billInfoOBJ = [billOBJ valueForKey:@"bill"];
+        voteDataObj.billTitle = [[[resultsArray objectAtIndex:i]objectForKey:@"bill"]valueForKey:@"short_title"];
+        voteDataObj.billDesc  = [[[resultsArray objectAtIndex:i]objectForKey:@"bill"]valueForKey:@"official_title"];
+        voteDataObj.memberPos = [[[resultsArray objectAtIndex:i]objectForKey:@"voter_ids"]valueForKey:self.recievedBioID];
+        voteDataObj.billID = [[[resultsArray objectAtIndex:i]objectForKey:@"bill"]valueForKey:@"bill_id"];
+        voteDataObj.result = [[resultsArray objectAtIndex:i]objectForKey:@"result"];
+        voteDataObj.totalYea = [[[[resultsArray objectAtIndex:i]objectForKey:@"breakdown"]objectForKey:@"total"] valueForKey:@"Yea"];
+        voteDataObj.totalNay = [[[[resultsArray objectAtIndex:i]objectForKey:@"breakdown"]objectForKey:@"total"] valueForKey:@"Nay"];
+        voteDataObj.noVote = [[[[resultsArray objectAtIndex:i]objectForKey:@"breakdown"]objectForKey:@"total"] valueForKey:@"Not Voting"];
+        voteDataObj.demYea = [[[[[resultsArray objectAtIndex:i]objectForKey:@"breakdown"]objectForKey:@"party"] objectForKey:@"D"] valueForKey:@"Yea"];
+        voteDataObj.demNay = [[[[[resultsArray objectAtIndex:i]objectForKey:@"breakdown"]objectForKey:@"party"] objectForKey:@"D"] valueForKey:@"Nay"];
+        voteDataObj.rYea = [[[[[resultsArray objectAtIndex:i]objectForKey:@"breakdown"]objectForKey:@"party"] objectForKey:@"R"] valueForKey:@"Yea"];
+        voteDataObj.rNay = [[[[[resultsArray objectAtIndex:i]objectForKey:@"breakdown"]objectForKey:@"party"] objectForKey:@"R"] valueForKey:@"Nay"];
+        voteDataObj.nominationID = [[[resultsArray objectAtIndex:i]objectForKey:@"nomination"]valueForKey:@"nomination_id"];
+        voteDataObj.question = [[resultsArray objectAtIndex:i]objectForKey:@"question"];
         
-        if ([billInfoOBJ valueForKey:@"number"]) {
-            NSString *billTitle = [billInfoOBJ valueForKey:@"title"];
-            NSString *billDate = [billOBJ valueForKey:@"date"];
-            NSString *billDescription = [billOBJ valueForKey:@"description"];
-            NSString *memPosition = [posOBJ valueForKey:@"position"];
-            
-            voteDataObj.billTitle = billTitle;
-            voteDataObj.billDate = billDate;
-            voteDataObj.billDesc = billDescription;
-            voteDataObj.memberPos = memPosition;
-            
+        if ([[[[resultsArray objectAtIndex:i]objectForKey:@"breakdown"]objectForKey:@"party"] objectForKey:@"I"]) {
+            voteDataObj.iYea = [[[[[resultsArray objectAtIndex:i]objectForKey:@"breakdown"]objectForKey:@"party"] objectForKey:@"I"] valueForKey:@"Yea"];
+            voteDataObj.iNay = [[[[[resultsArray objectAtIndex:i]objectForKey:@"breakdown"]objectForKey:@"party"] objectForKey:@"I"] valueForKey:@"Nay"];
+        }
             // add to array
             [self.votesArray addObject:voteDataObj];
-            
-        }
-        
-        
-        
+    }
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.votesTableView reloadData];
         });
-        
-    }
 }
 
 // Table Header View Customization
@@ -122,7 +125,7 @@
 // Specify number of rows displayed
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     //return self.addressArray.count;
-    return self.votesArray.count;
+    return [self.votesArray count];
 }
 
 
@@ -130,7 +133,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"voteCell" forIndexPath:(NSIndexPath *)indexPath];
     //NSString *stateString = [[self.stateArray objectAtIndex:indexPath.row] objectForKey:@""];
-    CustomVoteCell *cell = [tableView dequeueReusableCellWithIdentifier:@"voteCell" forIndexPath:(NSIndexPath *)indexPath];
+    CustomVoteCell *cell = [tableView dequeueReusableCellWithIdentifier:@"voteCell"]; // forIndexPath:(NSIndexPath *)indexPath];
     // Change selected cells background color
     if (![cell viewWithTag:1]) {
         UIView *selectedView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, cell.frame.size.width, cell.frame.size.height)];
@@ -138,15 +141,40 @@
         selectedView.backgroundColor = [UIColor colorWithRed:92.0/255.0 green:152.0/255.0 blue:198.0/255.0 alpha:0.75];
         cell.selectedBackgroundView = selectedView;
     }
-    NSString *voteTitleString = [[self.votesArray objectAtIndex:indexPath.row] valueForKey:@"billTitle"];
-    NSString *memPosString = [NSString stringWithFormat:@"Voted: %@",[[self.votesArray objectAtIndex:indexPath.row] valueForKey:@"memberPos"]];
+    NSString *voteTitleString;
+    NSString *nominationString = [[self.votesArray objectAtIndex:indexPath.row] valueForKey:@"nominationID"];
+    NSString *billString = [[self.votesArray objectAtIndex:indexPath.row] valueForKey:@"billTitle"];
+    NSString *resultsString = [[self.votesArray objectAtIndex:indexPath.row] valueForKey:@"result"];
+    
+   // NSString *altBillString = [[self.votesArray objectAtIndex:indexPath.row] valueForKey:@"billDesc"];
+    NSLog(@"Nom = %@ ", nominationString);
+    NSLog(@"Bill = %@", billString);
+    
+    if (billString == nil || [billString isEqual:[NSNull null]]) {
+        voteTitleString = [[self.votesArray objectAtIndex:indexPath.row]valueForKey:@"question"];
+        
+    } else {
+        voteTitleString = billString;
+        
+    }
+    
+    NSString *memPosString;
+    if ([[[self.votesArray objectAtIndex:indexPath.row] valueForKey:@"memberPos"] isEqual:[NSNull null]]) {
+        memPosString = @"Voted: No Vote";
+    } else {
+        memPosString = [NSString stringWithFormat:@"Voted: %@", [[self.votesArray objectAtIndex:indexPath.row] valueForKey:@"memberPos"]];
+    }
+
     // Set Cell Text
-    //cell.textLabel.text = voteTitleString;
+ 
     cell.cellTitle.text = voteTitleString;
     
     // Set Cell Detail Text
-    //cell.detailTextLabel.text = memPosString;
+    
     cell.cellSubText.text = memPosString;
+    
+    // Set Results Text
+    cell.cellSubText2.text = [NSString stringWithFormat:@"Result: %@", resultsString];
     [cell layoutIfNeeded];
     
     return cell;
