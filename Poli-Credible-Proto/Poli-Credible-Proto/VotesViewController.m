@@ -10,6 +10,7 @@
 #import "HTTPManager.h"
 #import "VoteDataClass.h"
 #import "CustomVoteCell.h"
+#import "VoteDetailController.h"
 
 @interface VotesViewController () <HTTPManagerDelegate>
 @property (nonatomic, strong) NSMutableArray *votesArray;
@@ -88,14 +89,18 @@
         voteDataObj.noVote = [[[[resultsArray objectAtIndex:i]objectForKey:@"breakdown"]objectForKey:@"total"] valueForKey:@"Not Voting"];
         voteDataObj.demYea = [[[[[resultsArray objectAtIndex:i]objectForKey:@"breakdown"]objectForKey:@"party"] objectForKey:@"D"] valueForKey:@"Yea"];
         voteDataObj.demNay = [[[[[resultsArray objectAtIndex:i]objectForKey:@"breakdown"]objectForKey:@"party"] objectForKey:@"D"] valueForKey:@"Nay"];
+        voteDataObj.demNoVote = [[[[[resultsArray objectAtIndex:i]objectForKey:@"breakdown"]objectForKey:@"party"] objectForKey:@"D"] valueForKey:@"Not Voting"];
         voteDataObj.rYea = [[[[[resultsArray objectAtIndex:i]objectForKey:@"breakdown"]objectForKey:@"party"] objectForKey:@"R"] valueForKey:@"Yea"];
         voteDataObj.rNay = [[[[[resultsArray objectAtIndex:i]objectForKey:@"breakdown"]objectForKey:@"party"] objectForKey:@"R"] valueForKey:@"Nay"];
+        voteDataObj.rNoVote = [[[[[resultsArray objectAtIndex:i]objectForKey:@"breakdown"]objectForKey:@"party"] objectForKey:@"R"] valueForKey:@"Not Voting"];
         voteDataObj.nominationID = [[[resultsArray objectAtIndex:i]objectForKey:@"nomination"]valueForKey:@"nomination_id"];
         voteDataObj.question = [[resultsArray objectAtIndex:i]objectForKey:@"question"];
+        voteDataObj.billPdfUrl = [[[[[resultsArray objectAtIndex:i]objectForKey:@"bill"]objectForKey:@"last_version"]objectForKey:@"urls"]valueForKey:@"pdf"];
         
         if ([[[[resultsArray objectAtIndex:i]objectForKey:@"breakdown"]objectForKey:@"party"] objectForKey:@"I"]) {
             voteDataObj.iYea = [[[[[resultsArray objectAtIndex:i]objectForKey:@"breakdown"]objectForKey:@"party"] objectForKey:@"I"] valueForKey:@"Yea"];
             voteDataObj.iNay = [[[[[resultsArray objectAtIndex:i]objectForKey:@"breakdown"]objectForKey:@"party"] objectForKey:@"I"] valueForKey:@"Nay"];
+            voteDataObj.iNoVote = [[[[[resultsArray objectAtIndex:i]objectForKey:@"breakdown"]objectForKey:@"party"] objectForKey:@"I"] valueForKey:@"Not Voting"];
         }
             // add to array
             [self.votesArray addObject:voteDataObj];
@@ -183,6 +188,57 @@
 // Deselect cell after selection
 -(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+// Prepare for segue
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    NSIndexPath *indexPath = [self.votesTableView indexPathForSelectedRow];
+    NSString *question = [[self.votesArray objectAtIndex:indexPath.row]valueForKey:@"question"];
+    NSString *result = [[self.votesArray objectAtIndex:indexPath.row] valueForKey:@"result"];
+    //NSString *date;
+    //NSString *navTitle;
+    NSString *totalYea = [[self.votesArray objectAtIndex:indexPath.row] valueForKey:@"totalYea"];
+    NSString *totalNay = [[self.votesArray objectAtIndex:indexPath.row] valueForKey:@"totalNay"];
+    NSString *totalNo = [[self.votesArray objectAtIndex:indexPath.row] valueForKey:@"noVote"];
+    NSString *demYea = [[self.votesArray objectAtIndex:indexPath.row] valueForKey:@"demYea"];
+    NSString *demNay = [[self.votesArray objectAtIndex:indexPath.row] valueForKey:@"demNay"];
+    NSString *demNo = [[self.votesArray objectAtIndex:indexPath.row] valueForKey:@"demNoVote"];
+    NSString *rYea = [[self.votesArray objectAtIndex:indexPath.row] valueForKey:@"rYea"];
+    NSString *rNay = [[self.votesArray objectAtIndex:indexPath.row] valueForKey:@"rNay"];
+    NSString *rNo = [[self.votesArray objectAtIndex:indexPath.row] valueForKey:@"rNoVote"];
+    NSString *iYea = [[self.votesArray objectAtIndex:indexPath.row] valueForKey:@"iYea"];
+    NSString *iNay = [[self.votesArray objectAtIndex:indexPath.row] valueForKey:@"iNay"];
+    NSString *iNo = [[self.votesArray objectAtIndex:indexPath.row] valueForKey:@"iNoVote"];
+    //NSString *billTitle = [[self.votesArray objectAtIndex:indexPath.row] valueForKey:@"billTitle"];
+    NSString *pdfUrl = [[self.votesArray objectAtIndex:indexPath.row] valueForKey:@"billPdfUrl"];
+    
+    
+    if ([segue.identifier isEqualToString:@"toVoteDetail"]) {
+        VoteDetailController *vDC = segue.destinationViewController;
+        vDC.recievedQuestion = question;
+        vDC.recievedResult = result;
+        vDC.recievedTotalYea = totalYea;
+        vDC.recievedTotalNay = totalNay;
+        vDC.recievedTotalNoVote = totalNo;
+        vDC.recievedDemYea = demYea;
+        vDC.recievedDemNay = demNay;
+        vDC.recievedDemNo = demNo;
+        vDC.recievedRYea = rYea;
+        vDC.recievedRNay = rNay;
+        vDC.recievedRNo = rNo;
+        vDC.recievedIYea = iYea;
+        vDC.recievedINay = iNay;
+        vDC.recievedINo = iNo;
+        
+        if (pdfUrl == nil || [pdfUrl isEqual:[NSNull null]]) {
+            vDC.isBill = FALSE;
+        }
+        else {
+            vDC.isBill = TRUE;
+            vDC.recievedPdf = pdfUrl;
+        }
+    }
+    
 }
 
 

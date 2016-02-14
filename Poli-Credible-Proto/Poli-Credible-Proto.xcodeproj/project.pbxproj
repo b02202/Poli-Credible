@@ -30,6 +30,8 @@
 		C71832CD1C5A4A2400388E02 /* Shelby-Image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C71832CC1C5A4A2400388E02 /* Shelby-Image.jpg */; };
 		C7334F471C6E4FAC00449CD3 /* FundraisingDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = C7334F461C6E4FAC00449CD3 /* FundraisingDataClass.m */; };
 		C7334F4A1C6E5BA200449CD3 /* CustomFundraisingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C7334F491C6E5BA200449CD3 /* CustomFundraisingCell.m */; };
+		C7334F4D1C70D75000449CD3 /* VoteDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7334F4C1C70D75000449CD3 /* VoteDetailController.m */; };
+		C7334F501C70D79B00449CD3 /* VoteDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C7334F4F1C70D79B00449CD3 /* VoteDetailCell.m */; };
 		C7D5B2861C61BAC90092A5D5 /* bg-1.png in Resources */ = {isa = PBXBuildFile; fileRef = C7D5B2851C61BAC90092A5D5 /* bg-1.png */; };
 		C7D5B2881C61BDF70092A5D5 /* bg-2.png in Resources */ = {isa = PBXBuildFile; fileRef = C7D5B2871C61BDF70092A5D5 /* bg-2.png */; };
 		C7D5B28A1C61CA170092A5D5 /* Logo-2.png in Resources */ = {isa = PBXBuildFile; fileRef = C7D5B2891C61CA170092A5D5 /* Logo-2.png */; };
@@ -174,6 +176,10 @@
 		C7334F461C6E4FAC00449CD3 /* FundraisingDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FundraisingDataClass.m; sourceTree = "<group>"; };
 		C7334F481C6E5BA200449CD3 /* CustomFundraisingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomFundraisingCell.h; sourceTree = "<group>"; };
 		C7334F491C6E5BA200449CD3 /* CustomFundraisingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomFundraisingCell.m; sourceTree = "<group>"; };
+		C7334F4B1C70D75000449CD3 /* VoteDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoteDetailController.h; sourceTree = "<group>"; };
+		C7334F4C1C70D75000449CD3 /* VoteDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoteDetailController.m; sourceTree = "<group>"; };
+		C7334F4E1C70D79B00449CD3 /* VoteDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoteDetailCell.h; sourceTree = "<group>"; };
+		C7334F4F1C70D79B00449CD3 /* VoteDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoteDetailCell.m; sourceTree = "<group>"; };
 		C7D5B2851C61BAC90092A5D5 /* bg-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-1.png"; sourceTree = "<group>"; };
 		C7D5B2871C61BDF70092A5D5 /* bg-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-2.png"; sourceTree = "<group>"; };
 		C7D5B2891C61CA170092A5D5 /* Logo-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Logo-2.png"; sourceTree = "<group>"; };
@@ -459,6 +465,8 @@
 				C7D5B39D1C655EE80092A5D5 /* ContributionsViewController.m */,
 				C7D5B3A81C6784FF0092A5D5 /* VotesViewController.h */,
 				C7D5B3A91C6784FF0092A5D5 /* VotesViewController.m */,
+				C7334F4B1C70D75000449CD3 /* VoteDetailController.h */,
+				C7334F4C1C70D75000449CD3 /* VoteDetailController.m */,
 			);
 			name = DetailViews;
 			sourceTree = "<group>";
@@ -531,6 +539,8 @@
 				C7D5B4F71C6D05DC0092A5D5 /* CustomIndustryCell.m */,
 				C7334F481C6E5BA200449CD3 /* CustomFundraisingCell.h */,
 				C7334F491C6E5BA200449CD3 /* CustomFundraisingCell.m */,
+				C7334F4E1C70D79B00449CD3 /* VoteDetailCell.h */,
+				C7334F4F1C70D79B00449CD3 /* VoteDetailCell.m */,
 			);
 			name = CustomCells;
 			sourceTree = "<group>";
@@ -768,9 +778,11 @@
 				C71832BF1C56890A00388E02 /* HTTPManager.m in Sources */,
 				C7D5B3B21C68D0E70092A5D5 /* VoteDataClass.m in Sources */,
 				C7D5B4EA1C6A76B40092A5D5 /* SearchByZipViewController.m in Sources */,
+				C7334F501C70D79B00449CD3 /* VoteDetailCell.m in Sources */,
 				C71832C21C57DB4A00388E02 /* ZipCodeViewController.m in Sources */,
 				C71832B81C567B9100388E02 /* ResultsViewController.m in Sources */,
 				C71832BB1C567D8900388E02 /* MemberDataClass.m in Sources */,
+				C7334F4D1C70D75000449CD3 /* VoteDetailController.m in Sources */,
 				C7D5B2A31C644D240092A5D5 /* MemberInfoViewController.m in Sources */,
 				C7D5B3931C6532680092A5D5 /* TFHppleElement.m in Sources */,
 				C7D5B4F51C6BC6FF0092A5D5 /* IndustryDataClass.m in Sources */,
