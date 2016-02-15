@@ -29,7 +29,7 @@
         _loginBtn.hidden = YES;
     }
     else {
-        NSLog(@"No user registered");
+        NSLog(@"user is registered");
         _reEnterPasswordField.hidden = YES;
         _registerBtn.hidden = YES;
     }
@@ -86,6 +86,61 @@
     }
 }
 
+- (IBAction)registerTextAction:(id)sender {
+    self.resetButton.hidden = YES;
+    self.loginBtn.hidden = YES;
+    self.reEnterPasswordField.hidden = NO;
+    self.registerBtn.hidden = NO;
+    self.loginTextBtn.hidden = NO;
+}
+
+- (IBAction)loginTextButton:(id)sender {
+    self.registerBtn.hidden = YES;
+    self.reEnterPasswordField.hidden = YES;
+    self.loginBtn.hidden = NO;
+    self.loginTextBtn.hidden = YES;
+}
+
+- (IBAction)forgotPassword:(id)sender {
+     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    self.reEnterPasswordField.hidden = NO;
+    self.resetButton.hidden = NO;
+    self.registerBtn.hidden = YES;
+    //self.registerBtn.enabled = NO;
+    self.loginBtn.hidden = YES;
+    
+    //if ([_usernameField.text isEqualToString:[defaults objectForKey:@"username"]]) {
+      //  statements
+    //}
+    
+    //[_usernameField.text isEqualToString:[defaults objectForKey:@"username"]]
+}
+
+- (IBAction)resetBtn:(id)sender {
+    [self resetPassword];
+    
+    
+}
+
+-(void)resetPassword {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([_usernameField.text isEqualToString:[defaults objectForKey:@"username"]]) {
+        if ([_passwordField.text isEqualToString:_reEnterPasswordField.text]) {
+            [defaults setObject:_passwordField.text forKey:@"password"];
+            self.resetButton.hidden = YES;
+            self.loginBtn.hidden = NO;
+            self.reEnterPasswordField.hidden = YES;
+        }
+        else {
+            NSLog(@"password don't match");
+            UIAlertView *error = [[UIAlertView alloc] initWithTitle:@"Oops" message:@"Your entered passwords do not match" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            self.loginBtn.hidden = YES;
+            self.reEnterPasswordField.hidden = NO;
+            [error show];
+        }
+    }
+}
+
 // Check Password Match
 -(void) checkPasswordMatch
 {
@@ -119,6 +174,8 @@
     
     [self performSegueWithIdentifier:@"login" sender:self];
 }
+
+
 
 // Register Button Show/Hide
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {

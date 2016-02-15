@@ -156,60 +156,89 @@
 
 // Core Data Save Legislator
 -(void)saveToFavorites {
-    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    /*
+     NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
+     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Legislator"];
+     // Add to Array
+     self.favoritesArray = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+     */
     appDelegate = [[UIApplication sharedApplication] delegate];
-    // Create a new managed object
-    NSManagedObject *newLegislator = [NSEntityDescription insertNewObjectForEntityForName:@"Legislator" inManagedObjectContext:context];
-    [newLegislator setValue:self.recievedName forKey:@"fullName"];
-    [newLegislator setValue:self.recievedParty forKey:@"party"];
-    [newLegislator setValue:self.recievedPhone forKey:@"phone"];
-    [newLegislator setValue:self.recievedBioID forKey:@"bioGuideID"];
-    [newLegislator setValue:self.recievedCRPID forKey:@"crpID"];
-    [newLegislator setValue:self.recievedState forKey:@"stateName"];
+    NSArray *favArray = [[NSMutableArray alloc]init];
+    NSManagedObjectContext *context = [self managedObjectContext];
     
-    
-    [newLegislator setValue:self.recievedWebsiteUrl forKey:@"website"];
-    [newLegislator setValue:self.recievedDOB forKey:@"birthday"];
-    
-    
-    // Twitter Validation
-    if (![self.recievedTwittterId isEqual:[NSNull null]]) {
-        [newLegislator setValue:self.recievedTwittterId forKey:@"twitterID"];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Legislator"];
+    favArray = [[context executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    BOOL isDuplicate = FALSE;
+    // check for duplicate
+    for (int i = 0; i < favArray.count; i++) {
+        NSString *bioID = [[favArray objectAtIndex:i]valueForKey:@"bioGuideID"];
+        if ([bioID isEqualToString:self.recievedBioID]) {
+            isDuplicate = TRUE;
+            break;
+        }
     }
-    // Facebook Validation
-    if (![self.recievedFacebookId isEqual:[NSNull null]]) {
-        [newLegislator setValue:self.recievedFacebookId forKey:@"facebookID"];
-    }
-    // ContactUrl Validation
-    if (![self.recievedContactForm isEqual:[NSNull null]]) {
-        [newLegislator setValue:self.recievedContactForm forKey:@"contactURL"];
-    }
-    // District Validation
-    if (![self.recievedDistrict isEqual:[NSNull null]]) {
-        NSNumber  *districtNum = [NSNumber numberWithInteger: [self.recievedDistrict integerValue]];
-        [newLegislator setValue:districtNum forKey:@"district"];
+    if (!isDuplicate) {
+        // Create a new managed object
+        NSManagedObject *newLegislator = [NSEntityDescription insertNewObjectForEntityForName:@"Legislator" inManagedObjectContext:context];
+        [newLegislator setValue:self.recievedName forKey:@"fullName"];
+        [newLegislator setValue:self.recievedParty forKey:@"party"];
+        [newLegislator setValue:self.recievedPhone forKey:@"phone"];
+        [newLegislator setValue:self.recievedBioID forKey:@"bioGuideID"];
+        [newLegislator setValue:self.recievedCRPID forKey:@"crpID"];
+        [newLegislator setValue:self.recievedState forKey:@"stateName"];
         
+        
+        [newLegislator setValue:self.recievedWebsiteUrl forKey:@"website"];
+        [newLegislator setValue:self.recievedDOB forKey:@"birthday"];
+        
+        
+        // Twitter Validation
+        if (![self.recievedTwittterId isEqual:[NSNull null]]) {
+            [newLegislator setValue:self.recievedTwittterId forKey:@"twitterID"];
+        }
+        // Facebook Validation
+        if (![self.recievedFacebookId isEqual:[NSNull null]]) {
+            [newLegislator setValue:self.recievedFacebookId forKey:@"facebookID"];
+        }
+        // ContactUrl Validation
+        if (![self.recievedContactForm isEqual:[NSNull null]]) {
+            [newLegislator setValue:self.recievedContactForm forKey:@"contactURL"];
+        }
+        // District Validation
+        if (![self.recievedDistrict isEqual:[NSNull null]]) {
+            NSNumber  *districtNum = [NSNumber numberWithInteger: [self.recievedDistrict integerValue]];
+            [newLegislator setValue:districtNum forKey:@"district"];
+            
+        }
+        
+        
+        
+        
+        //    if (![self.recievedDistrict isEqual:[NSNull null]]) {
+        //
+        //        [newLegislator setValue:self.recievedDistrict forKey:@"district"];
+        //    }
+        
+        
+        NSError *error = nil;
+        // Save the object to Core Data
+        if (![context save:&error]) {
+            // Handle Error
+            NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+        } else {
+            UIAlertView *successAlert = [[UIAlertView alloc] initWithTitle:@"Success" message:@"Legislator has been added to your favorites." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            
+            [successAlert show];
+        }
+    }
+    else {
+        UIAlertView *dupAlert = [[UIAlertView alloc] initWithTitle:@"Duplicate" message:@"Legislator has already been added to your favorites." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        
+        [dupAlert show];
     }
     
-    
-    
-    
-//    if (![self.recievedDistrict isEqual:[NSNull null]]) {
-//        
-//        [newLegislator setValue:self.recievedDistrict forKey:@"district"];
-//    }
 
-    
-    NSError *error = nil;
-    // Save the object to Core Data
-    if (![context save:&error]) {
-        // Handle Error
-        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
-    } else {
-        UIAlertView *successAlert = [[UIAlertView alloc] initWithTitle:@"Success" message:@"Legislator has been added to your favorites." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-        
-        [successAlert show];
-    }
 }
 - (IBAction)addFavorite:(id)sender {
     

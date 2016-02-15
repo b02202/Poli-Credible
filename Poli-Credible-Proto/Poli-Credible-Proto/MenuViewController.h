@@ -12,5 +12,6 @@
 
 @property (strong, nonatomic) IBOutlet UITableView *menuTableView;
 
+- (IBAction)logoutBtn:(id)sender;
 
 @end

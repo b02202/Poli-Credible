@@ -189,7 +189,7 @@
     if ([segue.identifier isEqualToString:@"favoritesToDetail"]) {
         NSIndexPath *indexPath = [self.favoritesTableView indexPathForSelectedRow];
         
-        district = [[self.favoritesArray objectAtIndex:indexPath.row] valueForKey:@"bioGuideID"];
+        district = [[self.favoritesArray objectAtIndex:indexPath.row] valueForKey:@"district"];
         
         bioGuideID = [[self.favoritesArray objectAtIndex:indexPath.row] valueForKey:@"bioGuideID"];
         memFullName = [[self.favoritesArray objectAtIndex:indexPath.row] valueForKey:@"fullName"];
@@ -221,7 +221,7 @@
         detailVC.memCRPID = repCRPID;
         detailVC.memState = stateName;
         
-        if (![district isEqual:[NSNull null]]) {
+        if (district != nil || ![district isEqual:[NSNull null]]) {
             detailVC.memDistrict = district;
         }
         

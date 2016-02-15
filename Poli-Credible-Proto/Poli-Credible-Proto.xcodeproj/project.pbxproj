@@ -10,7 +10,6 @@
 		C71832761C50B85F00388E02 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C71832751C50B85F00388E02 /* main.m */; };
 		C71832791C50B85F00388E02 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C71832781C50B85F00388E02 /* AppDelegate.m */; };
 		C718327C1C50B85F00388E02 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C718327B1C50B85F00388E02 /* ViewController.m */; };
-		C718327F1C50B85F00388E02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C718327D1C50B85F00388E02 /* Main.storyboard */; };
 		C71832821C50B85F00388E02 /* Poli_Credible_Proto.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C71832801C50B85F00388E02 /* Poli_Credible_Proto.xcdatamodeld */; };
 		C71832841C50B85F00388E02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C71832831C50B85F00388E02 /* Assets.xcassets */; };
 		C71832871C50B85F00388E02 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C71832851C50B85F00388E02 /* LaunchScreen.storyboard */; };
@@ -32,6 +31,8 @@
 		C7334F4A1C6E5BA200449CD3 /* CustomFundraisingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C7334F491C6E5BA200449CD3 /* CustomFundraisingCell.m */; };
 		C7334F4D1C70D75000449CD3 /* VoteDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7334F4C1C70D75000449CD3 /* VoteDetailController.m */; };
 		C7334F501C70D79B00449CD3 /* VoteDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C7334F4F1C70D79B00449CD3 /* VoteDetailCell.m */; };
+		C7334F521C712A0400449CD3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7334F511C712A0300449CD3 /* CoreLocation.framework */; };
+		C7334F551C713F5200449CD3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7334F531C713F5200449CD3 /* Main.storyboard */; };
 		C7D5B2861C61BAC90092A5D5 /* bg-1.png in Resources */ = {isa = PBXBuildFile; fileRef = C7D5B2851C61BAC90092A5D5 /* bg-1.png */; };
 		C7D5B2881C61BDF70092A5D5 /* bg-2.png in Resources */ = {isa = PBXBuildFile; fileRef = C7D5B2871C61BDF70092A5D5 /* bg-2.png */; };
 		C7D5B28A1C61CA170092A5D5 /* Logo-2.png in Resources */ = {isa = PBXBuildFile; fileRef = C7D5B2891C61CA170092A5D5 /* Logo-2.png */; };
@@ -141,7 +142,6 @@
 		C71832781C50B85F00388E02 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		C718327A1C50B85F00388E02 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		C718327B1C50B85F00388E02 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		C718327E1C50B85F00388E02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C71832811C50B85F00388E02 /* Poli_Credible_Proto.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Poli_Credible_Proto.xcdatamodel; sourceTree = "<group>"; };
 		C71832831C50B85F00388E02 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C71832861C50B85F00388E02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -180,6 +180,8 @@
 		C7334F4C1C70D75000449CD3 /* VoteDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoteDetailController.m; sourceTree = "<group>"; };
 		C7334F4E1C70D79B00449CD3 /* VoteDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoteDetailCell.h; sourceTree = "<group>"; };
 		C7334F4F1C70D79B00449CD3 /* VoteDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoteDetailCell.m; sourceTree = "<group>"; };
+		C7334F511C712A0300449CD3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		C7334F541C713F5200449CD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C7D5B2851C61BAC90092A5D5 /* bg-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-1.png"; sourceTree = "<group>"; };
 		C7D5B2871C61BDF70092A5D5 /* bg-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-2.png"; sourceTree = "<group>"; };
 		C7D5B2891C61CA170092A5D5 /* Logo-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Logo-2.png"; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7334F521C712A0400449CD3 /* CoreLocation.framework in Frameworks */,
 				C7D5B3981C6535330092A5D5 /* libxml2.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -313,6 +316,7 @@
 		C71832681C50B85F00388E02 = {
 			isa = PBXGroup;
 			children = (
+				C7334F511C712A0300449CD3 /* CoreLocation.framework */,
 				C7D5B3971C6535330092A5D5 /* libxml2.tbd */,
 				C71832731C50B85F00388E02 /* Poli-Credible-Proto */,
 				C71832901C50B85F00388E02 /* Poli-Credible-ProtoTests */,
@@ -334,6 +338,7 @@
 		C71832731C50B85F00388E02 /* Poli-Credible-Proto */ = {
 			isa = PBXGroup;
 			children = (
+				C7334F531C713F5200449CD3 /* Main.storyboard */,
 				C7D5B4821C68F16B0092A5D5 /* CustomCells */,
 				C7D5B38B1C6531CD0092A5D5 /* hpple */,
 				C7D5B38A1C6530F70092A5D5 /* DataModels */,
@@ -343,7 +348,6 @@
 				C71832781C50B85F00388E02 /* AppDelegate.m */,
 				C718327A1C50B85F00388E02 /* ViewController.h */,
 				C718327B1C50B85F00388E02 /* ViewController.m */,
-				C718327D1C50B85F00388E02 /* Main.storyboard */,
 				C71832831C50B85F00388E02 /* Assets.xcassets */,
 				C71832851C50B85F00388E02 /* LaunchScreen.storyboard */,
 				C71832881C50B85F00388E02 /* Info.plist */,
@@ -692,6 +696,7 @@
 				C7D5B4651C68F0C40092A5D5 /* state-michigan.png in Resources */,
 				C7D5B4551C68F0C40092A5D5 /* state-colorado.png in Resources */,
 				C7D5B45C1C68F0C40092A5D5 /* state-illinois.png in Resources */,
+				C7334F551C713F5200449CD3 /* Main.storyboard in Resources */,
 				C7D5B29A1C62EACC0092A5D5 /* twitter-icon.png in Resources */,
 				C7D5B4621C68F0C40092A5D5 /* state-maine.png in Resources */,
 				C7D5B47E1C68F0C40092A5D5 /* state-washington.png in Resources */,
@@ -719,7 +724,6 @@
 				C7D5B47D1C68F0C40092A5D5 /* state-virginia.png in Resources */,
 				C7D5B46B1C68F0C40092A5D5 /* state-nevada.png in Resources */,
 				C7D5B4561C68F0C40092A5D5 /* state-connecticut.png in Resources */,
-				C718327F1C50B85F00388E02 /* Main.storyboard in Resources */,
 				C7D5B4601C68F0C40092A5D5 /* state-kentucky.png in Resources */,
 				C7D5B45F1C68F0C40092A5D5 /* state-kansas.png in Resources */,
 				C7D5B4801C68F0C40092A5D5 /* state-wisconsin.png in Resources */,
@@ -835,20 +839,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		C718327D1C50B85F00388E02 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C718327E1C50B85F00388E02 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		C71832851C50B85F00388E02 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				C71832861C50B85F00388E02 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		C7334F531C713F5200449CD3 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C7334F541C713F5200449CD3 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

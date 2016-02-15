@@ -60,9 +60,7 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)viewWillAppear:(BOOL)animated {
-    //[self httpGetRequest:self.searchStr];
-}
+
 
 // Http Get Request
 -(void)httpGetRequest:(NSString*)searchString {

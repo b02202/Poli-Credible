@@ -7,15 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface SearchByZipViewController : UIViewController <UITextFieldDelegate>
+#import <CoreLocation/CoreLocation.h>
+@interface SearchByZipViewController : UIViewController <UITextFieldDelegate, CLLocationManagerDelegate>
 
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *menuButton;
-
-
 @property (weak, nonatomic) IBOutlet UITextField *zipCodeField;
+@property (strong, nonatomic) NSString *latitude;
+@property (strong, nonatomic) NSString *longitude;
+
+
+
+
 
 - (IBAction)searchBtn:(id)sender;
 
+- (IBAction)seachByLocation:(id)sender;
 
 @end

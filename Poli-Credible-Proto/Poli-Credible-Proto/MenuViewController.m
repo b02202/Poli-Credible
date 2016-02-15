@@ -8,6 +8,7 @@
 
 #import "MenuViewController.h"
 #import "SWRevealViewController.h"
+#import "ViewController.h"
 
 @implementation MenuViewController {
     NSArray *menuItems;
@@ -61,5 +62,11 @@
             [self.revealViewController setFrontViewPosition:FrontViewPositionLeft animated:YES];
         };
     }
+}
+- (IBAction)logoutBtn:(id)sender {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    ViewController *viewController = (ViewController *)[storyboard instantiateViewControllerWithIdentifier:@"loginScreen"];
+    
+    [self presentViewController:viewController animated:YES completion:nil];
 }
 @end
