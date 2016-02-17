@@ -33,6 +33,18 @@
 		C7334F501C70D79B00449CD3 /* VoteDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C7334F4F1C70D79B00449CD3 /* VoteDetailCell.m */; };
 		C7334F521C712A0400449CD3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7334F511C712A0300449CD3 /* CoreLocation.framework */; };
 		C7334F551C713F5200449CD3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7334F531C713F5200449CD3 /* Main.storyboard */; };
+		C7ADC53A1C72D94F0003A847 /* Contents.json in Resources */ = {isa = PBXBuildFile; fileRef = C7ADC52E1C72D94F0003A847 /* Contents.json */; };
+		C7ADC53B1C72D94F0003A847 /* Icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = C7ADC52F1C72D94F0003A847 /* Icon-40.png */; };
+		C7ADC53C1C72D94F0003A847 /* Icon-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C7ADC5301C72D94F0003A847 /* Icon-40@2x.png */; };
+		C7ADC53D1C72D94F0003A847 /* Icon-40@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C7ADC5311C72D94F0003A847 /* Icon-40@3x.png */; };
+		C7ADC53E1C72D94F0003A847 /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C7ADC5321C72D94F0003A847 /* Icon-60@2x.png */; };
+		C7ADC53F1C72D94F0003A847 /* Icon-60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C7ADC5331C72D94F0003A847 /* Icon-60@3x.png */; };
+		C7ADC5401C72D94F0003A847 /* Icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = C7ADC5341C72D94F0003A847 /* Icon-76.png */; };
+		C7ADC5411C72D94F0003A847 /* Icon-76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C7ADC5351C72D94F0003A847 /* Icon-76@2x.png */; };
+		C7ADC5421C72D94F0003A847 /* Icon-83.5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C7ADC5361C72D94F0003A847 /* Icon-83.5@2x.png */; };
+		C7ADC5431C72D94F0003A847 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = C7ADC5371C72D94F0003A847 /* Icon-Small.png */; };
+		C7ADC5441C72D94F0003A847 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C7ADC5381C72D94F0003A847 /* Icon-Small@2x.png */; };
+		C7ADC5451C72D94F0003A847 /* Icon-Small@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C7ADC5391C72D94F0003A847 /* Icon-Small@3x.png */; };
 		C7D5B2861C61BAC90092A5D5 /* bg-1.png in Resources */ = {isa = PBXBuildFile; fileRef = C7D5B2851C61BAC90092A5D5 /* bg-1.png */; };
 		C7D5B2881C61BDF70092A5D5 /* bg-2.png in Resources */ = {isa = PBXBuildFile; fileRef = C7D5B2871C61BDF70092A5D5 /* bg-2.png */; };
 		C7D5B28A1C61CA170092A5D5 /* Logo-2.png in Resources */ = {isa = PBXBuildFile; fileRef = C7D5B2891C61CA170092A5D5 /* Logo-2.png */; };
@@ -182,6 +194,18 @@
 		C7334F4F1C70D79B00449CD3 /* VoteDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoteDetailCell.m; sourceTree = "<group>"; };
 		C7334F511C712A0300449CD3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		C7334F541C713F5200449CD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C7ADC52E1C72D94F0003A847 /* Contents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
+		C7ADC52F1C72D94F0003A847 /* Icon-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-40.png"; sourceTree = "<group>"; };
+		C7ADC5301C72D94F0003A847 /* Icon-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-40@2x.png"; sourceTree = "<group>"; };
+		C7ADC5311C72D94F0003A847 /* Icon-40@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-40@3x.png"; sourceTree = "<group>"; };
+		C7ADC5321C72D94F0003A847 /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@2x.png"; sourceTree = "<group>"; };
+		C7ADC5331C72D94F0003A847 /* Icon-60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@3x.png"; sourceTree = "<group>"; };
+		C7ADC5341C72D94F0003A847 /* Icon-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-76.png"; sourceTree = "<group>"; };
+		C7ADC5351C72D94F0003A847 /* Icon-76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-76@2x.png"; sourceTree = "<group>"; };
+		C7ADC5361C72D94F0003A847 /* Icon-83.5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-83.5@2x.png"; sourceTree = "<group>"; };
+		C7ADC5371C72D94F0003A847 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
+		C7ADC5381C72D94F0003A847 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
+		C7ADC5391C72D94F0003A847 /* Icon-Small@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@3x.png"; sourceTree = "<group>"; };
 		C7D5B2851C61BAC90092A5D5 /* bg-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-1.png"; sourceTree = "<group>"; };
 		C7D5B2871C61BDF70092A5D5 /* bg-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-2.png"; sourceTree = "<group>"; };
 		C7D5B2891C61CA170092A5D5 /* Logo-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Logo-2.png"; sourceTree = "<group>"; };
@@ -349,6 +373,7 @@
 				C718327A1C50B85F00388E02 /* ViewController.h */,
 				C718327B1C50B85F00388E02 /* ViewController.m */,
 				C71832831C50B85F00388E02 /* Assets.xcassets */,
+				C7ADC52D1C72D94F0003A847 /* AppIcon.appiconset */,
 				C71832851C50B85F00388E02 /* LaunchScreen.storyboard */,
 				C71832881C50B85F00388E02 /* Info.plist */,
 				C71832801C50B85F00388E02 /* Poli_Credible_Proto.xcdatamodeld */,
@@ -422,6 +447,25 @@
 				C71832AB1C50BA0F00388E02 /* UIBarButtonSearch_2x.png */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		C7ADC52D1C72D94F0003A847 /* AppIcon.appiconset */ = {
+			isa = PBXGroup;
+			children = (
+				C7ADC52E1C72D94F0003A847 /* Contents.json */,
+				C7ADC52F1C72D94F0003A847 /* Icon-40.png */,
+				C7ADC5301C72D94F0003A847 /* Icon-40@2x.png */,
+				C7ADC5311C72D94F0003A847 /* Icon-40@3x.png */,
+				C7ADC5321C72D94F0003A847 /* Icon-60@2x.png */,
+				C7ADC5331C72D94F0003A847 /* Icon-60@3x.png */,
+				C7ADC5341C72D94F0003A847 /* Icon-76.png */,
+				C7ADC5351C72D94F0003A847 /* Icon-76@2x.png */,
+				C7ADC5361C72D94F0003A847 /* Icon-83.5@2x.png */,
+				C7ADC5371C72D94F0003A847 /* Icon-Small.png */,
+				C7ADC5381C72D94F0003A847 /* Icon-Small@2x.png */,
+				C7ADC5391C72D94F0003A847 /* Icon-Small@3x.png */,
+			);
+			path = AppIcon.appiconset;
 			sourceTree = "<group>";
 		};
 		C7D5B38A1C6530F70092A5D5 /* DataModels */ = {
@@ -675,6 +719,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7ADC53F1C72D94F0003A847 /* Icon-60@3x.png in Resources */,
+				C7ADC53C1C72D94F0003A847 /* Icon-40@2x.png in Resources */,
 				C7D5B4541C68F0C40092A5D5 /* state-california.png in Resources */,
 				C71832871C50B85F00388E02 /* LaunchScreen.storyboard in Resources */,
 				C7D5B2A01C62F46F0092A5D5 /* phone-icon.png in Resources */,
@@ -683,12 +729,16 @@
 				C7D5B47A1C68F0C40092A5D5 /* state-texas.png in Resources */,
 				C7D5B2941C62967C0092A5D5 /* favorite-icon.png in Resources */,
 				C7D5B4671C68F0C40092A5D5 /* state-mississippi.png in Resources */,
+				C7ADC53B1C72D94F0003A847 /* Icon-40.png in Resources */,
 				C7D5B28A1C61CA170092A5D5 /* Logo-2.png in Resources */,
+				C7ADC5441C72D94F0003A847 /* Icon-Small@2x.png in Resources */,
 				C7D5B46A1C68F0C40092A5D5 /* state-nebraska.png in Resources */,
 				C7D5B45D1C68F0C40092A5D5 /* state-indiana.png in Resources */,
 				C7D5B47C1C68F0C40092A5D5 /* state-vermont.png in Resources */,
 				C7D5B4581C68F0C40092A5D5 /* state-florida.png in Resources */,
+				C7ADC5411C72D94F0003A847 /* Icon-76@2x.png in Resources */,
 				C7D5B45B1C68F0C40092A5D5 /* state-idaho.png in Resources */,
+				C7ADC5401C72D94F0003A847 /* Icon-76.png in Resources */,
 				C7D5B4571C68F0C40092A5D5 /* state-delaware.png in Resources */,
 				C7D5B4591C68F0C40092A5D5 /* state-georgia.png in Resources */,
 				C7D5B4681C68F0C40092A5D5 /* state-missouri.png in Resources */,
@@ -699,14 +749,18 @@
 				C7334F551C713F5200449CD3 /* Main.storyboard in Resources */,
 				C7D5B29A1C62EACC0092A5D5 /* twitter-icon.png in Resources */,
 				C7D5B4621C68F0C40092A5D5 /* state-maine.png in Resources */,
+				C7ADC5451C72D94F0003A847 /* Icon-Small@3x.png in Resources */,
 				C7D5B47E1C68F0C40092A5D5 /* state-washington.png in Resources */,
 				C7D5B4511C68F0C40092A5D5 /* state-alaska.png in Resources */,
+				C7ADC53A1C72D94F0003A847 /* Contents.json in Resources */,
 				C7D5B4791C68F0C40092A5D5 /* state-tennessee.png in Resources */,
 				C7D5B4531C68F0C40092A5D5 /* state-arkansas.png in Resources */,
 				C7D5B4501C68F0C40092A5D5 /* state-alabama.png in Resources */,
+				C7ADC53D1C72D94F0003A847 /* Icon-40@3x.png in Resources */,
 				C7D5B45A1C68F0C40092A5D5 /* state-hawaii.png in Resources */,
 				C7D5B4741C68F0C40092A5D5 /* state-oregon.png in Resources */,
 				C71832841C50B85F00388E02 /* Assets.xcassets in Resources */,
+				C7ADC5421C72D94F0003A847 /* Icon-83.5@2x.png in Resources */,
 				C7D5B2881C61BDF70092A5D5 /* bg-2.png in Resources */,
 				C7D5B4721C68F0C40092A5D5 /* state-ohio.png in Resources */,
 				C7D5B4701C68F0C40092A5D5 /* state-north-carolina.png in Resources */,
@@ -715,6 +769,7 @@
 				C7D5B4731C68F0C40092A5D5 /* state-oklahoma.png in Resources */,
 				C7D5B2861C61BAC90092A5D5 /* bg-1.png in Resources */,
 				C71832CD1C5A4A2400388E02 /* Shelby-Image.jpg in Resources */,
+				C7ADC5431C72D94F0003A847 /* Icon-Small.png in Resources */,
 				C7D5B4E71C6A71770092A5D5 /* menu-icon.png in Resources */,
 				C7D5B46D1C68F0C40092A5D5 /* state-new-jersey.png in Resources */,
 				C7D5B2981C62E8710092A5D5 /* facebook-icon.png in Resources */,
@@ -727,6 +782,7 @@
 				C7D5B4601C68F0C40092A5D5 /* state-kentucky.png in Resources */,
 				C7D5B45F1C68F0C40092A5D5 /* state-kansas.png in Resources */,
 				C7D5B4801C68F0C40092A5D5 /* state-wisconsin.png in Resources */,
+				C7ADC53E1C72D94F0003A847 /* Icon-60@2x.png in Resources */,
 				C7D5B4811C68F0C40092A5D5 /* state-wyoming.png in Resources */,
 				C7D5B4891C6911250092A5D5 /* state-massachusetts.png in Resources */,
 				C7D5B4521C68F0C40092A5D5 /* state-arizona.png in Resources */,
@@ -919,7 +975,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Robert Brooks (NEDUKB8W3F)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Robert Brooks (NEDUKB8W3F)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -959,8 +1016,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = "Poli-Credible-Proto/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

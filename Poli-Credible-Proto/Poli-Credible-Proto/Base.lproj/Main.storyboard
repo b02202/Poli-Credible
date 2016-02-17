@@ -101,10 +101,9 @@
                                 </items>
                             </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yRr-47-rh3">
-                                <rect key="frame" x="429" y="224" width="123" height="30"/>
+                                <rect key="frame" x="422" y="224" width="130" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="123" id="bgn-Tf-3WC"/>
-                                    <constraint firstAttribute="height" constant="30" id="rxV-Hg-81P"/>
+                                    <constraint firstAttribute="width" constant="130" id="Ttg-rr-oIV"/>
                                 </constraints>
                                 <state key="normal" title="forgot password?">
                                     <color key="titleColor" red="0.36078432202339172" green="0.59607845544815063" blue="0.7764706015586853" alpha="1" colorSpace="calibratedRGB"/>
@@ -146,6 +145,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="yd8-Ef-Ndo" secondAttribute="trailing" id="20B-va-JKx"/>
                             <constraint firstItem="Ltp-te-kHb" firstAttribute="top" secondItem="xFT-CU-jhT" secondAttribute="bottom" constant="16" id="5OR-5S-FfF"/>
                             <constraint firstItem="w2Y-cQ-3iI" firstAttribute="top" secondItem="yd8-Ef-Ndo" secondAttribute="bottom" constant="10" id="6fp-gW-834"/>
+                            <constraint firstItem="yRr-47-rh3" firstAttribute="trailing" secondItem="Ang-x3-rxo" secondAttribute="trailing" id="7FW-4Z-XHI"/>
                             <constraint firstAttribute="trailingMargin" secondItem="GQl-dQ-Bye" secondAttribute="trailing" constant="28" id="7U8-ei-rnr"/>
                             <constraint firstAttribute="trailingMargin" secondItem="PPC-Z3-Q8o" secondAttribute="trailing" constant="-20" id="98k-Kc-UYF"/>
                             <constraint firstItem="94q-YD-glm" firstAttribute="top" secondItem="Ang-x3-rxo" secondAttribute="bottom" id="DPv-ia-BEs"/>
@@ -157,7 +157,6 @@
                             <constraint firstItem="Ang-x3-rxo" firstAttribute="top" secondItem="yRr-47-rh3" secondAttribute="bottom" constant="-2" id="PgR-OB-h1P"/>
                             <constraint firstAttribute="leadingMargin" secondItem="w2Y-cQ-3iI" secondAttribute="leading" id="Rv4-Vi-mC4"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Ang-x3-rxo" secondAttribute="trailing" constant="28" id="UeU-pX-yHq"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="yRr-47-rh3" secondAttribute="trailing" constant="28" id="VPH-cd-sip"/>
                             <constraint firstItem="yRr-47-rh3" firstAttribute="top" secondItem="GQl-dQ-Bye" secondAttribute="bottom" constant="8" id="XCY-86-OPE"/>
                             <constraint firstItem="Ebh-Cl-7yK" firstAttribute="top" secondItem="xFT-CU-jhT" secondAttribute="bottom" constant="17" id="Z6v-7T-PNQ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="w2Y-cQ-3iI" secondAttribute="trailing" id="fPE-Dl-IKX"/>
@@ -311,7 +310,6 @@
                                 <rect key="frame" x="15" y="356" width="48" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="gMP-mL-3sR"/>
-                                    <constraint firstAttribute="width" constant="48" id="zMG-wG-god"/>
                                 </constraints>
                                 <state key="normal" title="Logout">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1314,7 +1312,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="85" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4Ke-Td-3ic">
-                                <rect key="frame" x="0.0" y="6" width="600" height="470"/>
+                                <rect key="frame" x="0.0" y="44" width="600" height="432"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -1373,18 +1371,37 @@
                                             <segue destination="qkt-6A-CBW" kind="presentation" identifier="toVoteDetail" id="UD1-aK-his"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="loadCell" rowHeight="85" id="oEB-tH-a9L">
+                                        <rect key="frame" x="0.0" y="113" width="600" height="85"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oEB-tH-a9L" id="CCF-38-2Gc">
+                                            <rect key="frame" x="0.0" y="0.0" width="567" height="84"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <searchBar contentMode="redraw" placeholder="search " translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dy6-4q-35R">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="barTintColor" red="0.36078432199999999" green="0.59607845540000004" blue="0.77647060160000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="bottomMargin" secondItem="4Ke-Td-3ic" secondAttribute="bottom" id="16n-gr-SFB"/>
+                            <constraint firstItem="dy6-4q-35R" firstAttribute="leading" secondItem="THg-uP-0bG" secondAttribute="leading" id="AEO-Nw-1Pi"/>
                             <constraint firstItem="4Ke-Td-3ic" firstAttribute="leading" secondItem="THg-uP-0bG" secondAttribute="leading" id="BAZ-B2-9c6"/>
                             <constraint firstAttribute="trailing" secondItem="4Ke-Td-3ic" secondAttribute="trailing" constant="20" symbolic="YES" id="JLw-9W-Rcn"/>
-                            <constraint firstItem="4Ke-Td-3ic" firstAttribute="top" secondItem="THg-uP-0bG" secondAttribute="top" constant="6" id="XkZ-uL-zDT"/>
+                            <constraint firstItem="4Ke-Td-3ic" firstAttribute="top" secondItem="dy6-4q-35R" secondAttribute="bottom" id="UjP-ig-r86"/>
+                            <constraint firstItem="dy6-4q-35R" firstAttribute="top" secondItem="DBE-Yu-7cu" secondAttribute="bottom" id="aHv-aP-ikT"/>
                             <constraint firstAttribute="trailing" secondItem="4Ke-Td-3ic" secondAttribute="trailing" id="hZj-FF-DZU"/>
                             <constraint firstAttribute="bottom" secondItem="4Ke-Td-3ic" secondAttribute="bottom" id="jgq-uu-MHP"/>
                             <constraint firstItem="4Ke-Td-3ic" firstAttribute="leading" secondItem="THg-uP-0bG" secondAttribute="leading" id="kZN-XJ-AbD"/>
+                            <constraint firstAttribute="trailing" secondItem="dy6-4q-35R" secondAttribute="trailing" id="zqe-Vn-uTg"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -1394,7 +1411,10 @@
                             </mask>
                         </variation>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="searchBar" destination="dy6-4q-35R" id="QGX-9o-Vun"/>
                         <outlet property="votesTableView" destination="4Ke-Td-3ic" id="vVw-DE-a7o"/>
                     </connections>
                 </viewController>
@@ -1660,7 +1680,6 @@
                                 <rect key="frame" x="288" y="162" width="24" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="n3p-MM-L4w"/>
-                                    <constraint firstAttribute="width" constant="24" id="nx0-JE-ya5"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -1852,8 +1871,8 @@
         <image name="website-link.png" width="245" height="245"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cpY-0H-Aww"/>
         <segue reference="N31-rG-7DT"/>
-        <segue reference="IrD-WK-Flu"/>
+        <segue reference="cpY-0H-Aww"/>
+        <segue reference="X7v-iC-ejW"/>
     </inferredMetricsTieBreakers>
 </document>
