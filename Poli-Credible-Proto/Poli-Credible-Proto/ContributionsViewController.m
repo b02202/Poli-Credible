@@ -271,10 +271,14 @@
     }
     
     if (indexPath.section == 0) {
-        fundraisingCell.raisedLabel.text = [NSString stringWithFormat:@"$%@", self.totalRaised];
-        fundraisingCell.spentLabel.text = [NSString stringWithFormat:@"$%@", self.totalSpent];
-        fundraisingCell.cashLabel.text = [NSString stringWithFormat:@"$%@", self.cashOnHand];
-        fundraisingCell.debtsLabel.text = [NSString stringWithFormat:@"$%@", self.totalDebts];
+        
+ 
+        
+        
+        fundraisingCell.raisedLabel.text = [self setCurrencyFormat:self.totalRaised];
+        fundraisingCell.spentLabel.text = [self setCurrencyFormat:self.totalSpent];
+        fundraisingCell.cashLabel.text = [self setCurrencyFormat:self.cashOnHand];
+        fundraisingCell.debtsLabel.text = [self setCurrencyFormat:self.totalDebts];
         fundraisingCell.lastReportedLabel.text = self.lastReported;
         
         // set progress bars
@@ -308,19 +312,24 @@
         
         int totalInt = (int)roundf(total);
         
-        NSString * totalSubString = [NSString stringWithFormat:@"$%@ of $%d", totalString, totalInt];
-        industryCell.totalLabel.text = totalSubString; //[NSString stringWithFormat:@"$%@",totalSubString];
+        NSString *totalText = [NSString stringWithFormat:@"%d", totalInt];
+        // Convert to currency Format
+        NSString *totalWithFormat = [NSString stringWithFormat:@"%@ of %@", [self setCurrencyFormat:totalString], [self setCurrencyFormat:totalText]];
+        
+        //NSString * totalSubString = [NSString stringWithFormat:@"$%@ of $%d", totalString, totalInt];
+        
+        industryCell.totalLabel.text = totalWithFormat; //[NSString stringWithFormat:@"$%@",totalSubString];
         
         cellToReturn = industryCell;
         
         
     }
     else if (indexPath.section == 2) {
-        NSString *totalString = [NSString stringWithFormat:@"Total: $%@", [[self.contributorArray objectAtIndex:indexPath.row] valueForKey:@"contributionTotal"]];
+        NSString *totalString = [[self.contributorArray objectAtIndex:indexPath.row] valueForKey:@"contributionTotal"];
         // Set Cell Text
         cell.textLabel.text = [[self.contributorArray objectAtIndex:indexPath.row] valueForKey:@"contributorName"];
         // Set Cell Detail Text
-        cell.detailTextLabel.text = totalString;
+        cell.detailTextLabel.text = [self setCurrencyFormat:totalString];
         cellToReturn = cell;
     }
     
@@ -340,6 +349,14 @@
     
     //NSLog(@"Progress Value = %f", progressValue);
     return progressValue;
+}
+
+-(NSString*)setCurrencyFormat:(NSString*)numberString {
+    
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc]init];
+    [formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+    NSString *returnString = [formatter stringFromNumber:[NSNumber numberWithFloat:[numberString floatValue]]];
+    return returnString;
 }
 
 /*self.totalRaised = fdcObj.raised;
