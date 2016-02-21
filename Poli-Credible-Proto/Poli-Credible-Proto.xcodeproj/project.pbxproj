@@ -33,6 +33,13 @@
 		C7334F501C70D79B00449CD3 /* VoteDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C7334F4F1C70D79B00449CD3 /* VoteDetailCell.m */; };
 		C7334F521C712A0400449CD3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7334F511C712A0300449CD3 /* CoreLocation.framework */; };
 		C7334F551C713F5200449CD3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7334F531C713F5200449CD3 /* Main.storyboard */; };
+		C7539EAE1C78CEE10071D485 /* password-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C7539EAD1C78CEE10071D485 /* password-icon.png */; };
+		C7539EB01C78CF3A0071D485 /* user-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C7539EAF1C78CF3A0071D485 /* user-icon.png */; };
+		C7539EB31C78DAF90071D485 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7539EB21C78DAF90071D485 /* RegisterViewController.m */; };
+		C7539EBA1C7940900071D485 /* hidden-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C7539EB81C7940900071D485 /* hidden-icon.png */; };
+		C7539EBB1C7940900071D485 /* visable-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C7539EB91C7940900071D485 /* visable-icon.png */; };
+		C7539EBD1C7969DE0071D485 /* logout.png in Resources */ = {isa = PBXBuildFile; fileRef = C7539EBC1C7969DE0071D485 /* logout.png */; };
+		C7539EBF1C796EEB0071D485 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = C7539EBE1C796EEB0071D485 /* settings.png */; };
 		C7ADC53A1C72D94F0003A847 /* Contents.json in Resources */ = {isa = PBXBuildFile; fileRef = C7ADC52E1C72D94F0003A847 /* Contents.json */; };
 		C7ADC53B1C72D94F0003A847 /* Icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = C7ADC52F1C72D94F0003A847 /* Icon-40.png */; };
 		C7ADC53C1C72D94F0003A847 /* Icon-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C7ADC5301C72D94F0003A847 /* Icon-40@2x.png */; };
@@ -194,6 +201,14 @@
 		C7334F4F1C70D79B00449CD3 /* VoteDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoteDetailCell.m; sourceTree = "<group>"; };
 		C7334F511C712A0300449CD3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		C7334F541C713F5200449CD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C7539EAD1C78CEE10071D485 /* password-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "password-icon.png"; sourceTree = "<group>"; };
+		C7539EAF1C78CF3A0071D485 /* user-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user-icon.png"; sourceTree = "<group>"; };
+		C7539EB11C78DAF90071D485 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		C7539EB21C78DAF90071D485 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		C7539EB81C7940900071D485 /* hidden-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hidden-icon.png"; sourceTree = "<group>"; };
+		C7539EB91C7940900071D485 /* visable-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "visable-icon.png"; sourceTree = "<group>"; };
+		C7539EBC1C7969DE0071D485 /* logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logout.png; sourceTree = "<group>"; };
+		C7539EBE1C796EEB0071D485 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 		C7ADC52E1C72D94F0003A847 /* Contents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
 		C7ADC52F1C72D94F0003A847 /* Icon-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-40.png"; sourceTree = "<group>"; };
 		C7ADC5301C72D94F0003A847 /* Icon-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-40@2x.png"; sourceTree = "<group>"; };
@@ -393,6 +408,7 @@
 				C7D5B4E91C6A76B40092A5D5 /* SearchByZipViewController.m */,
 				C7D5B4EB1C6A76CF0092A5D5 /* SearchByNameViewController.h */,
 				C7D5B4EC1C6A76CF0092A5D5 /* SearchByNameViewController.m */,
+				C7ADC54C1C77936E0003A847 /* LoginViews */,
 			);
 			path = "Poli-Credible-Proto";
 			sourceTree = "<group>";
@@ -427,6 +443,12 @@
 		C71832AE1C50BA1A00388E02 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C7539EBE1C796EEB0071D485 /* settings.png */,
+				C7539EBC1C7969DE0071D485 /* logout.png */,
+				C7539EB81C7940900071D485 /* hidden-icon.png */,
+				C7539EB91C7940900071D485 /* visable-icon.png */,
+				C7539EAF1C78CF3A0071D485 /* user-icon.png */,
+				C7539EAD1C78CEE10071D485 /* password-icon.png */,
 				C7D5B4E61C6A71770092A5D5 /* menu-icon.png */,
 				C7D5B4DE1C6A67E40092A5D5 /* Logo-Menu.png */,
 				C7D5B3B61C68E9B60092A5D5 /* StateImages */,
@@ -466,6 +488,15 @@
 				C7ADC5391C72D94F0003A847 /* Icon-Small@3x.png */,
 			);
 			path = AppIcon.appiconset;
+			sourceTree = "<group>";
+		};
+		C7ADC54C1C77936E0003A847 /* LoginViews */ = {
+			isa = PBXGroup;
+			children = (
+				C7539EB11C78DAF90071D485 /* RegisterViewController.h */,
+				C7539EB21C78DAF90071D485 /* RegisterViewController.m */,
+			);
+			name = LoginViews;
 			sourceTree = "<group>";
 		};
 		C7D5B38A1C6530F70092A5D5 /* DataModels */ = {
@@ -742,6 +773,7 @@
 				C7D5B4571C68F0C40092A5D5 /* state-delaware.png in Resources */,
 				C7D5B4591C68F0C40092A5D5 /* state-georgia.png in Resources */,
 				C7D5B4681C68F0C40092A5D5 /* state-missouri.png in Resources */,
+				C7539EBD1C7969DE0071D485 /* logout.png in Resources */,
 				C7D5B4661C68F0C40092A5D5 /* state-minnesota.png in Resources */,
 				C7D5B4651C68F0C40092A5D5 /* state-michigan.png in Resources */,
 				C7D5B4551C68F0C40092A5D5 /* state-colorado.png in Resources */,
@@ -776,9 +808,11 @@
 				C7D5B3AF1C67FE7C0092A5D5 /* website-link.png in Resources */,
 				C7D5B4611C68F0C40092A5D5 /* state-louisiana.png in Resources */,
 				C71832AC1C50BA0F00388E02 /* search-icon.png in Resources */,
+				C7539EAE1C78CEE10071D485 /* password-icon.png in Resources */,
 				C7D5B47D1C68F0C40092A5D5 /* state-virginia.png in Resources */,
 				C7D5B46B1C68F0C40092A5D5 /* state-nevada.png in Resources */,
 				C7D5B4561C68F0C40092A5D5 /* state-connecticut.png in Resources */,
+				C7539EBB1C7940900071D485 /* visable-icon.png in Resources */,
 				C7D5B4601C68F0C40092A5D5 /* state-kentucky.png in Resources */,
 				C7D5B45F1C68F0C40092A5D5 /* state-kansas.png in Resources */,
 				C7D5B4801C68F0C40092A5D5 /* state-wisconsin.png in Resources */,
@@ -795,10 +829,13 @@
 				C7D5B4DF1C6A67E40092A5D5 /* Logo-Menu.png in Resources */,
 				C71832B51C56554800388E02 /* Logo-1.png in Resources */,
 				C7D5B4711C68F0C40092A5D5 /* state-north-dakota.png in Resources */,
+				C7539EB01C78CF3A0071D485 /* user-icon.png in Resources */,
+				C7539EBF1C796EEB0071D485 /* settings.png in Resources */,
 				C7D5B4691C68F0C40092A5D5 /* state-montana.png in Resources */,
 				C7D5B4761C68F0C40092A5D5 /* state-rhode-island.png in Resources */,
 				C71832AD1C50BA0F00388E02 /* UIBarButtonSearch_2x.png in Resources */,
 				C7D5B4781C68F0C40092A5D5 /* state-south-dakota.png in Resources */,
+				C7539EBA1C7940900071D485 /* hidden-icon.png in Resources */,
 				C7D5B29C1C62ECE70092A5D5 /* mail-icon.png in Resources */,
 				C7D5B4631C68F0C40092A5D5 /* state-maryland.png in Resources */,
 			);
@@ -856,6 +893,7 @@
 				C7D5B4F11C6AD3420092A5D5 /* SWRevealViewController.m in Sources */,
 				C7D5B39B1C6535E20092A5D5 /* RepBio.m in Sources */,
 				C7334F471C6E4FAC00449CD3 /* FundraisingDataClass.m in Sources */,
+				C7539EB31C78DAF90071D485 /* RegisterViewController.m in Sources */,
 				C71832761C50B85F00388E02 /* main.m in Sources */,
 				C71832B31C513DFD00388E02 /* StateViewController.m in Sources */,
 				C71832CB1C5994C700388E02 /* DetailViewController.m in Sources */,
@@ -1005,6 +1043,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = "Poli-Credible-Proto/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.robertbrooks.Poli-Credible-Proto";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1020,6 +1059,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = "Poli-Credible-Proto/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.robertbrooks.Poli-Credible-Proto";
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -20,16 +20,18 @@
 
 // Login Buttons
 @property (weak, nonatomic) IBOutlet UIButton *loginBtn;
-@property (weak, nonatomic) IBOutlet UIButton *registerBtn;
+
 @property (strong, nonatomic) IBOutlet UIButton *resetButton;
-@property (strong, nonatomic) IBOutlet UIButton *registerTextBtn;
-@property (strong, nonatomic) IBOutlet UIButton *loginTextBtn;
+@property (strong, nonatomic) IBOutlet UIButton *forgotPassBtn;
+@property (strong, nonatomic) IBOutlet UIButton *cancelBtn;
+
 
 // Button Actions
-- (IBAction)registerUser:(id)sender;
+
 - (IBAction)loginUser:(id)sender;
-- (IBAction)registerTextAction:(id)sender;
-- (IBAction)loginTextButton:(id)sender;
+
+- (IBAction)cancelAction:(id)sender;
+
 
 
 - (IBAction)forgotPassword:(id)sender;
