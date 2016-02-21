@@ -40,6 +40,7 @@
 		C7539EBB1C7940900071D485 /* visable-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C7539EB91C7940900071D485 /* visable-icon.png */; };
 		C7539EBD1C7969DE0071D485 /* logout.png in Resources */ = {isa = PBXBuildFile; fileRef = C7539EBC1C7969DE0071D485 /* logout.png */; };
 		C7539EBF1C796EEB0071D485 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = C7539EBE1C796EEB0071D485 /* settings.png */; };
+		C7539EC21C7A0E210071D485 /* FormValidationUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = C7539EC11C7A0E210071D485 /* FormValidationUtility.m */; };
 		C7ADC53A1C72D94F0003A847 /* Contents.json in Resources */ = {isa = PBXBuildFile; fileRef = C7ADC52E1C72D94F0003A847 /* Contents.json */; };
 		C7ADC53B1C72D94F0003A847 /* Icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = C7ADC52F1C72D94F0003A847 /* Icon-40.png */; };
 		C7ADC53C1C72D94F0003A847 /* Icon-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C7ADC5301C72D94F0003A847 /* Icon-40@2x.png */; };
@@ -209,6 +210,8 @@
 		C7539EB91C7940900071D485 /* visable-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "visable-icon.png"; sourceTree = "<group>"; };
 		C7539EBC1C7969DE0071D485 /* logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logout.png; sourceTree = "<group>"; };
 		C7539EBE1C796EEB0071D485 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
+		C7539EC01C7A0E210071D485 /* FormValidationUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormValidationUtility.h; sourceTree = "<group>"; };
+		C7539EC11C7A0E210071D485 /* FormValidationUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormValidationUtility.m; sourceTree = "<group>"; };
 		C7ADC52E1C72D94F0003A847 /* Contents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
 		C7ADC52F1C72D94F0003A847 /* Icon-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-40.png"; sourceTree = "<group>"; };
 		C7ADC5301C72D94F0003A847 /* Icon-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-40@2x.png"; sourceTree = "<group>"; };
@@ -409,6 +412,7 @@
 				C7D5B4EB1C6A76CF0092A5D5 /* SearchByNameViewController.h */,
 				C7D5B4EC1C6A76CF0092A5D5 /* SearchByNameViewController.m */,
 				C7ADC54C1C77936E0003A847 /* LoginViews */,
+				C7539EC31C7A0E350071D485 /* Form Validation */,
 			);
 			path = "Poli-Credible-Proto";
 			sourceTree = "<group>";
@@ -469,6 +473,15 @@
 				C71832AB1C50BA0F00388E02 /* UIBarButtonSearch_2x.png */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		C7539EC31C7A0E350071D485 /* Form Validation */ = {
+			isa = PBXGroup;
+			children = (
+				C7539EC01C7A0E210071D485 /* FormValidationUtility.h */,
+				C7539EC11C7A0E210071D485 /* FormValidationUtility.m */,
+			);
+			name = "Form Validation";
 			sourceTree = "<group>";
 		};
 		C7ADC52D1C72D94F0003A847 /* AppIcon.appiconset */ = {
@@ -879,6 +892,7 @@
 				C71832C21C57DB4A00388E02 /* ZipCodeViewController.m in Sources */,
 				C71832B81C567B9100388E02 /* ResultsViewController.m in Sources */,
 				C71832BB1C567D8900388E02 /* MemberDataClass.m in Sources */,
+				C7539EC21C7A0E210071D485 /* FormValidationUtility.m in Sources */,
 				C7334F4D1C70D75000449CD3 /* VoteDetailController.m in Sources */,
 				C7D5B2A31C644D240092A5D5 /* MemberInfoViewController.m in Sources */,
 				C7D5B3931C6532680092A5D5 /* TFHppleElement.m in Sources */,

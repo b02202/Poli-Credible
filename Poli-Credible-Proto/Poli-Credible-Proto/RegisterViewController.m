@@ -7,6 +7,7 @@
 //
 
 #import "RegisterViewController.h"
+#import "FormValidationUtility.h"
 
 @implementation RegisterViewController
 
@@ -113,16 +114,48 @@
 
 - (IBAction)registerAction:(id)sender {
     
-    if ([self.usernameField.text isEqualToString:@""] || [self.passField.text isEqualToString:@""] || [self.reEnterPass.text isEqualToString:@""]) {
+    if ([self fieldsAreValid:self.usernameField.text password:self.passField.text rePassword:self.reEnterPass.text]) {
+        [self checkPasswordMatch];
+    }
+    
+    
+//    if ([self.usernameField.text isEqualToString:@""] || [self.passField.text isEqualToString:@""] || [self.reEnterPass.text isEqualToString:@""]) {
+//        
+//        UIAlertView *error = [[UIAlertView alloc] initWithTitle:@"Oops" message:@"You must enter all fields" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+//        
+//        [error show];
+//    }
+//    else
+//    {
+//        [self checkPasswordMatch];
+//        
+//    }
+    
+}
+
+-(BOOL)fieldsAreValid:(NSString*)email password:(NSString*)pass rePassword:(NSString*)rePass {
+    
+    if (![FormValidationUtility isValidEmailAddress:email]) {
+        UIAlertView *emailError = [[UIAlertView alloc] initWithTitle:@"Oops" message:@"Please enter a valid email address." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        
+        [emailError show];
+        return NO;
+    }
+    else if ([self.passField.text isEqualToString:@""] || [self.reEnterPass.text isEqualToString:@""]) {
         
         UIAlertView *error = [[UIAlertView alloc] initWithTitle:@"Oops" message:@"You must enter all fields" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
         
         [error show];
+        return NO;
     }
-    else
-    {
-        [self checkPasswordMatch];
+    else if (![FormValidationUtility isValidPassword:pass]) {
+        UIAlertView *PassError = [[UIAlertView alloc] initWithTitle:@"Oops" message:@"Sorry, that password does not meet our security guidelines. Please choose a password that is 6-16 characters in length, with a mix of at least 1 number or letter, and 1 symbol." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
         
+        [PassError show];
+        return NO;
+    }
+    else {
+        return YES;
     }
     
 }

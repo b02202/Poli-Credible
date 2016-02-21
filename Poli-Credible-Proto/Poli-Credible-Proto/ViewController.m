@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "RegisterViewController.h"
+#import "FormValidationUtility.h"
 
 @interface ViewController ()
 @property (nonatomic, assign) BOOL isVisible;
@@ -181,7 +182,7 @@
 
 -(void)resetPassword {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    if ([_usernameField.text isEqualToString:[defaults objectForKey:@"username"]]) {
+    if ([_usernameField.text isEqualToString:[defaults objectForKey:@"username"]] && [self passValid:self.passwordField.text]) {
         if ([_passwordField.text isEqualToString:_reEnterPasswordField.text]) {
             [defaults setObject:_passwordField.text forKey:@"password"];
             self.loginBtn.hidden = NO;
@@ -200,6 +201,23 @@
             self.forgotPassBtn.hidden = YES;
             [error show];
         }
+    }
+    else {
+        UIAlertView *usernameError = [[UIAlertView alloc] initWithTitle:@"Oops" message:@"Your username does not match our records." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [usernameError show];
+    }
+}
+
+// Password Valid
+-(BOOL)passValid:(NSString*)pass {
+    if (![FormValidationUtility isValidPassword:pass]) {
+        UIAlertView *PassError = [[UIAlertView alloc] initWithTitle:@"Oops" message:@"Sorry, that password does not meet our security guidelines. Please choose a password that is 6-16 characters in length, with a mix of at least 1 number or letter, and 1 symbol." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        
+        [PassError show];
+        return NO;
+    }
+    else {
+        return YES;
     }
 }
 
