@@ -10,15 +10,13 @@
 
 @interface FormValidationUtility : NSObject
 
-// Email - NSPredicate
+// Email Validation
 +(BOOL)isValidEmailAddress:(NSString *)emailAddress ;
-
-// Email - REGEX
-+(BOOL)validateEmail:(NSString*) emailAddress ;
 
 // Zip Code Validation
 +(BOOL)zipVal:(NSString *)zip;
 
+// Password Validation
 +(BOOL)isValidPassword:(NSString*)pass;
 
 @end

@@ -25,22 +25,6 @@
     return [emailTest evaluateWithObject:emailAddress];
 }
 
-// Using NSRegularExpression
-
-+(BOOL) validateEmail:(NSString*) emailAddress {
-    
-    NSString *regExPattern = @"^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}$";
-    NSRegularExpression *regEx = [[NSRegularExpression alloc]
-                                  initWithPattern:regExPattern
-                                  options:NSRegularExpressionCaseInsensitive
-                                  error:nil];
-    NSUInteger regExMatches = [regEx numberOfMatchesInString:emailAddress
-                                                     options:0
-                                                       range:NSMakeRange(0, [emailAddress length])];
-    return (regExMatches == 0) ? NO : YES ;
-    
-}
-
 // Password Check
 +(BOOL)isValidPassword:(NSString*)pass {
     // Min 6 characters, Max 16 characters, At least 1 alphanumeric, and 1 non-alphanumeric
