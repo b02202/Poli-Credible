@@ -79,7 +79,12 @@
 // Set DOB and State
 -(void)populateName {
     self.stateDistrictLabel.text = self.recievedState;
-    self.birthDate.text = [NSString stringWithFormat:@"D.O.B.: %@", self.recievedDOB];
+    
+    // Convert recievedDOB to mm/dd/yyyy format
+    NSArray *dobArray = [self.recievedDOB componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"-"]];
+    NSString *dobString = [NSString stringWithFormat:@"%@/%@/%@", [dobArray objectAtIndex:1], [dobArray objectAtIndex:2], [dobArray objectAtIndex:0]];
+    
+    self.birthDate.text = [NSString stringWithFormat:@"D.O.B.: %@", dobString];
     
     if (![self.recievedDistrict isEqual:[NSNull null]]) {
         self.stateDistrictLabel.text = [NSString stringWithFormat:@"%@, District %@", self.recievedState, self.recievedDistrict];

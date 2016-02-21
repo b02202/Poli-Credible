@@ -31,5 +31,6 @@
 @property (nonatomic, strong)NSString *nominationID;
 @property (nonatomic, strong)NSString *question;
 @property (nonatomic, strong)NSString *billPdfUrl;
+@property (nonatomic, strong)NSString *voteDate;
 
 @end

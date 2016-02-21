@@ -35,7 +35,22 @@
     //self.navTitle.title = self.recievedNavTitle;
     self.questionLabel.text = self.recievedQuestion;
     self.resultLabel.text = self.recievedResult;
-    //self.dateLabel.text = self.recievedDate;
+    
+    // Convert date to readable format
+    NSDateFormatter *dFormat = [[NSDateFormatter alloc]init];
+    [dFormat setTimeZone:[NSTimeZone timeZoneWithName:@"America/New_York"]];
+    [dFormat setDateFormat:@"yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"];
+    NSDate *date = [dFormat dateFromString:self.recievedDate];
+    
+    NSDateFormatter *toStringFormat = [[NSDateFormatter alloc]init];
+    [toStringFormat setTimeZone:[NSTimeZone timeZoneWithName:@"America/New_York"]];
+    [toStringFormat setDateFormat:@"MMM dd, yyyy h:mm a"];
+    NSString *dateString = [toStringFormat stringFromDate:date];
+    NSLog(@"DATE = %@", dateString);
+    //NSLog(@"%@", [NSTimeZone knownTimeZoneNames]);
+    
+    self.dateLabel.text = dateString;
+
 }
 
 -(void)setBillBtnVisibility {

@@ -120,7 +120,7 @@
 //}
 
 -(void)loadData:(NSInteger)page {
-    NSString *urlString = [NSString stringWithFormat:@"http://congress.api.sunlightfoundation.com/votes?voter_ids.%@__exists=true&fields=voter_ids.%@,bill,result,breakdown,nomination,question&per_page=50&page=%ld&apikey=6f9f2e31124941a98e97110aeeaec3ff", self.recievedBioID, self.recievedBioID, (long)page];
+    NSString *urlString = [NSString stringWithFormat:@"http://congress.api.sunlightfoundation.com/votes?voter_ids.%@__exists=true&fields=voter_ids.%@,voted_at,bill,result,breakdown,nomination,question&per_page=50&page=%ld&apikey=6f9f2e31124941a98e97110aeeaec3ff", self.recievedBioID, self.recievedBioID, (long)page];
     
     NSURLSession *session = [NSURLSession sharedSession];
    [[session dataTaskWithURL:[NSURL URLWithString:urlString] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
@@ -153,6 +153,7 @@
                voteDataObj.nominationID = [[[resultsArray objectAtIndex:i]objectForKey:@"nomination"]valueForKey:@"nomination_id"];
                voteDataObj.question = [[resultsArray objectAtIndex:i]objectForKey:@"question"];
                voteDataObj.billPdfUrl = [[[[[resultsArray objectAtIndex:i]objectForKey:@"bill"]objectForKey:@"last_version"]objectForKey:@"urls"]valueForKey:@"pdf"];
+               voteDataObj.voteDate = [[resultsArray objectAtIndex:i]objectForKey:@"voted_at"];
                
                if ([[[[resultsArray objectAtIndex:i]objectForKey:@"breakdown"]objectForKey:@"party"] objectForKey:@"I"]) {
                    voteDataObj.iYea = [[[[[resultsArray objectAtIndex:i]objectForKey:@"breakdown"]objectForKey:@"party"] objectForKey:@"I"] valueForKey:@"Yea"];
@@ -213,6 +214,7 @@
                 voteDataObj.nominationID = [[[resultsArray objectAtIndex:i]objectForKey:@"nomination"]valueForKey:@"nomination_id"];
                 voteDataObj.question = [[resultsArray objectAtIndex:i]objectForKey:@"question"];
                 voteDataObj.billPdfUrl = [[[[[resultsArray objectAtIndex:i]objectForKey:@"bill"]objectForKey:@"last_version"]objectForKey:@"urls"]valueForKey:@"pdf"];
+                voteDataObj.voteDate = [[resultsArray objectAtIndex:i]objectForKey:@"voted_at"];
                 
                 if ([[[[resultsArray objectAtIndex:i]objectForKey:@"breakdown"]objectForKey:@"party"] objectForKey:@"I"]) {
                     voteDataObj.iYea = [[[[[resultsArray objectAtIndex:i]objectForKey:@"breakdown"]objectForKey:@"party"] objectForKey:@"I"] valueForKey:@"Yea"];
@@ -284,6 +286,7 @@
         voteDataObj.nominationID = [[[resultsArray objectAtIndex:i]objectForKey:@"nomination"]valueForKey:@"nomination_id"];
         voteDataObj.question = [[resultsArray objectAtIndex:i]objectForKey:@"question"];
         voteDataObj.billPdfUrl = [[[[[resultsArray objectAtIndex:i]objectForKey:@"bill"]objectForKey:@"last_version"]objectForKey:@"urls"]valueForKey:@"pdf"];
+        voteDataObj.voteDate = [[resultsArray objectAtIndex:i]objectForKey:@"voted_at"];
         
         if ([[[[resultsArray objectAtIndex:i]objectForKey:@"breakdown"]objectForKey:@"party"] objectForKey:@"I"]) {
             voteDataObj.iYea = [[[[[resultsArray objectAtIndex:i]objectForKey:@"breakdown"]objectForKey:@"party"] objectForKey:@"I"] valueForKey:@"Yea"];
@@ -404,7 +407,7 @@
     NSIndexPath *indexPath = [self.votesTableView indexPathForSelectedRow];
     NSString *question = [[self.votesArray objectAtIndex:indexPath.row]valueForKey:@"question"];
     NSString *result = [[self.votesArray objectAtIndex:indexPath.row] valueForKey:@"result"];
-    //NSString *date;
+    NSString *voteDate = [[self.votesArray objectAtIndex:indexPath.row]valueForKey:@"voteDate"];
     //NSString *navTitle;
     NSString *totalYea = [[self.votesArray objectAtIndex:indexPath.row] valueForKey:@"totalYea"];
     NSString *totalNay = [[self.votesArray objectAtIndex:indexPath.row] valueForKey:@"totalNay"];
@@ -424,6 +427,7 @@
     
     if ([segue.identifier isEqualToString:@"toVoteDetail"]) {
         VoteDetailController *vDC = segue.destinationViewController;
+        vDC.recievedDate = voteDate;
         vDC.recievedQuestion = question;
         vDC.recievedResult = result;
         vDC.recievedTotalYea = totalYea;

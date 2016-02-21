@@ -113,9 +113,18 @@
 }
 
 - (IBAction)registerAction:(id)sender {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     if ([self fieldsAreValid:self.usernameField.text password:self.passField.text rePassword:self.reEnterPass.text]) {
-        [self checkPasswordMatch];
+        
+        if ([self.usernameField.text isEqualToString:[defaults objectForKey:@"username"]]) {
+            NSString *errorString = [NSString stringWithFormat:@"%@ is already a registered user", self.usernameField.text];
+            UIAlertView *error = [[UIAlertView alloc] initWithTitle:@"Oops" message:errorString delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [error show];
+        }
+        else {
+            [self checkPasswordMatch];
+        }
     }
     
     
