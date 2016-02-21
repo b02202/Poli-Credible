@@ -47,6 +47,10 @@
     
 }
 
+-(BOOL)shouldAutorotate {
+    return NO;
+}
+
 // Dismiss keyboard from text fields
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {

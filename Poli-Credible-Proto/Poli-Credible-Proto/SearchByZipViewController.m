@@ -9,6 +9,7 @@
 #import "SearchByZipViewController.h"
 #import "SWRevealViewController.h"
 #import "ResultsViewController.h"
+#import "FormValidationUtility.h"
 
 @implementation SearchByZipViewController
 {
@@ -76,7 +77,14 @@
 }
 
 - (IBAction)searchBtn:(id)sender {
-    [self performSegueWithIdentifier:@"zipToResults" sender:self];
+    // Validate Zip Code
+    if ([FormValidationUtility zipVal:self.zipCodeField.text]) {
+        [self performSegueWithIdentifier:@"zipToResults" sender:self];
+    }
+    else {
+        UIAlertView *zipAlert = [[UIAlertView alloc]initWithTitle:@"Oops!" message:@"Please enter a valid 5 digit zip code" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [zipAlert show];
+    }
 }
 
 - (IBAction)seachByLocation:(id)sender {
