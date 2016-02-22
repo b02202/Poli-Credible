@@ -34,6 +34,8 @@
     
     [self loadBiography];
     
+    [self setLinkButtons];
+    
     
 }
 
@@ -148,11 +150,30 @@
 }
 
 - (IBAction)openContactForm:(id)sender {
-    NSString *contactUrl = self.recievedContactForm;
-    if ([[UIApplication sharedApplication]
-         canOpenURL:[NSURL URLWithString:contactUrl]])
-    {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:contactUrl]];
+    
+    if (self.recievedContactForm != nil || ![self.recievedContactForm isEqual:[NSNull null]]) {
+        NSString *contactUrl = self.recievedContactForm;
+        if ([[UIApplication sharedApplication]
+             canOpenURL:[NSURL URLWithString:contactUrl]])
+        {
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:contactUrl]];
+        }
+    }
+}
+
+-(void)setLinkButtons {
+    // Contact form
+    if (self.recievedContactForm == nil || [self.recievedContactForm isEqual:[NSNull null]]) {
+        self.mailBtn.enabled = NO;
+    }
+    if (self.recievedFacebookId == nil || [self.recievedFacebookId isEqual:[NSNull null]]) {
+        self.facebookBtn.enabled = NO;
+    }
+    if (self.recievedTwittterId == nil || [self.recievedTwittterId isEqual:[NSNull null]]) {
+        self.twitterBtn.enabled = NO;
+    }
+    if (self.recievedWebsiteUrl == nil || [self.recievedWebsiteUrl isEqual:[NSNull null]]) {
+        self.websiteBtn.enabled = NO;
     }
 }
 

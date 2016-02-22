@@ -23,6 +23,15 @@
 @property (strong, nonatomic) IBOutlet UILabel *memberNameLabel;
 - (IBAction)addFavorite:(id)sender;
 
+// Buttons
+@property (strong, nonatomic) IBOutlet UIButton *favoritesBtn;
+@property (strong, nonatomic) IBOutlet UIButton *websiteBtn;
+@property (strong, nonatomic) IBOutlet UIButton *facebookBtn;
+@property (strong, nonatomic) IBOutlet UIButton *twitterBtn;
+@property (strong, nonatomic) IBOutlet UIButton *mailBtn;
+@property (strong, nonatomic) IBOutlet UIButton *phoneBtn;
+
+
 
 @property (strong, nonatomic) UIImage *recievedImage;
 @property (strong, nonatomic) NSString *recievedName;

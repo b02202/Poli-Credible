@@ -204,9 +204,17 @@
 //    UIAlertView *success = [[UIAlertView alloc] initWithTitle:@"Success" message:@"You have registered a new Poli-Credible user" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
 //    
 //    [success show];
-    [self performSegueWithIdentifier:@"toHome" sender:self];
+    
     // Show Alert
-    [self showAlert:@"Success" message:@"You have registered a new Poli-Credible user"];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Success" message:@"You have registered a new Poli-Credible user" preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action)
+                         {
+                             [self performSegueWithIdentifier:@"toHome" sender:self];
+                         }];
+    [alertController addAction:ok];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
     
     
 }

@@ -44,6 +44,10 @@
 		C7539EC71C7A2ED20071D485 /* site-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C7539EC61C7A2ED20071D485 /* site-icon.png */; };
 		C7539ECA1C7A68F10071D485 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7539EC91C7A68F10071D485 /* SettingsViewController.m */; };
 		C7539ECC1C7A73BF0071D485 /* right-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = C7539ECB1C7A73BF0071D485 /* right-arrow.png */; };
+		C7539ECE1C7BA27E0071D485 /* mail-icon-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = C7539ECD1C7BA27E0071D485 /* mail-icon-disabled.png */; };
+		C7539ED21C7BA6460071D485 /* facebook-icon-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = C7539ECF1C7BA6460071D485 /* facebook-icon-disabled.png */; };
+		C7539ED31C7BA6460071D485 /* site-icon-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = C7539ED01C7BA6460071D485 /* site-icon-disabled.png */; };
+		C7539ED41C7BA6460071D485 /* twitter-icon-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = C7539ED11C7BA6460071D485 /* twitter-icon-disabled.png */; };
 		C7ADC53A1C72D94F0003A847 /* Contents.json in Resources */ = {isa = PBXBuildFile; fileRef = C7ADC52E1C72D94F0003A847 /* Contents.json */; };
 		C7ADC53B1C72D94F0003A847 /* Icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = C7ADC52F1C72D94F0003A847 /* Icon-40.png */; };
 		C7ADC53C1C72D94F0003A847 /* Icon-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C7ADC5301C72D94F0003A847 /* Icon-40@2x.png */; };
@@ -219,6 +223,10 @@
 		C7539EC81C7A68F10071D485 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		C7539EC91C7A68F10071D485 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		C7539ECB1C7A73BF0071D485 /* right-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right-arrow.png"; sourceTree = "<group>"; };
+		C7539ECD1C7BA27E0071D485 /* mail-icon-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mail-icon-disabled.png"; sourceTree = "<group>"; };
+		C7539ECF1C7BA6460071D485 /* facebook-icon-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook-icon-disabled.png"; sourceTree = "<group>"; };
+		C7539ED01C7BA6460071D485 /* site-icon-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "site-icon-disabled.png"; sourceTree = "<group>"; };
+		C7539ED11C7BA6460071D485 /* twitter-icon-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twitter-icon-disabled.png"; sourceTree = "<group>"; };
 		C7ADC52E1C72D94F0003A847 /* Contents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
 		C7ADC52F1C72D94F0003A847 /* Icon-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-40.png"; sourceTree = "<group>"; };
 		C7ADC5301C72D94F0003A847 /* Icon-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-40@2x.png"; sourceTree = "<group>"; };
@@ -456,6 +464,10 @@
 		C71832AE1C50BA1A00388E02 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C7539ECF1C7BA6460071D485 /* facebook-icon-disabled.png */,
+				C7539ED01C7BA6460071D485 /* site-icon-disabled.png */,
+				C7539ED11C7BA6460071D485 /* twitter-icon-disabled.png */,
+				C7539ECD1C7BA27E0071D485 /* mail-icon-disabled.png */,
 				C7539ECB1C7A73BF0071D485 /* right-arrow.png */,
 				C7539EC61C7A2ED20071D485 /* site-icon.png */,
 				C7539EBE1C796EEB0071D485 /* settings.png */,
@@ -775,6 +787,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7ADC53F1C72D94F0003A847 /* Icon-60@3x.png in Resources */,
+				C7539ED31C7BA6460071D485 /* site-icon-disabled.png in Resources */,
 				C7ADC53C1C72D94F0003A847 /* Icon-40@2x.png in Resources */,
 				C7D5B4541C68F0C40092A5D5 /* state-california.png in Resources */,
 				C71832871C50B85F00388E02 /* LaunchScreen.storyboard in Resources */,
@@ -796,6 +809,7 @@
 				C7ADC5401C72D94F0003A847 /* Icon-76.png in Resources */,
 				C7D5B4571C68F0C40092A5D5 /* state-delaware.png in Resources */,
 				C7D5B4591C68F0C40092A5D5 /* state-georgia.png in Resources */,
+				C7539ED21C7BA6460071D485 /* facebook-icon-disabled.png in Resources */,
 				C7D5B4681C68F0C40092A5D5 /* state-missouri.png in Resources */,
 				C7539EBD1C7969DE0071D485 /* logout.png in Resources */,
 				C7D5B4661C68F0C40092A5D5 /* state-minnesota.png in Resources */,
@@ -838,6 +852,7 @@
 				C7D5B47D1C68F0C40092A5D5 /* state-virginia.png in Resources */,
 				C7D5B46B1C68F0C40092A5D5 /* state-nevada.png in Resources */,
 				C7D5B4561C68F0C40092A5D5 /* state-connecticut.png in Resources */,
+				C7539ED41C7BA6460071D485 /* twitter-icon-disabled.png in Resources */,
 				C7539EBB1C7940900071D485 /* visable-icon.png in Resources */,
 				C7D5B4601C68F0C40092A5D5 /* state-kentucky.png in Resources */,
 				C7D5B45F1C68F0C40092A5D5 /* state-kansas.png in Resources */,
@@ -855,6 +870,7 @@
 				C7D5B4DF1C6A67E40092A5D5 /* Logo-Menu.png in Resources */,
 				C71832B51C56554800388E02 /* Logo-1.png in Resources */,
 				C7D5B4711C68F0C40092A5D5 /* state-north-dakota.png in Resources */,
+				C7539ECE1C7BA27E0071D485 /* mail-icon-disabled.png in Resources */,
 				C7539EB01C78CF3A0071D485 /* user-icon.png in Resources */,
 				C7539EBF1C796EEB0071D485 /* settings.png in Resources */,
 				C7D5B4691C68F0C40092A5D5 /* state-montana.png in Resources */,
@@ -1071,7 +1087,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = "Poli-Credible-Proto/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.robertbrooks.Poli-Credible-Proto";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1087,7 +1103,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = "Poli-Credible-Proto/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.robertbrooks.Poli-Credible-Proto";
 				PRODUCT_NAME = "$(TARGET_NAME)";
