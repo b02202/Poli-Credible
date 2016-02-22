@@ -158,10 +158,25 @@
     }
     else
     {
-        UIAlertView *error = [[UIAlertView alloc] initWithTitle:@"Oops" message:@"Your username and password are not valid" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+//        UIAlertView *error = [[UIAlertView alloc] initWithTitle:@"Oops" message:@"Your username and password are not valid" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+//        
+//        [error show];
         
-        [error show];
+        // Show Alert
+        [self showAlert:@"Oops" message:@"Your username and password are not valid"];
+        
+        
+        
     }
+}
+// Alert Controller
+-(void)showAlert:(NSString*)title message:(NSString*)messageString {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:messageString preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+    [alertController addAction:ok];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 - (IBAction)cancelAction:(id)sender {
@@ -197,27 +212,38 @@
         }
         else {
             NSLog(@"password does not match");
-            UIAlertView *error = [[UIAlertView alloc] initWithTitle:@"Oops" message:@"Your entered passwords do not match" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+//            UIAlertView *error = [[UIAlertView alloc] initWithTitle:@"Oops" message:@"Your entered passwords do not match" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            
+            
             self.reEnterPasswordField.hidden = NO;
             self.resetButton.hidden = NO;
             self.cancelBtn.hidden = NO;
             self.loginBtn.hidden = YES;
             self.forgotPassBtn.hidden = YES;
-            [error show];
+            //[error show];
+            
+            // Show Alert
+            [self showAlert:@"Oops" message:@"Your entered passwords do not match"];
         }
     }
     else {
-        UIAlertView *usernameError = [[UIAlertView alloc] initWithTitle:@"Oops" message:@"Your username does not match our records." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-        [usernameError show];
+//        UIAlertView *usernameError = [[UIAlertView alloc] initWithTitle:@"Oops" message:@"Your username does not match our records." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+//        [usernameError show];
+        
+        // Show Alert
+        [self showAlert:@"Oops" message:@"Your username does not match our records."];
     }
 }
 
 // Password Valid
 -(BOOL)passValid:(NSString*)pass {
     if (![FormValidationUtility isValidPassword:pass]) {
-        UIAlertView *PassError = [[UIAlertView alloc] initWithTitle:@"Oops" message:@"Sorry, that password does not meet our security guidelines. Please choose a password that is 6-16 characters in length, with a mix of at least 1 number or letter, and 1 symbol." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+//        UIAlertView *PassError = [[UIAlertView alloc] initWithTitle:@"Oops" message:@"Sorry, that password does not meet our security guidelines. Please choose a password that is 6-16 characters in length, with a mix of at least 1 number or letter, and 1 symbol." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+//        
+//        [PassError show];
+        // Show Alert
+        [self showAlert:@"Oops" message:@"Sorry, that password does not meet our security guidelines. Please choose a password that is 6-16 characters in length, with a mix of at least 1 number or letter, and 1 symbol."];
         
-        [PassError show];
         return NO;
     }
     else {

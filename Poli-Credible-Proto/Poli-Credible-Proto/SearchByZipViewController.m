@@ -54,8 +54,12 @@
 }
 
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
-    UIAlertView *errorAlert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"There was an error retrieving your location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-    [errorAlert show];
+//    UIAlertView *errorAlert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"There was an error retrieving your location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+//    [errorAlert show];
+    
+    // Show Alert
+    [self showAlert:@"Error" message:@"There was an error retrieving your location"];
+    
     NSLog(@"Error: %@",error.description);
 }
 
@@ -82,8 +86,11 @@
         [self performSegueWithIdentifier:@"zipToResults" sender:self];
     }
     else {
-        UIAlertView *zipAlert = [[UIAlertView alloc]initWithTitle:@"Oops!" message:@"Please enter a valid 5 digit zip code" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-        [zipAlert show];
+//        UIAlertView *zipAlert = [[UIAlertView alloc]initWithTitle:@"Oops!" message:@"Please enter a valid 5 digit zip code" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+//        [zipAlert show];
+        
+        // Show Alert
+        [self showAlert:@"Oops!" message:@"Please enter a valid 5 digit zip code"];
     }
 }
 
@@ -116,6 +123,16 @@
         resultsVC.titleString = @"Current Location";
     }
     
+}
+
+// Alert Controller
+-(void)showAlert:(NSString*)title message:(NSString*)messageString {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:messageString preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+    [alertController addAction:ok];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 

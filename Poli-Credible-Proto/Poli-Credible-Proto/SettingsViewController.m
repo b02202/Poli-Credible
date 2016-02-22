@@ -74,31 +74,45 @@
         self.passField.enabled = NO;
         self.reEnterPass.enabled = NO;
         
-        UIAlertView *resetAlert = [[UIAlertView alloc] initWithTitle:@"Success" message:@"Your profile has been updated" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+//        UIAlertView *resetAlert = [[UIAlertView alloc] initWithTitle:@"Success" message:@"Your profile has been updated" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+//        
+//        [resetAlert show];
         
-        [resetAlert show];
+        // Show Alert
+        [self showAlert:@"Success" message:@"Your profile has been updated"];
     }
 }
 
 -(BOOL)fieldsAreValid:(NSString*)email password:(NSString*)pass rePassword:(NSString*)rePass {
     
     if (![FormValidationUtility isValidEmailAddress:email]) {
-        UIAlertView *emailError = [[UIAlertView alloc] initWithTitle:@"Oops" message:@"Please enter a valid email address." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+//        UIAlertView *emailError = [[UIAlertView alloc] initWithTitle:@"Oops" message:@"Please enter a valid email address." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+//        
+//        [emailError show];
         
-        [emailError show];
+        // Show Alert
+        [self showAlert:@"Oops" message:@"Please enter a valid email address."];
+        
         return NO;
     }
     else if ([self.passField.text isEqualToString:@""] || [self.reEnterPass.text isEqualToString:@""]) {
         
-        UIAlertView *error = [[UIAlertView alloc] initWithTitle:@"Oops" message:@"You must enter all fields" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+//        UIAlertView *error = [[UIAlertView alloc] initWithTitle:@"Oops" message:@"You must enter all fields" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+//        
+//        [error show];
         
-        [error show];
+        // Show Alert
+        [self showAlert:@"Oops" message:@"You must enter all fields"];
+        
         return NO;
     }
     else if (![FormValidationUtility isValidPassword:pass]) {
-        UIAlertView *PassError = [[UIAlertView alloc] initWithTitle:@"Oops" message:@"Sorry, that password does not meet our security guidelines. Please choose a password that is 6-16 characters in length, with a mix of at least 1 number or letter, and 1 symbol." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+//        UIAlertView *PassError = [[UIAlertView alloc] initWithTitle:@"Oops" message:@"Sorry, that password does not meet our security guidelines. Please choose a password that is 6-16 characters in length, with a mix of at least 1 number or letter, and 1 symbol." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+//        
+//        [PassError show];
+        // Show Alert
+        [self showAlert:@"Oops" message:@"Sorry, that password does not meet our security guidelines. Please choose a password that is 6-16 characters in length, with a mix of at least 1 number or letter, and 1 symbol."];
         
-        [PassError show];
         return NO;
     }
     else {
@@ -121,6 +135,16 @@
     self.usernameField.enabled = NO;
     self.passField.enabled = NO;
     self.reEnterPass.enabled = NO;
+}
+
+// Alert Controller
+-(void)showAlert:(NSString*)title message:(NSString*)messageString {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:messageString preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+    [alertController addAction:ok];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 

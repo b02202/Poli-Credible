@@ -123,8 +123,13 @@
         
         if ([self.usernameField.text isEqualToString:[defaults objectForKey:@"username"]]) {
             NSString *errorString = [NSString stringWithFormat:@"%@ is already a registered user", self.usernameField.text];
-            UIAlertView *error = [[UIAlertView alloc] initWithTitle:@"Oops" message:errorString delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-            [error show];
+            
+//            UIAlertView *error = [[UIAlertView alloc] initWithTitle:@"Oops" message:errorString delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+//            [error show];
+            
+            // Show Alert
+            [self showAlert:@"Oops" message:errorString];
+            
         }
         else {
             [self checkPasswordMatch];
@@ -149,22 +154,34 @@
 -(BOOL)fieldsAreValid:(NSString*)email password:(NSString*)pass rePassword:(NSString*)rePass {
     
     if (![FormValidationUtility isValidEmailAddress:email]) {
-        UIAlertView *emailError = [[UIAlertView alloc] initWithTitle:@"Oops" message:@"Please enter a valid email address." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+//        UIAlertView *emailError = [[UIAlertView alloc] initWithTitle:@"Oops" message:@"Please enter a valid email address." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+//        
+//        [emailError show];
         
-        [emailError show];
+        // Show Alert
+        [self showAlert:@"Oops" message:@"Please enter a valid email address."];
+        
         return NO;
     }
     else if ([self.passField.text isEqualToString:@""] || [self.reEnterPass.text isEqualToString:@""]) {
         
-        UIAlertView *error = [[UIAlertView alloc] initWithTitle:@"Oops" message:@"You must enter all fields" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+//        UIAlertView *error = [[UIAlertView alloc] initWithTitle:@"Oops" message:@"You must enter all fields" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+//        
+//        [error show];
         
-        [error show];
+        // Show Alert
+        [self showAlert:@"Oops" message:@"You must enter all fields"];
+        
         return NO;
     }
     else if (![FormValidationUtility isValidPassword:pass]) {
-        UIAlertView *PassError = [[UIAlertView alloc] initWithTitle:@"Oops" message:@"Sorry, that password does not meet our security guidelines. Please choose a password that is 6-16 characters in length, with a mix of at least 1 number or letter, and 1 symbol." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+//        UIAlertView *PassError = [[UIAlertView alloc] initWithTitle:@"Oops" message:@"Sorry, that password does not meet our security guidelines. Please choose a password that is 6-16 characters in length, with a mix of at least 1 number or letter, and 1 symbol." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+//        
+//        [PassError show];
         
-        [PassError show];
+        // Show Alert
+        [self showAlert:@"Oops" message:@"Sorry, that password does not meet our security guidelines. Please choose a password that is 6-16 characters in length, with a mix of at least 1 number or letter, and 1 symbol."];
+        
         return NO;
     }
     else {
@@ -184,11 +201,14 @@
     
     [defaults synchronize];
     
-    UIAlertView *success = [[UIAlertView alloc] initWithTitle:@"Success" message:@"You have registered a new Poli-Credible user" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-    
-    [success show];
-    
+//    UIAlertView *success = [[UIAlertView alloc] initWithTitle:@"Success" message:@"You have registered a new Poli-Credible user" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+//    
+//    [success show];
     [self performSegueWithIdentifier:@"toHome" sender:self];
+    // Show Alert
+    [self showAlert:@"Success" message:@"You have registered a new Poli-Credible user"];
+    
+    
 }
 
 // Check Password Match
@@ -200,11 +220,24 @@
     }
     else
     {
-        NSLog(@"password don't match");
-        UIAlertView *error = [[UIAlertView alloc] initWithTitle:@"Oops" message:@"Your entered passwords do not match" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+//        NSLog(@"password don't match");
+//        UIAlertView *error = [[UIAlertView alloc] initWithTitle:@"Oops" message:@"Your entered passwords do not match" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+//        
+//        [error show];
         
-        [error show];
+        // Show Alert
+        [self showAlert:@"Oops" message:@"Your entered passwords do not match"];
     }
+}
+
+// Alert Controller
+-(void)showAlert:(NSString*)title message:(NSString*)messageString {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:messageString preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+    [alertController addAction:ok];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 // Return Text Field

@@ -155,9 +155,12 @@
         [self.favoritesArray removeObjectAtIndex:iPath.row];
         [self.favoritesTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:iPath] withRowAnimation:UITableViewRowAnimationFade];
         
-        UIAlertView *successAlert = [[UIAlertView alloc] initWithTitle:@"Success" message:@"Legislator has been removed." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+//        UIAlertView *successAlert = [[UIAlertView alloc] initWithTitle:@"Success" message:@"Legislator has been removed." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+//        
+//        [successAlert show];
         
-        [successAlert show];
+        // Show Alert
+        [self showAlert:@"Success" message:@"Legislator has been removed."];
     }
     
     
@@ -234,6 +237,16 @@
         
     }
     
+}
+
+// Alert Controller
+-(void)showAlert:(NSString*)title message:(NSString*)messageString {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:messageString preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+    [alertController addAction:ok];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 @end

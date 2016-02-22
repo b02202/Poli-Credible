@@ -232,15 +232,21 @@
             // Handle Error
             NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
         } else {
-            UIAlertView *successAlert = [[UIAlertView alloc] initWithTitle:@"Success" message:@"Legislator has been added to your favorites." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+//            UIAlertView *successAlert = [[UIAlertView alloc] initWithTitle:@"Success" message:@"Legislator has been added to your favorites." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+//            
+//            [successAlert show];
             
-            [successAlert show];
+            // Show Alert
+            [self showAlert:@"Success"  message:@"Legislator has been added to your favorites."];
         }
     }
     else {
-        UIAlertView *dupAlert = [[UIAlertView alloc] initWithTitle:@"Duplicate" message:@"Legislator has already been added to your favorites." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+//        UIAlertView *dupAlert = [[UIAlertView alloc] initWithTitle:@"Duplicate" message:@"Legislator has already been added to your favorites." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+//        
+//        [dupAlert show];
         
-        [dupAlert show];
+        // Show Alert
+        [self showAlert:@"Duplicate" message:@"Legislator has already been added to your favorites."];
     }
     
 
@@ -248,5 +254,15 @@
 - (IBAction)addFavorite:(id)sender {
     
     [self saveToFavorites];
+}
+
+// Alert Controller
+-(void)showAlert:(NSString*)title message:(NSString*)messageString {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:messageString preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+    [alertController addAction:ok];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 @end
