@@ -36,6 +36,8 @@
     self.reEnterPass.leftViewMode = UITextFieldViewModeAlways;
     self.reEnterPass.leftView  = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"password-icon.png"]];
     
+    self.cancelBtn.hidden = YES;
+    
     [self setPlaceholders];
 }
 
