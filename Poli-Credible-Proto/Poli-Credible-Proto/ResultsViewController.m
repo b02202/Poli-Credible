@@ -237,14 +237,16 @@
             [_houseArray addObject:memberObj];
         }
     }
+    // sort by district ascending
+    [_houseArray sortUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"repDistrict" ascending:YES]]];
     
-    for (MemberDataClass *memberObj in _senateArray) {
-        NSLog(@"%@ %@ - %@", [memberObj valueForKey:@"repFirstName"],[memberObj valueForKey:@"repLastName"],[memberObj valueForKey:@"chamber"]);
-    }
-    
-    for (MemberDataClass *memberObj in _houseArray) {
-        NSLog(@"%@ %@ - %@", [memberObj valueForKey:@"repFirstName"],[memberObj valueForKey:@"repLastName"],[memberObj valueForKey:@"chamber"]);
-    }
+//    for (MemberDataClass *memberObj in _senateArray) {
+//        NSLog(@"%@ %@ - %@", [memberObj valueForKey:@"repFirstName"],[memberObj valueForKey:@"repLastName"],[memberObj valueForKey:@"chamber"]);
+//    }
+//    
+//    for (MemberDataClass *memberObj in _houseArray) {
+//        NSLog(@"%@ %@ - %@", [memberObj valueForKey:@"repFirstName"],[memberObj valueForKey:@"repLastName"],[memberObj valueForKey:@"chamber"]);
+//    }
 }
 
 -(IBAction)back:(UIStoryboardSegue*)segue
