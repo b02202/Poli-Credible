@@ -532,8 +532,8 @@
 		C7ADC54C1C77936E0003A847 /* LoginViews */ = {
 			isa = PBXGroup;
 			children = (
-				C7539EB11C78DAF90071D485 /* RegisterViewController.h */,
 				C7539EB21C78DAF90071D485 /* RegisterViewController.m */,
+				C7539EB11C78DAF90071D485 /* RegisterViewController.h */,
 			);
 			name = LoginViews;
 			sourceTree = "<group>";

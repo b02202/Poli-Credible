@@ -1945,8 +1945,15 @@
                         <barButtonItem key="leftBarButtonItem" image="menu-icon.png" id="gXr-Os-rKZ">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="uN8-3C-tEI">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="editAction:" destination="8CN-Rh-MQG" id="PvF-If-tHn"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="editBtn" destination="uN8-3C-tEI" id="AzA-9p-cC8"/>
                         <outlet property="favoritesTableView" destination="OXb-qB-STm" id="9VH-Jh-xUx"/>
                         <outlet property="menuButton" destination="gXr-Os-rKZ" id="LzN-Ze-Rjl"/>
                     </connections>
@@ -2104,9 +2111,9 @@
         <image name="twitter-icon.png" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="N31-rG-7DT"/>
         <segue reference="nrT-2f-75Y"/>
         <segue reference="cpY-0H-Aww"/>
         <segue reference="CUd-bA-H3w"/>
-        <segue reference="LRa-D8-FT2"/>
     </inferredMetricsTieBreakers>
 </document>

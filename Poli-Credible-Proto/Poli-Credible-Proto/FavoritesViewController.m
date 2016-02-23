@@ -249,4 +249,19 @@
     [self presentViewController:alertController animated:YES completion:nil];
 }
 
+- (IBAction)editAction:(id)sender {
+    
+    [self tableEditing];
+}
+
+-(void)tableEditing {
+    if ([self.editBtn.title isEqualToString:@"Cancel"]) {
+        self.favoritesTableView.editing = NO;
+        self.editBtn.title = @"Edit";
+    }
+    else {
+        self.favoritesTableView.editing = YES;
+        self.editBtn.title = @"Cancel";
+    }
+}
 @end
