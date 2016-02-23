@@ -221,9 +221,9 @@
                                     <action selector="registerAction:" destination="JdQ-nc-S9y" eventType="touchUpInside" id="qaS-nE-fte"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y65-Dg-HrB">
-                                <rect key="frame" x="20" y="20" width="44" height="30"/>
-                                <state key="normal" title="&lt;Back">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y65-Dg-HrB">
+                                <rect key="frame" x="20" y="20" width="73" height="30"/>
+                                <state key="normal" title="Cancel" image="back-icon.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -622,8 +622,8 @@
                                 </textAttributes>
                                 <items>
                                     <navigationItem title="Results" prompt=" " id="HIR-fE-mb2">
-                                        <barButtonItem key="leftBarButtonItem" title="&lt;Back" id="Ybb-zi-PeO">
-                                            <color key="tintColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        <barButtonItem key="leftBarButtonItem" image="back-icon.png" id="Ybb-zi-PeO">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <connections>
                                                 <action selector="dismissView:" destination="IZS-V5-xac" id="JgH-6n-GHZ"/>
                                             </connections>
@@ -676,8 +676,8 @@
                                 </textAttributes>
                                 <items>
                                     <navigationItem title="Sen. Richard Shelby" prompt=" " id="HIj-yH-ra3">
-                                        <barButtonItem key="leftBarButtonItem" title="&lt;Back" id="bea-iN-lve">
-                                            <color key="tintColor" white="0.92589051570000003" alpha="1" colorSpace="calibratedWhite"/>
+                                        <barButtonItem key="leftBarButtonItem" image="back-icon.png" id="bea-iN-lve">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <connections>
                                                 <action selector="backDismiss:" destination="ZRg-mu-Hhm" id="65b-IJ-Qng"/>
                                             </connections>
@@ -1543,7 +1543,7 @@
                                 <color key="barTintColor" red="0.36078431370000003" green="0.59607843140000005" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
                                     <navigationItem title="Vote Details" prompt=" " id="Dz5-0g-MbF">
-                                        <barButtonItem key="leftBarButtonItem" title="&lt; Back" id="TlB-YZ-kwt">
+                                        <barButtonItem key="leftBarButtonItem" image="back-icon.png" id="TlB-YZ-kwt">
                                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <connections>
                                                 <action selector="backDismiss:" destination="qkt-6A-CBW" id="tRm-6w-QQu"/>
@@ -2088,6 +2088,7 @@
     <resources>
         <image name="Logo-Menu.png" width="733" height="604"/>
         <image name="addFavoriteIcon.png" width="35" height="35"/>
+        <image name="back-icon.png" width="17" height="30"/>
         <image name="facebook-icon-disabled.png" width="512" height="512"/>
         <image name="facebook-icon.png" width="512" height="512"/>
         <image name="logout.png" width="40" height="40"/>
@@ -2103,7 +2104,7 @@
         <image name="twitter-icon.png" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pYS-hk-D40"/>
+        <segue reference="nrT-2f-75Y"/>
         <segue reference="cpY-0H-Aww"/>
         <segue reference="CUd-bA-H3w"/>
         <segue reference="LRa-D8-FT2"/>
