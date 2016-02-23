@@ -13,5 +13,6 @@
 @property (strong, nonatomic) IBOutlet UITableView *menuTableView;
 
 - (IBAction)logoutBtn:(id)sender;
+@property (strong, nonatomic) IBOutlet UIImageView *logoImage;
 
 @end

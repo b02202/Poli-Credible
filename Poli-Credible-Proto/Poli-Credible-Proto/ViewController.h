@@ -26,12 +26,15 @@
 @property (strong, nonatomic) IBOutlet UIButton *cancelBtn;
 
 
+@property (strong, nonatomic) IBOutlet UIButton *touchIDBtn;
+
 // Button Actions
 
 - (IBAction)loginUser:(id)sender;
 
 - (IBAction)cancelAction:(id)sender;
 
+- (IBAction)touchIDAction:(id)sender;
 
 
 - (IBAction)forgotPassword:(id)sender;

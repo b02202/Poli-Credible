@@ -28,6 +28,7 @@
     
     _menuButton.target = self.revealViewController;
     _menuButton.action = @selector(revealToggle:);
+    _menuButton.image = [UIImage imageNamed:@"menu-icon.png"];
     
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     

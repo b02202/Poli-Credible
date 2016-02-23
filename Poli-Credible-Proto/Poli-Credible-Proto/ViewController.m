@@ -9,9 +9,11 @@
 #import "ViewController.h"
 #import "RegisterViewController.h"
 #import "FormValidationUtility.h"
+#import <LocalAuthentication/LocalAuthentication.h>
 
 @interface ViewController ()
 @property (nonatomic, assign) BOOL isVisible;
+@property (nonatomic, assign) BOOL touchGood;
 @end
 
 @implementation ViewController
@@ -23,19 +25,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    // NSUser Defaults Implementation
-    //NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
-//    if (![defaults boolForKey:@"registered"]) {
-//        NSLog(@"No user registered");
-//        //_loginBtn.hidden = YES;
-//    }
-//    else {
-//        NSLog(@"user is registered");
-//        _reEnterPasswordField.hidden = YES;
-//       // self.resetButton.hidden = YES;
-//    }
-    
+    // Touch ID Check
+    [self touchIDVislibility];
+
     // Hide ReEnterPassField initially
     self.reEnterPasswordField.hidden = YES;
     self.resetButton.hidden = YES;
@@ -75,12 +67,51 @@
     [self.reEnterPasswordField.rightView addGestureRecognizer:rePassVisible];
     
     //self.isVisible =
-    
+    self.touchGood = NO;
     
     // Register for Keyboard Notifications
     //[self registerForKeyboardNotifications];
+}
+
+-(void)touchIDVislibility {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
+    if (![defaults boolForKey:@"registered"]) {
+        NSLog(@"No user registered");
+        self.touchIDBtn.hidden = YES;
+    }
+    else {
+        NSLog(@"user is registered");
+        // _reEnterPasswordField.hidden = YES;
+        self.touchIDBtn.hidden = NO;
+    }
+}
+
+-(void)touchID {
+    LAContext *context = [[LAContext alloc] init];
+    NSError *error = nil;
+    NSString *reason = @"Please authenticate using Touch ID";
     
+    if ([context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&error]) {
+        [context evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics
+                localizedReason:reason
+                          reply:^(BOOL success, NSError *error) {
+                              if (success) {
+                                  
+                                  dispatch_async(dispatch_get_main_queue(), ^{
+                                      [self performSegueWithIdentifier:@"login" sender:nil];
+                                  });
+                              }
+                              else {
+                                  //You should do better handling of error here but I'm being lazy
+                                  NSLog(@"Error received: %@", error);
+                              }
+                          }];
+    }
+    
+    else {  
+        NSLog(@"Can not evaluate Touch ID");
+    }
     
 }
 
@@ -185,6 +216,12 @@
     self.reEnterPasswordField.hidden = YES;
     self.resetButton.hidden = YES;
     self.cancelBtn.hidden = YES;
+    [self touchIDVislibility];
+}
+
+// touch id
+- (IBAction)touchIDAction:(id)sender {
+    [self touchID];
 }
 
 - (IBAction)forgotPassword:(id)sender {
@@ -193,6 +230,7 @@
     self.cancelBtn.hidden = NO;
     self.loginBtn.hidden = YES;
     self.forgotPassBtn.hidden = YES;
+    self.touchIDBtn.hidden = YES;
 }
 
 - (IBAction)resetBtn:(id)sender {
@@ -206,6 +244,7 @@
             [defaults setObject:_passwordField.text forKey:@"password"];
             self.loginBtn.hidden = NO;
             self.forgotPassBtn.hidden = NO;
+            [self touchIDVislibility];
             self.reEnterPasswordField.hidden = YES;
             self.resetButton.hidden = YES;
             self.cancelBtn.hidden = YES;
@@ -220,6 +259,7 @@
             self.cancelBtn.hidden = NO;
             self.loginBtn.hidden = YES;
             self.forgotPassBtn.hidden = YES;
+            self.touchIDBtn.hidden = YES;
             //[error show];
             
             // Show Alert

@@ -16,6 +16,7 @@
 
 -(void)viewDidLoad {
     [super viewDidLoad];
+    self.logoImage.image = [UIImage imageNamed:@"Logo-Menu.png"];
     
     menuItems = @[@"first", @"second", @"third", @"fourth"];
     self.menuTableView.delegate = self;
@@ -23,7 +24,12 @@
     
     self.menuTableView.estimatedRowHeight = 60.0f;
     self.menuTableView.rowHeight = UITableViewAutomaticDimension;
+    self.logoImage.image = [UIImage imageNamed:@"Logo-Menu.png"];
     
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    [self.logoImage setImage:[UIImage imageNamed:@"Logo-Menu.png"]];
 }
 
 // Table
