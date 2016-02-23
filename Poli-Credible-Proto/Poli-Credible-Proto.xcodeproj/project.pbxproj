@@ -48,7 +48,7 @@
 		C7539ED21C7BA6460071D485 /* facebook-icon-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = C7539ECF1C7BA6460071D485 /* facebook-icon-disabled.png */; };
 		C7539ED31C7BA6460071D485 /* site-icon-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = C7539ED01C7BA6460071D485 /* site-icon-disabled.png */; };
 		C7539ED41C7BA6460071D485 /* twitter-icon-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = C7539ED11C7BA6460071D485 /* twitter-icon-disabled.png */; };
-		C7539EDC1C7CB48A0071D485 /* back-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C7539EDB1C7CB48A0071D485 /* back-icon.png */; };
+		C7539EDE1C7CB8A40071D485 /* back-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C7539EDD1C7CB8A40071D485 /* back-icon.png */; };
 		C7ADC53A1C72D94F0003A847 /* Contents.json in Resources */ = {isa = PBXBuildFile; fileRef = C7ADC52E1C72D94F0003A847 /* Contents.json */; };
 		C7ADC53B1C72D94F0003A847 /* Icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = C7ADC52F1C72D94F0003A847 /* Icon-40.png */; };
 		C7ADC53C1C72D94F0003A847 /* Icon-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C7ADC5301C72D94F0003A847 /* Icon-40@2x.png */; };
@@ -228,7 +228,7 @@
 		C7539ECF1C7BA6460071D485 /* facebook-icon-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook-icon-disabled.png"; sourceTree = "<group>"; };
 		C7539ED01C7BA6460071D485 /* site-icon-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "site-icon-disabled.png"; sourceTree = "<group>"; };
 		C7539ED11C7BA6460071D485 /* twitter-icon-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twitter-icon-disabled.png"; sourceTree = "<group>"; };
-		C7539EDB1C7CB48A0071D485 /* back-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back-icon.png"; sourceTree = "<group>"; };
+		C7539EDD1C7CB8A40071D485 /* back-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back-icon.png"; sourceTree = "<group>"; };
 		C7ADC52E1C72D94F0003A847 /* Contents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
 		C7ADC52F1C72D94F0003A847 /* Icon-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-40.png"; sourceTree = "<group>"; };
 		C7ADC5301C72D94F0003A847 /* Icon-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-40@2x.png"; sourceTree = "<group>"; };
@@ -466,7 +466,7 @@
 		C71832AE1C50BA1A00388E02 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				C7539EDB1C7CB48A0071D485 /* back-icon.png */,
+				C7539EDD1C7CB8A40071D485 /* back-icon.png */,
 				C7539ECF1C7BA6460071D485 /* facebook-icon-disabled.png */,
 				C7539ED01C7BA6460071D485 /* site-icon-disabled.png */,
 				C7539ED11C7BA6460071D485 /* twitter-icon-disabled.png */,
@@ -863,7 +863,7 @@
 				C7ADC53E1C72D94F0003A847 /* Icon-60@2x.png in Resources */,
 				C7D5B4811C68F0C40092A5D5 /* state-wyoming.png in Resources */,
 				C7D5B4891C6911250092A5D5 /* state-massachusetts.png in Resources */,
-				C7539EDC1C7CB48A0071D485 /* back-icon.png in Resources */,
+				C7539EDE1C7CB8A40071D485 /* back-icon.png in Resources */,
 				C7D5B4521C68F0C40092A5D5 /* state-arizona.png in Resources */,
 				C7D5B3A31C668CDA0092A5D5 /* addFavoriteIcon.png in Resources */,
 				C7D5B4751C68F0C40092A5D5 /* state-pennsylvania.png in Resources */,
