@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+#import <Firebase/Firebase.h>
+
+
 @interface RegisterViewController : UIViewController <UITextFieldDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextField *usernameField;
@@ -17,6 +20,5 @@
 
 // Actions
 - (IBAction)backAction:(id)sender;
-
 - (IBAction)registerAction:(id)sender;
 @end

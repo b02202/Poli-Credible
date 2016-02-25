@@ -44,9 +44,8 @@
     UITapGestureRecognizer *rePassVisible = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(rePassVisibility:)];
     rePassVisible.numberOfTapsRequired = 1;
     [self.reEnterPass.rightView addGestureRecognizer:rePassVisible];
-    
 }
-
+// Set AutoRotate
 -(BOOL)shouldAutorotate {
     return NO;
 }
@@ -61,7 +60,6 @@
 
 // Set password SecureText
 -(void)passwordVisibility:(id)sender {
-    
     if (self.passField.secureTextEntry) {
         self.passField.secureTextEntry = NO;
         self.passField.rightView  = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"visable-icon.png"]];
@@ -84,7 +82,6 @@
 
 // Set Re-EnterPassword SecureText
 -(void)rePassVisibility:(id)sender {
-    
     if (self.reEnterPass.secureTextEntry) {
         self.reEnterPass.secureTextEntry = NO;
         self.reEnterPass.rightView  = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"visable-icon.png"]];
@@ -112,41 +109,27 @@
 
 // Register
 - (IBAction)registerAction:(id)sender {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
+    // Field Validation
     if ([self fieldsAreValid:self.usernameField.text password:self.passField.text rePassword:self.reEnterPass.text]) {
         
-        if ([self.usernameField.text isEqualToString:[defaults objectForKey:@"username"]]) {
-            NSString *errorString = [NSString stringWithFormat:@"%@ is already a registered user", self.usernameField.text];
-        
-            // Show Alert
-            [self showAlert:@"Oops" message:errorString];
-            
-        }
-        else {
-            [self checkPasswordMatch];
-        }
+        [self checkPasswordMatch];
     }
 }
-
+// Field Validation
 -(BOOL)fieldsAreValid:(NSString*)email password:(NSString*)pass rePassword:(NSString*)rePass {
     
     if (![FormValidationUtility isValidEmailAddress:email]) {
-        
         // Show Alert
         [self showAlert:@"Oops" message:@"Please enter a valid email address."];
-        
         return NO;
     }
     else if ([self.passField.text isEqualToString:@""] || [self.reEnterPass.text isEqualToString:@""]) {
         
         // Show Alert
         [self showAlert:@"Oops" message:@"You must enter all fields"];
-        
         return NO;
     }
     else if (![FormValidationUtility isValidPassword:pass]) {
-        
         // Show Alert
         [self showAlert:@"Oops" message:@"Sorry, that password does not meet our security guidelines. Please choose a password that is 6-16 characters in length, with a mix of at least 1 number or letter, and 1 symbol."];
         
@@ -155,34 +138,61 @@
     else {
         return YES;
     }
-    
 }
 
 // Register New User
-- (void) registerNewUser
+- (void)registerNewUser
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
     [defaults setObject:self.usernameField.text forKey:@"username"];
     [defaults setObject:self.passField.text forKey:@"password"];
     [defaults setBool:YES forKey:@"registered"];
-    
     [defaults synchronize];
     
-    // Show Alert
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Success" message:@"You have registered a new Poli-Credible user" preferredStyle:UIAlertControllerStyleAlert];
-    
-    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action)
-                         {
-                             [self performSegueWithIdentifier:@"toHome" sender:self];
-                         }];
-    [alertController addAction:ok];
-    
-    [self presentViewController:alertController animated:YES completion:nil];
-    
-    
+    Firebase *myRootRef = [[Firebase alloc] initWithUrl:@"https://blistering-inferno-8811.firebaseio.com/"];
+    [myRootRef createUser:self.usernameField.text password:self.passField.text
+        withValueCompletionBlock:^(NSError *error, NSDictionary *result) {
+     
+        if (error) {
+                // There was an error creating the account
+                NSLog(@"ERROR = %@", error.description);
+            // Show Alert
+            UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:error.userInfo[@"NSLocalizedDescription"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [errorAlert show];
+           // [self fireBaseLogin];
+        } else {
+            NSString *uid = [result objectForKey:@"uid"];
+            NSLog(@"Successfully created user account with uid: %@", uid);
+            // Update User Defaults
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            [defaults setObject:self.usernameField.text forKey:@"username"];
+            [defaults setObject:self.passField.text forKey:@"password"];
+            [defaults setBool:YES forKey:@"registered"];
+            // Show Alert
+            UIAlertView *successAlert = [[UIAlertView alloc] initWithTitle:@"Success" message:@"You have successfully registered a new Poli-Credible user" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+                    [successAlert show];
+            [self fireBaseLogin];
+        }
+    }];
 }
-
+// Firebase Login Authentication
+-(void)fireBaseLogin {
+    Firebase *ref = [[Firebase alloc] initWithUrl:@"https://blistering-inferno-8811.firebaseio.com/"];
+    [ref authUser:self.usernameField.text password:self.passField.text
+        withCompletionBlock:^(NSError *error, FAuthData *authData) {
+    
+    if (error) {
+        // There was an error logging in to this account
+        NSLog(@"ERROR = %@", error.description);
+        // Show Alert
+        UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:error.userInfo[@"NSLocalizedDescription"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [errorAlert show];
+    } else {
+        // Log user in
+        [self performSegueWithIdentifier:@"toHome" sender:self];
+    }
+}];
+}
 // Check Password Match
 -(void) checkPasswordMatch
 {
@@ -192,12 +202,10 @@
     }
     else
     {
-        
         // Show Alert
         [self showAlert:@"Oops" message:@"Your entered passwords do not match"];
     }
 }
-
 // Alert Controller
 -(void)showAlert:(NSString*)title message:(NSString*)messageString {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:messageString preferredStyle:UIAlertControllerStyleAlert];
@@ -207,7 +215,6 @@
     
     [self presentViewController:alertController animated:YES completion:nil];
 }
-
 // Return Text Field
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [_usernameField resignFirstResponder];

@@ -7,38 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Firebase/Firebase.h>
 
 @interface ViewController : UIViewController <UITextFieldDelegate>
-@property (strong, nonatomic) IBOutlet UINavigationBar *navBar;
+
 // Text Fields
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
-@property (weak, nonatomic) IBOutlet UITextField *reEnterPasswordField;
 
-// Active Field
-@property (strong, nonatomic) IBOutlet UITextField *activeField;
-
-// Login Buttons
+// Buttons
 @property (weak, nonatomic) IBOutlet UIButton *loginBtn;
-
-@property (strong, nonatomic) IBOutlet UIButton *resetButton;
 @property (strong, nonatomic) IBOutlet UIButton *forgotPassBtn;
-@property (strong, nonatomic) IBOutlet UIButton *cancelBtn;
-
-
 @property (strong, nonatomic) IBOutlet UIButton *touchIDBtn;
 
 // Button Actions
-
 - (IBAction)loginUser:(id)sender;
-
-- (IBAction)cancelAction:(id)sender;
-
 - (IBAction)touchIDAction:(id)sender;
-
-
 - (IBAction)forgotPassword:(id)sender;
-- (IBAction)resetBtn:(id)sender;
 
 @end
 

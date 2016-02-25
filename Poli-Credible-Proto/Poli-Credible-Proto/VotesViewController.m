@@ -55,6 +55,10 @@
     // Run NYTimes Query
     //[self runSLQuery];
     [self loadData:1];
+    [self loadData:1];
+    [self loadData:1];
+    [self loadData:1];
+    [self loadData:1];
     //[self loadAllData:1];
     
 }

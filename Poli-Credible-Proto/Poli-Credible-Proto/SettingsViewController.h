@@ -12,16 +12,19 @@
 
 @property (strong, nonatomic) IBOutlet UITextField *usernameField;
 @property (strong, nonatomic) IBOutlet UITextField *passField;
-@property (strong, nonatomic) IBOutlet UITextField *reEnterPass;
 @property (strong, nonatomic) IBOutlet UIButton *resetBtn;
-@property (strong, nonatomic) IBOutlet UILabel *updateBtn;
-@property (strong, nonatomic) IBOutlet UIButton *locationBtn;
+
+
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *menuButton;
 @property (strong, nonatomic) IBOutlet UIButton *cancelBtn;
+@property (strong, nonatomic) IBOutlet UIButton *updatePassBtn;
+@property (assign, nonatomic) BOOL emailIsUpdating;
+@property (strong, nonatomic) IBOutlet UIButton *updateBtn;
 
 - (IBAction)updateAction:(id)sender;
 - (IBAction)resetAction:(id)sender;
 - (IBAction)cancelAction:(id)sender;
+- (IBAction)changePassAction:(id)sender;
 
 
 

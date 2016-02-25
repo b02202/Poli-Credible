@@ -9,28 +9,23 @@
 #import "ViewController.h"
 #import "RegisterViewController.h"
 #import "FormValidationUtility.h"
+#import "SettingsViewController.h"
+#import "SWRevealViewController.h"
 #import <LocalAuthentication/LocalAuthentication.h>
 
 @interface ViewController ()
 @property (nonatomic, assign) BOOL isVisible;
-@property (nonatomic, assign) BOOL touchGood;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
-    // set background color
-    //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg-2.png"]];
-
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
     // Touch ID Check
     [self touchIDVislibility];
-
-    // Hide ReEnterPassField initially
-    self.reEnterPasswordField.hidden = YES;
-    self.resetButton.hidden = YES;
     
     // TextField Setup
     // username field
@@ -51,28 +46,18 @@
     UITapGestureRecognizer *passVisible = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(passwordVisibility:)];
     passVisible.numberOfTapsRequired = 1;
     [self.passwordField.rightView addGestureRecognizer:passVisible];
-    
-    // Re-Enter Pass Field
-    self.reEnterPasswordField.delegate = self;
-    // left view
-    self.reEnterPasswordField.leftViewMode = UITextFieldViewModeAlways;
-    self.reEnterPasswordField.leftView  = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"password-icon.png"]];
-    // right view
-    self.reEnterPasswordField.rightViewMode = UITextFieldViewModeAlways;
-    self.reEnterPasswordField.rightView  = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"hidden-icon.png"]];
-    [self.reEnterPasswordField.rightView setUserInteractionEnabled:YES];
-    
-    UITapGestureRecognizer *rePassVisible = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(rePassVisibility:)];
-    rePassVisible.numberOfTapsRequired = 1;
-    [self.reEnterPasswordField.rightView addGestureRecognizer:rePassVisible];
-    
-    //self.isVisible =
-    self.touchGood = NO;
-    
-    // Register for Keyboard Notifications
-    //[self registerForKeyboardNotifications];
+
+}
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
+// Set Autorotate to NO
+-(BOOL)shouldAutorotate {
+    return NO;
+}
+// Touch ID Visibility
 -(void)touchIDVislibility {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
@@ -86,42 +71,113 @@
         self.touchIDBtn.hidden = NO;
     }
 }
-
+// Touch ID Implementation
 -(void)touchID {
     LAContext *context = [[LAContext alloc] init];
     NSError *error = nil;
     NSString *reason = @"Please authenticate using Touch ID";
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     if ([context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&error]) {
         [context evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics
                 localizedReason:reason
                           reply:^(BOOL success, NSError *error) {
                               if (success) {
-                                  
                                   dispatch_async(dispatch_get_main_queue(), ^{
-                                      [self performSegueWithIdentifier:@"login" sender:nil];
+                                      [self firebaseLogin:[defaults valueForKey:@"username"] password:[defaults valueForKey:@"password"]];
                                   });
                               }
                               else {
-                                  //You should do better handling of error here but I'm being lazy
-                                  NSLog(@"Error received: %@", error);
+                                  //Error Handling
+                                  NSLog(@"Error received: %ld", (long)error.code);
                               }
                           }];
     }
-    
     else {  
         NSLog(@"Can not evaluate Touch ID");
     }
+}
+// User Login (Firebase)
+-(void)firebaseLogin:(NSString*)username password:(NSString*)pass {
+     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
+    Firebase *ref = [[Firebase alloc] initWithUrl:@"https://blistering-inferno-8811.firebaseio.com/"];
+    [ref authUser:username password:pass withCompletionBlock:^(NSError *error, FAuthData *authData) {
+    
+        if (error) {
+            // There was an error logging in to this account
+            NSLog(@"ERROR = %@", error.userInfo[@"NSLocalizedDescription"]);
+            NSString *errorString = error.userInfo[@"NSLocalizedDescription"];
+                UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Oops" message:errorString delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [errorAlert show];
+        }
+        else {
+            // Logged in - Launch app
+            NSLog(@"USER Email = %@", authData.providerData[@"email"]);
+            NSLog(@"IS TEMP %@", authData.providerData[@"isTemporaryPassword"]);
+            // set User Defaults
+            [defaults setObject:username forKey:@"username"];
+            [defaults setObject:pass forKey:@"password"];
+            [defaults setBool:YES forKey:@"registered"];
+            [defaults synchronize];
+            // Check if password is Temporary
+            NSString *isTemp = authData.providerData[@"isTemporaryPassword"];
+            if ([isTemp boolValue] == 1) {
+                // Prompt user to change password
+                UIAlertView * passAlert =[[UIAlertView alloc ] initWithTitle:@"Change Password" message:@"Please update your password" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
+                passAlert.tag = 1;
+                passAlert.alertViewStyle = UIAlertViewStyleSecureTextInput;
+                [passAlert addButtonWithTitle:@"Login"];
+                [passAlert show];
+            }
+            else {
+                [self performSegueWithIdentifier:@"login" sender:self];
+            }
+        }
+    }];
 }
-
--(BOOL)shouldAutorotate {
-    return NO;
+// Change password from alertview
+-(void)alertView:(UIAlertView*)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if (alertView.tag == 1) {
+        if (buttonIndex == 1) {
+            UITextField *newPassword = [alertView textFieldAtIndex:0];
+            if ([FormValidationUtility isValidPassword:newPassword.text]) {
+                // set defaults
+                NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+                //[defaults setObject:self.usernameField.text forKey:@"username"];
+                [defaults setObject:newPassword.text forKey:@"password"];
+                [defaults synchronize];
+                [self updateFirebasePass:newPassword.text];
+                
+                // launch app
+                [self performSegueWithIdentifier:@"login" sender:self];
+                
+            } else {
+                [self showAlert:@"Oops" message:@"Sorry, that password does not meet our security guidelines. Please choose a password that is 6-16 characters in length, with a mix of at least 1 number or letter, and 1 symbol."];
+            }
+        }
+    }
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+// update Password (Firebase)
+-(void)updateFirebasePass:(NSString*)newPass {
+    Firebase *ref = [[Firebase alloc] initWithUrl:@"https://blistering-inferno-8811.firebaseio.com/"];
+    [ref changePasswordForUser:self.usernameField.text fromOld:self.passwordField.text
+                         toNew:newPass withCompletionBlock:^(NSError *error) {
+                             if (error) {
+                                 // There was an error processing the request
+                                 NSLog(@"ERROR = %@", error.description);
+                                 // Show Alert
+                                 UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:error.userInfo[@"NSLocalizedDescription"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+                                 [errorAlert show];
+                             } else {
+                                 NSUserDefaults *userD = [NSUserDefaults standardUserDefaults];
+                                 [userD  setBool:YES forKey:@"registered"];
+                                 [userD synchronize];
+                                 // Password changed successfully
+                                 UIAlertView *successAlert = [[UIAlertView alloc] initWithTitle:@"Success" message:@"Your password has been successfully changed" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+                                 [successAlert show];
+                             }
+                         }];
 }
 
 // Set password SecureText
@@ -146,59 +202,15 @@
         [self.passwordField.rightView addGestureRecognizer:passVisible];
     }
 }
-
-// Set Re-EnterPassword SecureText
--(void)rePassVisibility:(id)sender {
-    
-    if (self.reEnterPasswordField.secureTextEntry) {
-        self.reEnterPasswordField.secureTextEntry = NO;
-        self.reEnterPasswordField.rightView  = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"visable-icon.png"]];
-        
-        [self.reEnterPasswordField.rightView setUserInteractionEnabled:YES];
-        UITapGestureRecognizer *rePassVisible = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(rePassVisibility:)];
-        rePassVisible.numberOfTapsRequired = 1;
-        [self.reEnterPasswordField.rightView addGestureRecognizer:rePassVisible];
-        
-    } else if (!self.reEnterPasswordField.secureTextEntry){
-        self.reEnterPasswordField.secureTextEntry = YES;
-        self.reEnterPasswordField.rightView  = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"hidden-icon.png"]];
-        
-        [self.reEnterPasswordField.rightView setUserInteractionEnabled:YES];
-        UITapGestureRecognizer *rePassVisible = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(rePassVisibility:)];
-        rePassVisible.numberOfTapsRequired = 1;
-        [self.reEnterPasswordField.rightView addGestureRecognizer:rePassVisible];
-    }
-}
-
-
 // Dismiss keyboard from text fields
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [self.usernameField resignFirstResponder];
     [self.passwordField resignFirstResponder];
-    [self.reEnterPasswordField resignFirstResponder];
 }
-
-
-
+// Login Button
 - (IBAction)loginUser:(id)sender {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
-    if ([_usernameField.text isEqualToString:[defaults objectForKey:@"username"]] && [_passwordField.text isEqualToString:[defaults objectForKey:@"password"]]) {
-        [self performSegueWithIdentifier:@"login" sender:self];
-    }
-    else
-    {
-//        UIAlertView *error = [[UIAlertView alloc] initWithTitle:@"Oops" message:@"Your username and password are not valid" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-//        
-//        [error show];
-        
-        // Show Alert
-        [self showAlert:@"Oops" message:@"Your username and password are not valid"];
-        
-        
-        
-    }
+    [self firebaseLogin:self.usernameField.text password:self.passwordField.text];
 }
 // Alert Controller
 -(void)showAlert:(NSString*)title message:(NSString*)messageString {
@@ -209,92 +221,50 @@
     
     [self presentViewController:alertController animated:YES completion:nil];
 }
-
-- (IBAction)cancelAction:(id)sender {
-    self.loginBtn.hidden = NO;
-    self.forgotPassBtn.hidden = NO;
-    self.reEnterPasswordField.hidden = YES;
-    self.resetButton.hidden = YES;
-    self.cancelBtn.hidden = YES;
-    [self touchIDVislibility];
-}
-
-// touch id
+// Touch ID Button
 - (IBAction)touchIDAction:(id)sender {
+    
     [self touchID];
 }
-
+// Forgot Password Button
 - (IBAction)forgotPassword:(id)sender {
-    self.reEnterPasswordField.hidden = NO;
-    self.resetButton.hidden = NO;
-    self.cancelBtn.hidden = NO;
-    self.loginBtn.hidden = YES;
-    self.forgotPassBtn.hidden = YES;
-    self.touchIDBtn.hidden = YES;
-}
-
-- (IBAction)resetBtn:(id)sender {
-    [self resetPassword];
-}
-
--(void)resetPassword {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    if ([_usernameField.text isEqualToString:[defaults objectForKey:@"username"]] && [self passValid:self.passwordField.text]) {
-        if ([_passwordField.text isEqualToString:_reEnterPasswordField.text]) {
-            [defaults setObject:_passwordField.text forKey:@"password"];
-            self.loginBtn.hidden = NO;
-            self.forgotPassBtn.hidden = NO;
-            [self touchIDVislibility];
-            self.reEnterPasswordField.hidden = YES;
-            self.resetButton.hidden = YES;
-            self.cancelBtn.hidden = YES;
-        }
-        else {
-            NSLog(@"password does not match");
-//            UIAlertView *error = [[UIAlertView alloc] initWithTitle:@"Oops" message:@"Your entered passwords do not match" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-            
-            
-            self.reEnterPasswordField.hidden = NO;
-            self.resetButton.hidden = NO;
-            self.cancelBtn.hidden = NO;
-            self.loginBtn.hidden = YES;
-            self.forgotPassBtn.hidden = YES;
-            self.touchIDBtn.hidden = YES;
-            //[error show];
-            
-            // Show Alert
-            [self showAlert:@"Oops" message:@"Your entered passwords do not match"];
-        }
+    if ([self.usernameField.text isEqualToString:@""]) {
+        [self showAlert:@"Oops" message:@"Please enter your email address"];
     }
     else {
-//        UIAlertView *usernameError = [[UIAlertView alloc] initWithTitle:@"Oops" message:@"Your username does not match our records." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-//        [usernameError show];
-        
-        // Show Alert
-        [self showAlert:@"Oops" message:@"Your username does not match our records."];
-    }
-}
-
-// Password Valid
--(BOOL)passValid:(NSString*)pass {
-    if (![FormValidationUtility isValidPassword:pass]) {
-//        UIAlertView *PassError = [[UIAlertView alloc] initWithTitle:@"Oops" message:@"Sorry, that password does not meet our security guidelines. Please choose a password that is 6-16 characters in length, with a mix of at least 1 number or letter, and 1 symbol." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-//        
-//        [PassError show];
-        // Show Alert
-        [self showAlert:@"Oops" message:@"Sorry, that password does not meet our security guidelines. Please choose a password that is 6-16 characters in length, with a mix of at least 1 number or letter, and 1 symbol."];
-        
-        return NO;
-    }
-    else {
-        return YES;
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Reset Password" message:@"Are you sure you want to reset your password?"preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action)
+                    {
+                        Firebase *ref = [[Firebase alloc] initWithUrl:@"https://blistering-inferno-8811.firebaseio.com/"];
+                        [ref resetPasswordForUser:self.usernameField.text withCompletionBlock:^(NSError *error) {
+                                if (error) {
+                                    // There was an error processing the request
+                                    NSLog(@"ERROR = %@", error.description);
+                                    // Show Alert
+                                    UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:error.userInfo[@"NSLocalizedDescription"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+                                    [errorAlert show];
+                                    
+                                } else {
+                                    // Password reset sent successfully
+                                    NSString *messageString = [NSString stringWithFormat:@"Password recovery instructions have been sent to %@", self.usernameField.text];
+                                    UIAlertView *successAlert = [[UIAlertView alloc] initWithTitle:@"Success" message:messageString delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+                                    [successAlert show];
+                                    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+                                    [defaults setBool:NO forKey:@"registered"];
+                                    self.touchIDBtn.hidden = YES;
+                                }
+                        }];
+                    }];
+        UIAlertAction* cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:nil];
+        [alertController addAction:ok];
+        [alertController addAction:cancel];
+        [self presentViewController:alertController animated:YES completion:nil];
     }
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [_usernameField resignFirstResponder];
     [_passwordField resignFirstResponder];
-    [_reEnterPasswordField resignFirstResponder];
     return NO;
 }
 

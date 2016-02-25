@@ -9,7 +9,7 @@
 #import "SettingsViewController.h"
 #import "SWRevealViewController.h"
 #import "FormValidationUtility.h"
-
+#import <Firebase/Firebase.h>
 @implementation SettingsViewController
 
 -(void)viewDidLoad {
@@ -23,7 +23,7 @@
     
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     
-    // textFields
+    // TextFields
     self.usernameField.delegate = self;
     self.usernameField.leftViewMode = UITextFieldViewModeAlways;
     self.usernameField.leftView  = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"user-icon.png"]];
@@ -31,110 +31,146 @@
     self.passField.delegate = self;
     self.passField.leftViewMode = UITextFieldViewModeAlways;
     self.passField.leftView  = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"password-icon.png"]];
-    
-    self.reEnterPass.delegate = self;
-    self.reEnterPass.leftViewMode = UITextFieldViewModeAlways;
-    self.reEnterPass.leftView  = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"password-icon.png"]];
-    
+    // Cancel Button
     self.cancelBtn.hidden = YES;
-    
+    // Set field text
     [self setPlaceholders];
 }
-
+// set auto rotate to no
 -(BOOL)shouldAutorotate {
     return NO;
 }
-
+// Update Email Action
 - (IBAction)updateAction:(id)sender {
     self.resetBtn.hidden = NO;
-    self.reEnterPass.hidden = NO;
     self.updateBtn.hidden = YES;
     self.cancelBtn.hidden = NO;
+    // Set UsernameField
     self.usernameField.enabled = YES;
-    self.passField.enabled = YES;
-    self.reEnterPass.enabled = YES;
+    self.usernameField.backgroundColor = [UIColor whiteColor];
+    self.usernameField.textColor = [UIColor blackColor];
+    self.passField.enabled = NO;
+    // updatePassBtn
+    self.updatePassBtn.hidden = YES;
+    // Set Bool
+    self.emailIsUpdating = YES;
 }
-
+// Reset Button
 - (IBAction)resetAction:(id)sender {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
-    if ([self  fieldsAreValid:self.usernameField.text password:self.passField.text rePassword:self.reEnterPass.text]) {
-        [defaults setObject:self.usernameField.text forKey:@"username"];
-        [defaults setObject:self.passField.text forKey:@"password"];
-        
-        // set placeholder text
-        [self setPlaceholders];
-        
-        // set visibility
-        self.resetBtn.hidden = YES;
-        self.reEnterPass.hidden = YES;
-        self.updateBtn.hidden = NO;
-        self.cancelBtn.hidden = YES;
-        self.usernameField.enabled = NO;
-        self.passField.enabled = NO;
-        self.reEnterPass.enabled = NO;
-        
-//        UIAlertView *resetAlert = [[UIAlertView alloc] initWithTitle:@"Success" message:@"Your profile has been updated" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-//        
-//        [resetAlert show];
-        
-        // Show Alert
-        [self showAlert:@"Success" message:@"Your profile has been updated"];
-    }
-}
-
--(BOOL)fieldsAreValid:(NSString*)email password:(NSString*)pass rePassword:(NSString*)rePass {
-    
-    if (![FormValidationUtility isValidEmailAddress:email]) {
-//        UIAlertView *emailError = [[UIAlertView alloc] initWithTitle:@"Oops" message:@"Please enter a valid email address." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-//        
-//        [emailError show];
-        
-        // Show Alert
-        [self showAlert:@"Oops" message:@"Please enter a valid email address."];
-        
-        return NO;
-    }
-    else if ([self.passField.text isEqualToString:@""] || [self.reEnterPass.text isEqualToString:@""]) {
-        
-//        UIAlertView *error = [[UIAlertView alloc] initWithTitle:@"Oops" message:@"You must enter all fields" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-//        
-//        [error show];
-        
-        // Show Alert
-        [self showAlert:@"Oops" message:@"You must enter all fields"];
-        
-        return NO;
-    }
-    else if (![FormValidationUtility isValidPassword:pass]) {
-//        UIAlertView *PassError = [[UIAlertView alloc] initWithTitle:@"Oops" message:@"Sorry, that password does not meet our security guidelines. Please choose a password that is 6-16 characters in length, with a mix of at least 1 number or letter, and 1 symbol." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-//        
-//        [PassError show];
-        // Show Alert
-        [self showAlert:@"Oops" message:@"Sorry, that password does not meet our security guidelines. Please choose a password that is 6-16 characters in length, with a mix of at least 1 number or letter, and 1 symbol."];
-        
-        return NO;
+    if (self.emailIsUpdating) {
+        // valid email check
+        if (![FormValidationUtility isValidEmailAddress:self.usernameField.text]) {
+            // Show Alert
+            [self showAlert:@"Oops" message:@"Please enter a valid email address."];
+        }
+        else {
+            // update email
+            Firebase *ref = [[Firebase alloc] initWithUrl:@"https://blistering-inferno-8811.firebaseio.com/"];
+            [ref changeEmailForUser:[defaults valueForKey:@"username"] password:[defaults valueForKey:@"password"]
+                         toNewEmail:self.usernameField.text withCompletionBlock:^(NSError *error) {
+                             if (error) {
+                                 // There was an error processing the request
+                                 NSLog(@"ERROR = %@", error.description);
+                                 // Show Alert
+                                 UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:error.userInfo[@"NSLocalizedDescription"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+                                 [errorAlert show];
+                             } else {
+                                 // Email changed successfully
+                                 // set defaults
+                                 NSUserDefaults *userD = [NSUserDefaults standardUserDefaults];
+                                 [userD  setBool:YES forKey:@"registered"];
+                                 [userD synchronize];
+                                  UIAlertView *successAlert = [[UIAlertView alloc] initWithTitle:@"Success" message:@"Your email address has been successfully changed" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+                                 [successAlert show];
+                             }
+                         }];
+        }
     }
     else {
-        return YES;
+        if (![FormValidationUtility isValidPassword:self.passField.text]) {
+            // Show Alert
+            [self showAlert:@"Oops" message:@"Sorry, that password does not meet our security guidelines. Please choose a password that is 6-16 characters in length, with a mix of at least 1 number or letter, and 1 symbol."];
+        }
+        else {
+            // update pass
+            Firebase *ref = [[Firebase alloc] initWithUrl:@"https://blistering-inferno-8811.firebaseio.com/"];
+            [ref changePasswordForUser:[defaults valueForKey:@"username"] fromOld:[defaults valueForKey:@"password"]
+                         toNew:self.passField.text withCompletionBlock:^(NSError *error) {
+                             if (error) {
+                                 // There was an error processing the request
+                                 NSLog(@"ERROR = %@", error.description);
+                                 // Show Alert
+                                 UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:error.userInfo[@"NSLocalizedDescription"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+                                 [errorAlert show];
+                             } else {
+                                 NSUserDefaults *userD = [NSUserDefaults standardUserDefaults];
+                                 [userD  setBool:YES forKey:@"registered"];
+                                 [userD synchronize];
+                                 // Password changed successfully
+                                 UIAlertView *successAlert = [[UIAlertView alloc] initWithTitle:@"Success" message:@"Your password has been successfully changed" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+                                 [successAlert show];
+                             }
+                         }];
+        }
     }
+    // set defaults
+    [defaults setObject:self.usernameField.text forKey:@"username"];
+    [defaults setObject:self.passField.text forKey:@"password"];
+    [defaults synchronize];
+    // set placeholder text
+    [self setPlaceholders];
     
+    // set visibility
+    self.resetBtn.hidden = YES;
+    self.updateBtn.hidden = NO;
+    self.updatePassBtn.hidden = NO;
+    self.cancelBtn.hidden = YES;
+    // usernameField
+    self.usernameField.enabled = NO;
+    self.usernameField.textColor = [UIColor whiteColor];
+    self.usernameField.backgroundColor = [UIColor clearColor];
+    // passField
+    self.passField.enabled = NO;
+    self.passField.textColor = [UIColor whiteColor];
+    self.passField.backgroundColor = [UIColor clearColor];
 }
 
+// set field text
 -(void)setPlaceholders {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     self.usernameField.text = [defaults objectForKey:@"username"];
     self.passField.text = [defaults objectForKey:@"password"];
 }
-
+// Cancel Button
 - (IBAction)cancelAction:(id)sender {
     self.resetBtn.hidden = YES;
-    self.reEnterPass.hidden = YES;
     self.updateBtn.hidden = NO;
+    self.updatePassBtn.hidden= NO;
     self.cancelBtn.hidden = YES;
+    // usernamefield
     self.usernameField.enabled = NO;
+    self.usernameField.backgroundColor = [UIColor clearColor];
+    self.usernameField.textColor = [UIColor whiteColor];
+    // passfield
     self.passField.enabled = NO;
-    self.reEnterPass.enabled = NO;
+    self.passField.backgroundColor = [UIColor clearColor];
+    self.passField.textColor = [UIColor whiteColor];
+    self.passField.enabled = NO;
+}
+// Change Password Button
+- (IBAction)changePassAction:(id)sender {
+    self.cancelBtn.hidden = NO;
+    self.updatePassBtn.hidden = YES;
+    self.updateBtn.hidden = YES;
+    self.passField.enabled = YES;
+    self.passField.backgroundColor = [UIColor whiteColor];
+    self.passField.textColor = [UIColor blackColor];
+    // reset btn
+    self.resetBtn.hidden = NO;
+    //set EmailEditing Bool
+    self.emailIsUpdating = NO;
 }
 
 // Alert Controller
@@ -146,14 +182,10 @@
     
     [self presentViewController:alertController animated:YES completion:nil];
 }
-
-
-
 // Dismiss keyboard from text fields
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [self.usernameField resignFirstResponder];
     [self.passField resignFirstResponder];
-    [self.reEnterPass resignFirstResponder];
 }
 @end
