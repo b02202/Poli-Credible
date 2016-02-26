@@ -13,7 +13,7 @@
 @property (strong, nonatomic) IBOutlet UITableView *votesTableView;
 @property (strong, nonatomic) NSString *recievedBioID;
 
-
+// Search Bar
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 
 // API Pages

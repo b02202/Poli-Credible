@@ -19,87 +19,65 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    
+    // Menu setup
     _menuButton.target = self.revealViewController;
     _menuButton.action = @selector(revealToggle:);
-    
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     
     // set background color
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg-2.png"]];
-    
-    [super viewDidLoad];
-    
+
     // Initialize locationManager
     locationManager = [[CLLocationManager alloc]init];
-    //[self initLocationManager];
-    
-    
-    
+    // zip code delegate
     self.zipCodeField.delegate = self;
-    
+    // get location
     [self getLocation];
-    
 }
 
-// initialize Location Manager
+// Get Location Manager
 -(void)getLocation{
     if ([locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
         [locationManager requestWhenInUseAuthorization];
     }
-    
     locationManager.delegate = self;
     locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     [locationManager startUpdatingLocation];
 }
-
+// Location Fail
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
-//    UIAlertView *errorAlert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"There was an error retrieving your location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-//    [errorAlert show];
-    
     // Show Alert
     [self showAlert:@"Error" message:@"There was an error retrieving your location"];
-    
     NSLog(@"Error: %@",error.description);
 }
-
+// did update locations
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
     CLLocation *location = [locations lastObject];
     self.latitude = [NSString stringWithFormat:@"%.2f",location.coordinate.latitude];
     self.longitude = [NSString stringWithFormat:@"%.2f",location.coordinate.longitude];
-    
 }
-
-
-
 
 // Dismiss keyboard from text fields
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [self.zipCodeField resignFirstResponder];
-    
 }
-
+// Zip Code Search Button
 - (IBAction)searchBtn:(id)sender {
     // Validate Zip Code
     if ([FormValidationUtility zipVal:self.zipCodeField.text]) {
         [self performSegueWithIdentifier:@"zipToResults" sender:self];
     }
     else {
-//        UIAlertView *zipAlert = [[UIAlertView alloc]initWithTitle:@"Oops!" message:@"Please enter a valid 5 digit zip code" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-//        [zipAlert show];
-        
         // Show Alert
         [self showAlert:@"Oops!" message:@"Please enter a valid 5 digit zip code"];
     }
 }
-
+// Search by Location button
 - (IBAction)seachByLocation:(id)sender {
-
     [self performSegueWithIdentifier:@"locationToResults" sender:self];
-    
 }
-
+// segue
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if ([segue.identifier isEqualToString:@"zipToResults"]) {
@@ -122,7 +100,6 @@
         resultsVC.searchStr = urlString;
         resultsVC.titleString = @"Current Location";
     }
-    
 }
 
 // Alert Controller

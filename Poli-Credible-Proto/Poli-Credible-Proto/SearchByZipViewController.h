@@ -15,12 +15,8 @@
 @property (strong, nonatomic) NSString *latitude;
 @property (strong, nonatomic) NSString *longitude;
 
-
-
-
-
+// Actions
 - (IBAction)searchBtn:(id)sender;
-
 - (IBAction)seachByLocation:(id)sender;
 
 @end

@@ -16,7 +16,6 @@
     AppDelegate *appDelegate;
 }
 @property (strong, nonatomic) IBOutlet UILabel *birthDate;
-
 @property (strong, nonatomic) IBOutlet UILabel *stateDistrictLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *memberImage;
 @property (strong, nonatomic) IBOutlet UILabel *bioTextLabel;
@@ -31,8 +30,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *mailBtn;
 @property (strong, nonatomic) IBOutlet UIButton *phoneBtn;
 
-
-
+// Recieved Member Info
 @property (strong, nonatomic) UIImage *recievedImage;
 @property (strong, nonatomic) NSString *recievedName;
 @property (strong, nonatomic) NSString *recievedParty;
@@ -47,7 +45,7 @@
 @property (strong, nonatomic) NSString *recievedDOB;
 @property (strong, nonatomic) NSString *recievedContactForm;
 
-
+// Actions
 - (IBAction)openFacebook:(id)sender;
 - (IBAction)openTwitter:(id)sender;
 - (IBAction)openWebsite:(id)sender;

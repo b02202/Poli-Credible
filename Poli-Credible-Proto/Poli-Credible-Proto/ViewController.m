@@ -33,8 +33,12 @@
     self.usernameField.leftViewMode = UITextFieldViewModeAlways;
     self.usernameField.leftView  = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"user-icon.png"]];
     
+    
     // password field
     self.passwordField.delegate = self;
+    // font
+    //self.passwordField.font = [UIFont systemFontOfSize:14];
+    [self.passwordField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     // left view
     self.passwordField.leftViewMode = UITextFieldViewModeAlways;
     self.passwordField.leftView  = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"password-icon.png"]];
@@ -180,13 +184,49 @@
                          }];
 }
 
+-(void)textFieldDidBeginEditing:(UITextField *)textField {
+    self.passwordField.font = [UIFont systemFontOfSize:14];
+   
+}
+- (void)textFieldDidChange:(id)sender
+{
+    UITextField *textField = (UITextField *)sender;
+    if (textField == self.passwordField) {
+        textField.font = [UIFont systemFontOfSize:14];
+        self.passwordField.font = [UIFont systemFontOfSize:14];
+        
+        if (textField.editing || textField.editing ) {
+            textField.font = [UIFont systemFontOfSize:14];
+            self.passwordField.font = [UIFont systemFontOfSize:14];
+        }
+    }
+    
+    else {
+        textField.font = [UIFont systemFontOfSize:14];
+        self.passwordField.font = [UIFont systemFontOfSize:14];
+    }
+    
+    if (textField.text.length == 0) {
+        textField.font = [UIFont systemFontOfSize:14];
+        self.passwordField.font = [UIFont systemFontOfSize:14];
+    }
+}
+-(void)textFieldDidEndEditing:(UITextField *)textField {
+    self.passwordField.font = [UIFont systemFontOfSize:14];
+   
+}
+
+
 // Set password SecureText
 -(void)passwordVisibility:(id)sender {
     
     if (self.passwordField.secureTextEntry) {
         self.passwordField.secureTextEntry = NO;
+        self.passwordField.font = [UIFont systemFontOfSize:14];
         self.passwordField.rightView  = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"visable-icon.png"]];
-        
+        if (self.passwordField.editing) {
+            self.passwordField.font = [UIFont systemFontOfSize:14];
+        }
         [self.passwordField.rightView setUserInteractionEnabled:YES];
         UITapGestureRecognizer *passVisible = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(passwordVisibility:)];
         passVisible.numberOfTapsRequired = 1;
@@ -196,6 +236,10 @@
         
         self.passwordField.rightView  = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"hidden-icon.png"]];
         self.passwordField.secureTextEntry = YES;
+        if (self.passwordField.editing) {
+            self.passwordField.font = [UIFont systemFontOfSize:14];
+        }
+        self.passwordField.font = [UIFont systemFontOfSize:14];
         [self.passwordField.rightView setUserInteractionEnabled:YES];
         UITapGestureRecognizer *passVisible = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(passwordVisibility:)];
         passVisible.numberOfTapsRequired = 1;

@@ -27,29 +27,24 @@
 }
 
 - (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
     
     // set background color
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg-2.png"]];
-    
+    // Menu Button Setup
     _menuButton.target = self.revealViewController;
     _menuButton.action = @selector(revealToggle:);
-    
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    // Set TableView delgate and dataSource
     self.favoritesTableView.delegate = self;
     self.favoritesTableView.dataSource = self;
-    
     self.favoritesTableView.allowsMultipleSelectionDuringEditing = NO;
-    
+    // favoritesArray init
     self.favoritesArray = [[NSMutableArray alloc] init];
-    
     // load data
     [self fetchData];
-    
-   // self.favoritesArray = [NSArray arrayWithObjects:@"Richard Burr (R)",@"David Price (D)", @"Norm Dicks (D)", @"Patty Murray (D)", nil];
-    
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -58,30 +53,24 @@
 
 // Get Legislators from Core Data
 -(void)fetchData {
-    
     NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Legislator"];
     // Add to Array
     self.favoritesArray = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
-    
+    // Reload TableView
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.favoritesTableView reloadData];
     });
-    
 }
 
-
-// TableView Number of Rows
+// TableView
 // Specify number of rows displayed
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    //return self.addressArray.count;
     return self.favoritesArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"favoriteCell" forIndexPath:(NSIndexPath *)indexPath];
-    //NSString *stateString = [[self.stateArray objectAtIndex:indexPath.row] objectForKey:@""];
-    
     // Change selected cells background color
     if (![cell viewWithTag:1]) {
         UIView *selectedView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, cell.frame.size.width, cell.frame.size.height)];
@@ -154,17 +143,9 @@
         // Remove device from table view
         [self.favoritesArray removeObjectAtIndex:iPath.row];
         [self.favoritesTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:iPath] withRowAnimation:UITableViewRowAnimationFade];
-        
-//        UIAlertView *successAlert = [[UIAlertView alloc] initWithTitle:@"Success" message:@"Legislator has been removed." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-//        
-//        [successAlert show];
-        
         // Show Alert
         [self showAlert:@"Success" message:@"Legislator has been removed."];
     }
-    
-    
-    
 }
 
 //Segue - "favoritesToDetail"
@@ -186,9 +167,7 @@
     NSString *birthday;
     NSString *contactURL;
     NSString *district;
-    
-    
-    
+
     if ([segue.identifier isEqualToString:@"favoritesToDetail"]) {
         NSIndexPath *indexPath = [self.favoritesTableView indexPathForSelectedRow];
         
@@ -205,8 +184,7 @@
         website = [[self.favoritesArray objectAtIndex:indexPath.row] valueForKey:@"website"];
         birthday = [[self.favoritesArray objectAtIndex:indexPath.row] valueForKey:@"birthday"];
         contactURL = [[self.favoritesArray objectAtIndex:indexPath.row] valueForKey:@"contactURL"];
-        
-        
+
         // Create Image Url
         NSString *imageUrl = [NSString stringWithFormat:@"https://theunitedstates.io/images/congress/225x275/%@.jpg", bioGuideID];
         NSURL *imgUrl = [NSURL URLWithString:imageUrl];
@@ -223,20 +201,16 @@
         detailVC.memBioID = bioGuideID;
         detailVC.memCRPID = repCRPID;
         detailVC.memState = stateName;
-        
+        // check for district
         if (district != nil || ![district isEqual:[NSNull null]]) {
             detailVC.memDistrict = district;
         }
-        
-        
         detailVC.twitterID = twitterID;
         detailVC.facebookID =facebookID;
         detailVC.websiteURL = website;
         detailVC.dateOfBirth = birthday;
         detailVC.contactForm = contactURL;
-        
     }
-    
 }
 
 // Alert Controller

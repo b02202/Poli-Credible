@@ -10,13 +10,9 @@
 
 @interface VoteDetailController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UITableView *voteDetailTable;
-
 @property (strong, nonatomic) IBOutlet UILabel *questionLabel;
-
 @property (strong, nonatomic) IBOutlet UILabel *resultLabel;
-
 @property (strong, nonatomic) IBOutlet UILabel *dateLabel;
-
 @property (strong, nonatomic) IBOutlet UINavigationItem *navTitle;
 @property (strong, nonatomic) IBOutlet UIButton *viewBillBtn;
 
@@ -45,7 +41,6 @@
 
 // Actions
 - (IBAction)viewBill:(id)sender;
-
 - (IBAction)backDismiss:(id)sender;
 
 @end

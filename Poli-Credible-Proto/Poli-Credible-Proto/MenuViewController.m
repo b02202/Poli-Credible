@@ -32,10 +32,9 @@
     [self.logoImage setImage:[UIImage imageNamed:@"Logo-Menu.png"]];
 }
 
-// Table
+// TableView
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    
     return 1;
 }
 
@@ -47,7 +46,6 @@
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     cell.backgroundColor = [UIColor clearColor];
-    
 }
 
 
@@ -57,11 +55,10 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     
     [cell layoutIfNeeded];
-    
     return cell;
 }
 
-
+// Segue
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue isKindOfClass:[SWRevealViewControllerSegue class]]) {
@@ -74,6 +71,7 @@
         };
     }
 }
+// Logout
 - (IBAction)logoutBtn:(id)sender {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     ViewController *viewController = (ViewController *)[storyboard instantiateViewControllerWithIdentifier:@"loginScreen"];

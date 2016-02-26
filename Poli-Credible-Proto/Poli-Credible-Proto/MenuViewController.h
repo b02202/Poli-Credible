@@ -11,8 +11,9 @@
 @interface MenuViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (strong, nonatomic) IBOutlet UITableView *menuTableView;
-
-- (IBAction)logoutBtn:(id)sender;
 @property (strong, nonatomic) IBOutlet UIImageView *logoImage;
+
+// Actions
+- (IBAction)logoutBtn:(id)sender;
 
 @end

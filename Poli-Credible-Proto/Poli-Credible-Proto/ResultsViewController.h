@@ -15,7 +15,7 @@
 @property (strong, nonatomic) IBOutlet UINavigationItem *NavTitle;
 @property (strong, nonatomic)NSString *titleString;
 
-//-(void)setMemberArray:(NSMutableArray*)array;
+// Actions
 - (IBAction)dismissView:(id)sender;
 
 @end

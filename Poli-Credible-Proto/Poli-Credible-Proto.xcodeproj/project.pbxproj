@@ -464,12 +464,7 @@
 				C71832741C50B85F00388E02 /* Supporting Files */,
 				C7D5B4E01C6A6B010092A5D5 /* MenuViewController.h */,
 				C7D5B4E11C6A6B010092A5D5 /* MenuViewController.m */,
-				C7D5B4E31C6A6BCD0092A5D5 /* SearchByStateViewController.h */,
-				C7D5B4E41C6A6BCD0092A5D5 /* SearchByStateViewController.m */,
-				C7D5B4E81C6A76B40092A5D5 /* SearchByZipViewController.h */,
-				C7D5B4E91C6A76B40092A5D5 /* SearchByZipViewController.m */,
-				C7D5B4EB1C6A76CF0092A5D5 /* SearchByNameViewController.h */,
-				C7D5B4EC1C6A76CF0092A5D5 /* SearchByNameViewController.m */,
+				C77C3C381C7F91070068EE0F /* SearchViews */,
 				C7ADC54C1C77936E0003A847 /* LoginViews */,
 				C7539EC31C7A0E350071D485 /* Form Validation */,
 				C7539EC81C7A68F10071D485 /* SettingsViewController.h */,
@@ -550,6 +545,19 @@
 				C7539EC11C7A0E210071D485 /* FormValidationUtility.m */,
 			);
 			name = "Form Validation";
+			sourceTree = "<group>";
+		};
+		C77C3C381C7F91070068EE0F /* SearchViews */ = {
+			isa = PBXGroup;
+			children = (
+				C7D5B4E31C6A6BCD0092A5D5 /* SearchByStateViewController.h */,
+				C7D5B4E41C6A6BCD0092A5D5 /* SearchByStateViewController.m */,
+				C7D5B4E81C6A76B40092A5D5 /* SearchByZipViewController.h */,
+				C7D5B4E91C6A76B40092A5D5 /* SearchByZipViewController.m */,
+				C7D5B4EB1C6A76CF0092A5D5 /* SearchByNameViewController.h */,
+				C7D5B4EC1C6A76CF0092A5D5 /* SearchByNameViewController.m */,
+			);
+			name = SearchViews;
 			sourceTree = "<group>";
 		};
 		C7ADC52D1C72D94F0003A847 /* AppIcon.appiconset */ = {

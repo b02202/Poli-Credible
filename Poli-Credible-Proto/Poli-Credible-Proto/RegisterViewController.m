@@ -23,6 +23,7 @@
     self.passField.delegate = self;
     self.passField.leftViewMode = UITextFieldViewModeAlways;
     self.passField.leftView  = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"password-icon.png"]];
+    [self.passField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     
     // rightView Touch
     self.passField.rightViewMode = UITextFieldViewModeAlways;
@@ -36,6 +37,7 @@
     self.reEnterPass.delegate = self;
     self.reEnterPass.leftViewMode = UITextFieldViewModeAlways;
     self.reEnterPass.leftView  = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"password-icon.png"]];
+    [self.reEnterPass addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     
     // rightView Touch
     self.reEnterPass.rightViewMode = UITextFieldViewModeAlways;
@@ -62,6 +64,8 @@
 -(void)passwordVisibility:(id)sender {
     if (self.passField.secureTextEntry) {
         self.passField.secureTextEntry = NO;
+        self.passField.font = [UIFont systemFontOfSize:14];
+        self.reEnterPass.font = [UIFont systemFontOfSize:14];
         self.passField.rightView  = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"visable-icon.png"]];
         
         [self.passField.rightView setUserInteractionEnabled:YES];
@@ -73,6 +77,8 @@
         
         self.passField.rightView  = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"hidden-icon.png"]];
         self.passField.secureTextEntry = YES;
+        self.passField.font = [UIFont systemFontOfSize:14];
+        self.reEnterPass.font = [UIFont systemFontOfSize:14];
         [self.passField.rightView setUserInteractionEnabled:YES];
         UITapGestureRecognizer *passVisible = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(passwordVisibility:)];
         passVisible.numberOfTapsRequired = 1;
@@ -84,6 +90,8 @@
 -(void)rePassVisibility:(id)sender {
     if (self.reEnterPass.secureTextEntry) {
         self.reEnterPass.secureTextEntry = NO;
+        self.passField.font = [UIFont systemFontOfSize:14];
+        self.reEnterPass.font = [UIFont systemFontOfSize:14];
         self.reEnterPass.rightView  = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"visable-icon.png"]];
         
         [self.reEnterPass.rightView setUserInteractionEnabled:YES];
@@ -93,6 +101,8 @@
         
     } else if (!self.reEnterPass.secureTextEntry){
         self.reEnterPass.secureTextEntry = YES;
+        self.passField.font = [UIFont systemFontOfSize:14];
+        self.reEnterPass.font = [UIFont systemFontOfSize:14];
         self.reEnterPass.rightView  = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"hidden-icon.png"]];
         
         [self.reEnterPass.rightView setUserInteractionEnabled:YES];
@@ -100,6 +110,41 @@
         rePassVisible.numberOfTapsRequired = 1;
         [self.reEnterPass.rightView addGestureRecognizer:rePassVisible];
     }
+}
+-(void)textFieldDidBeginEditing:(UITextField *)textField {
+    self.passField.font = [UIFont systemFontOfSize:14];
+    self.reEnterPass.font = [UIFont systemFontOfSize:14];
+}
+- (void)textFieldDidChange:(id)sender
+{
+    UITextField *textField = (UITextField *)sender;
+    if (textField == self.passField || textField == self.reEnterPass) {
+        textField.font = [UIFont systemFontOfSize:14];
+        self.reEnterPass.font = [UIFont systemFontOfSize:14];
+        self.passField.font = [UIFont systemFontOfSize:14];
+        
+        if (textField.editing || textField.editing ) {
+            textField.font = [UIFont systemFontOfSize:14];
+            self.reEnterPass.font = [UIFont systemFontOfSize:14];
+            self.passField.font = [UIFont systemFontOfSize:14];
+        }
+    }
+    
+    else {
+            textField.font = [UIFont systemFontOfSize:14];
+            self.passField.font = [UIFont systemFontOfSize:14];
+            self.reEnterPass.font = [UIFont systemFontOfSize:14];
+    }
+  
+    if (textField.text.length == 0) {
+        textField.font = [UIFont systemFontOfSize:14];
+            self.passField.font = [UIFont systemFontOfSize:14];
+            self.reEnterPass.font = [UIFont systemFontOfSize:14];
+        }
+}
+-(void)textFieldDidEndEditing:(UITextField *)textField {
+    self.passField.font = [UIFont systemFontOfSize:14];
+    self.reEnterPass.font = [UIFont systemFontOfSize:14];
 }
 
 // Back

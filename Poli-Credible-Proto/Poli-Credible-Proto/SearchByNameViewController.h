@@ -10,9 +10,9 @@
 
 @interface SearchByNameViewController : UIViewController <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
-
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *menuButton;
 
+// Actions
 - (IBAction)searchBtn:(id)sender;
 
 @end

@@ -15,25 +15,17 @@
 @implementation DetailViewController
 @synthesize detailView, contributionView, segmentControl, memberDataContainer, contributionsViewContainer, NavTitle;
 
-
-// url for member image - https://theunitedstates.i0/images/congress/225x275/bioid.jpg
-
-
 -(void)viewDidLoad {
     [super viewDidLoad];
     // set background color
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg-2.png"]];
     // Set Nav Bar Title
     NavTitle.title = self.memberNameString;
-    
-    
 }
-
 -(void)viewWillAppear:(BOOL)animated{
    
-    
 }
-
+// Segmented Control
 - (IBAction)segmantValueChanged:(UISegmentedControl *)sender {
     switch (sender.selectedSegmentIndex) {
             // Detail View
@@ -60,20 +52,16 @@
             break;
     }
 }
-
 // Social Sharing Extensions
 - (IBAction)launchShare:(id)sender {
     UIActivityViewController *shareAVC = [[UIActivityViewController alloc] initWithActivityItems:@[@"Poli-Credible", @"Information to share"] applicationActivities:nil];
-    
     [self presentViewController:shareAVC animated:YES completion:nil];
-    
 }
 
 - (IBAction)backDismiss:(id)sender {
-    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-
+// Segue
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"toInfo"]) {
         MemberInfoViewController *memberInfoVC = segue.destinationViewController;
@@ -102,13 +90,5 @@
         votesVC.recievedBioID = self.memBioID;
     }
 }
-
-
-
-
-
-// Contributors View
-
-
 
 @end

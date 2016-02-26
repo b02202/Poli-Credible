@@ -16,10 +16,10 @@
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *favoritesTableView;
-
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *menuButton;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *editBtn;
 
+// Actions
 - (IBAction)editAction:(id)sender;
 
 @end

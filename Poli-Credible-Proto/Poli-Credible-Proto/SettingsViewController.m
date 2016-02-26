@@ -55,6 +55,20 @@
     // Set Bool
     self.emailIsUpdating = YES;
 }
+
+// Change Defaults
+-(void)changeDefaults {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    // set defaults
+    [defaults setObject:self.usernameField.text forKey:@"username"];
+    [defaults setObject:self.passField.text forKey:@"password"];
+    [defaults setBool:YES forKey:@"registered"];
+    [defaults synchronize];
+    // set placeholder text
+    [self setPlaceholders];
+}
+
+
 // Reset Button
 - (IBAction)resetAction:(id)sender {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -62,6 +76,8 @@
     if (self.emailIsUpdating) {
         // valid email check
         if (![FormValidationUtility isValidEmailAddress:self.usernameField.text]) {
+            self.updateSuccess = NO;
+            self.usernameField.text = [defaults valueForKey:@"username"];
             // Show Alert
             [self showAlert:@"Oops" message:@"Please enter a valid email address."];
         }
@@ -71,17 +87,20 @@
             [ref changeEmailForUser:[defaults valueForKey:@"username"] password:[defaults valueForKey:@"password"]
                          toNewEmail:self.usernameField.text withCompletionBlock:^(NSError *error) {
                              if (error) {
+                                 self.usernameField.text = [defaults valueForKey:@"username"];
+                                 self.updateSuccess = NO;
                                  // There was an error processing the request
                                  NSLog(@"ERROR = %@", error.description);
                                  // Show Alert
                                  UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:error.userInfo[@"NSLocalizedDescription"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
                                  [errorAlert show];
                              } else {
+                                 dispatch_async(dispatch_get_main_queue(), ^{
+                                 self.updateSuccess = YES;
                                  // Email changed successfully
                                  // set defaults
-                                 NSUserDefaults *userD = [NSUserDefaults standardUserDefaults];
-                                 [userD  setBool:YES forKey:@"registered"];
-                                 [userD synchronize];
+                                     [self changeDefaults];
+                                 });
                                   UIAlertView *successAlert = [[UIAlertView alloc] initWithTitle:@"Success" message:@"Your email address has been successfully changed" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
                                  [successAlert show];
                              }
@@ -90,6 +109,8 @@
     }
     else {
         if (![FormValidationUtility isValidPassword:self.passField.text]) {
+            self.updateSuccess = NO;
+            self.passField.text = [defaults valueForKey:@"password"];
             // Show Alert
             [self showAlert:@"Oops" message:@"Sorry, that password does not meet our security guidelines. Please choose a password that is 6-16 characters in length, with a mix of at least 1 number or letter, and 1 symbol."];
         }
@@ -99,29 +120,24 @@
             [ref changePasswordForUser:[defaults valueForKey:@"username"] fromOld:[defaults valueForKey:@"password"]
                          toNew:self.passField.text withCompletionBlock:^(NSError *error) {
                              if (error) {
+                                 self.passField.text = [defaults valueForKey:@"password"];
+                                 self.updateSuccess = NO;
                                  // There was an error processing the request
                                  NSLog(@"ERROR = %@", error.description);
                                  // Show Alert
                                  UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:error.userInfo[@"NSLocalizedDescription"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
                                  [errorAlert show];
                              } else {
-                                 NSUserDefaults *userD = [NSUserDefaults standardUserDefaults];
-                                 [userD  setBool:YES forKey:@"registered"];
-                                 [userD synchronize];
                                  // Password changed successfully
+                                 self.updateSuccess = YES;
+                                 [self changeDefaults];
+                                 // Show Alert
                                  UIAlertView *successAlert = [[UIAlertView alloc] initWithTitle:@"Success" message:@"Your password has been successfully changed" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
                                  [successAlert show];
                              }
                          }];
         }
     }
-    // set defaults
-    [defaults setObject:self.usernameField.text forKey:@"username"];
-    [defaults setObject:self.passField.text forKey:@"password"];
-    [defaults synchronize];
-    // set placeholder text
-    [self setPlaceholders];
-    
     // set visibility
     self.resetBtn.hidden = YES;
     self.updateBtn.hidden = NO;
@@ -158,6 +174,7 @@
     self.passField.backgroundColor = [UIColor clearColor];
     self.passField.textColor = [UIColor whiteColor];
     self.passField.enabled = NO;
+    [self setPlaceholders];
 }
 // Change Password Button
 - (IBAction)changePassAction:(id)sender {

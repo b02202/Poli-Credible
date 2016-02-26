@@ -19,6 +19,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *cancelBtn;
 @property (strong, nonatomic) IBOutlet UIButton *updatePassBtn;
 @property (assign, nonatomic) BOOL emailIsUpdating;
+@property (assign, nonatomic) BOOL updateSuccess;
 @property (strong, nonatomic) IBOutlet UIButton *updateBtn;
 
 - (IBAction)updateAction:(id)sender;

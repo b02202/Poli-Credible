@@ -11,7 +11,6 @@
 @interface ContributionsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) NSString *recievedCRPID;
-
 @property (strong, nonatomic) IBOutlet UITableView *contributorsTableView;
 
 

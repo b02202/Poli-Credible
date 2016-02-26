@@ -15,16 +15,12 @@
 @property (strong, nonatomic) IBOutlet UIView *detailView;
 @property (strong, nonatomic) IBOutlet UIView *contributionView;
 @property (strong, nonatomic) IBOutlet UIView *memberDataContainer;
-
 @property (strong, nonatomic) IBOutlet UIView *contributionsViewContainer;
 @property (strong, nonatomic) IBOutlet UIView *votesContainer;
-
 @property (strong, nonatomic) IBOutlet UISegmentedControl *segmentControl;
-
 @property (strong, nonatomic) IBOutlet UINavigationItem *NavTitle;
 
 // Member Info
-
 @property (strong, nonatomic) NSString *memberNameString;
 @property (strong, nonatomic) NSString *imageUrlString;
 @property (strong, nonatomic) UIImage *memImage;
@@ -40,12 +36,7 @@
 @property (strong, nonatomic) NSString *dateOfBirth;
 @property (strong, nonatomic) NSString *contactForm;
 
-
-
-// Contributors
-
-
-
+// Actions
 - (IBAction)segmantValueChanged:(id)sender;
 - (IBAction)launchShare:(id)sender;
 - (IBAction)backDismiss:(id)sender;

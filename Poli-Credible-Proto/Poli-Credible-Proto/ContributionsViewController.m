@@ -28,8 +28,6 @@
 @property (nonatomic, strong) NSString *totalDebts;
 @property (nonatomic, strong) NSString *lastReported;
 
-
-
 @end
 
 @implementation ContributionsViewController
@@ -42,13 +40,11 @@
     return _httpManager;
 }
 
-
 -(void)viewDidLoad {
-    
+    [super viewDidLoad];
     // set background color
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg-2.png"]];
-    [super viewDidLoad];
-    
+
     self.contributorArray = [[NSMutableArray alloc]init];
     self.industryArray = [[NSMutableArray alloc]init];
     // Section Array
@@ -60,26 +56,22 @@
     self.contributorsTableView.estimatedRowHeight = 60.0f;
     self.contributorsTableView.rowHeight = UITableViewAutomaticDimension;
     
-    
-    
+    // set query strings
     NSString *industryUrl = [NSString stringWithFormat:@"http://www.opensecrets.org/api/?method=candIndustry&cid=%@&cycle=2016&apikey=bf5679d09f71e7c88c881d99d9d82bc7&output=json", self.recievedCRPID];
     NSString *contributorUrl = [NSString stringWithFormat:@"http://www.opensecrets.org/api/?method=candContrib&cid=%@&cycle=2016&apikey=bf5679d09f71e7c88c881d99d9d82bc7&output=json", self.recievedCRPID];
     NSString *fundraisingUrl = [NSString stringWithFormat:@"http://www.opensecrets.org/api/?method=candSummary&cid=%@&cycle=2016&apikey=bf5679d09f71e7c88c881d99d9d82bc7&output=json", self.recievedCRPID];
     
-    
+    // Run Queries
     [self fundraisingAsyncRequest:fundraisingUrl];
-    
     [self httpAsyncRequest:industryUrl];
-    
     [self runQuery:contributorUrl];
 }
 
 // Set URL for Open Secrets API Query and run
 -(void)runQuery:(NSString*)url {
-   
     [self httpGetRequest:url];
 }
-// Async - Top Industries
+//Top Industries
 -(void)httpAsyncRequest: (NSString*)urlString {
     NSCharacterSet *set = [NSCharacterSet URLQueryAllowedCharacterSet];
     urlString = [urlString stringByAddingPercentEncodingWithAllowedCharacters:set];
@@ -89,7 +81,6 @@
     [[session dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         if (!error) {
             [self getData:data];
-            NSLog(@"Session ran");
         }
         else {
             // Handle Errors
@@ -97,8 +88,7 @@
         }
     }] resume];
 }
-
-// Async - Campaign Fundraising Report
+//Campaign Fundraising Report
 -(void)fundraisingAsyncRequest: (NSString*)urlString {
     NSCharacterSet *set = [NSCharacterSet URLQueryAllowedCharacterSet];
     urlString = [urlString stringByAddingPercentEncodingWithAllowedCharacters:set];
@@ -108,7 +98,6 @@
     [[session dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         if (!error) {
             [self getFundraisingData:data];
-            NSLog(@"Session ran");
         }
         else {
             // Handle Errors
@@ -121,18 +110,11 @@
 -(void)httpGetRequest:(NSString*)searchString {
     self.httpManager.delegate = self;
     self.apiString = searchString;
-    
     NSCharacterSet *set = [NSCharacterSet URLQueryAllowedCharacterSet];
     searchString = [searchString stringByAddingPercentEncodingWithAllowedCharacters:set];
     NSURL *url = [NSURL URLWithString:searchString];
-   
-    
     [self.httpManager httpRequest:url];
-    
 }
-
-
-
 // Get Recieved Data
 -(void)getReceivedData:(NSData*)data sender:(HTTPManager*)sender {
     NSError *error = nil;
@@ -149,13 +131,10 @@
         [self.contributorArray addObject:cdcObj];
         NSLog(@"Cont = %@", cdcObj.contributorName);
     }
+    // Reload TableViw
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.contributorsTableView reloadData];
     });
-    
-    
-    
-   
 }
 
 // Get Industry Data
@@ -174,7 +153,6 @@
         idcObj.total = [[[industryDataArray objectAtIndex:i]objectForKey:@"@attributes"]valueForKey:@"total"];
     
         [self.industryArray addObject:idcObj];
-        NSLog(@"IND =  %@", idcObj.industryName);
     }
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.contributorsTableView reloadData];
@@ -208,28 +186,20 @@
 }
 
 // Table Header View Customization
-
 // Sections
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    //return _sectionArray.count;
     return 3;
 }
-
 -(void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
-    // Change Header Color
+    // Change Header Colors
     UITableViewHeaderFooterView *headerView = (UITableViewHeaderFooterView*) view;
     headerView.contentView.backgroundColor = [UIColor colorWithRed:92.0/255.0 green:152.0/255.0 blue:198.0/255.0 alpha:0.95];
-    //view.backgroundColor = [UIColor colorWithRed:92.0/255.0 green:152.0/255.0 blue:198.0/255.0 alpha:1];
-    
     headerView.textLabel.textColor = [UIColor whiteColor];
 }
-
 // Table Section Header Titles
 -(NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    
     return [self.sectionArray objectAtIndex:section];
 }
-
 // TableView Number of Rows
 // Specify number of rows displayed
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -242,22 +212,15 @@
     }
     else if (section == 1) {
         rowsToReturn = [self.industryArray count];
-        //return [self.industryArray count];
     }
     else if (section == 2) {
         rowsToReturn = [self.contributorArray count];
-        //return [self.contributorArray count];
     }
-    
     return rowsToReturn;
 }
-
-
-//moneyProgress, nameLabel, totalLabel;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"contributorCell"]; // forIndexPath:(NSIndexPath *)indexPath];
-    //NSString *stateString = [[self.stateArray objectAtIndex:indexPath.row] objectForKey:@""];
-    CustomIndustryCell *industryCell = [tableView dequeueReusableCellWithIdentifier:@"industryCell"]; // forIndexPath:(NSIndexPath *) indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"contributorCell"];
+    CustomIndustryCell *industryCell = [tableView dequeueReusableCellWithIdentifier:@"industryCell"];
     CustomFundraisingCell *fundraisingCell = [tableView dequeueReusableCellWithIdentifier:@"fundraisingCell"];
     
     UITableViewCell *cellToReturn;
@@ -271,10 +234,6 @@
     }
     
     if (indexPath.section == 0) {
-        
- 
-        
-        
         fundraisingCell.raisedLabel.text = [self setCurrencyFormat:self.totalRaised];
         fundraisingCell.spentLabel.text = [self setCurrencyFormat:self.totalSpent];
         fundraisingCell.cashLabel.text = [self setCurrencyFormat:self.cashOnHand];
@@ -291,14 +250,9 @@
         cellToReturn = fundraisingCell;
     }
     else if (indexPath.section == 1) {
-        
         NSString *industryName = [[self.industryArray objectAtIndex:indexPath.row] valueForKey:@"industryName"];
-//        NSString *totalSubString =[NSString stringWithFormat:@"Individuals: $%@, Pacs: $%@, Total: $%@ ", [[self.industryArray objectAtIndex:indexPath.row] valueForKey:@"individualTotals"], [[self.industryArray objectAtIndex:indexPath.row] valueForKey:@"pacsTotal"], [[self.industryArray objectAtIndex:indexPath.row] valueForKey:@"total"]];
-        
         industryCell.nameLabel.text = industryName;
-        
         NSString *totalString = [[self.industryArray objectAtIndex:indexPath.row] valueForKey:@"total"];
-        
         // find industry total out of all the industries total
         float indTotal = [totalString floatValue];
         float total = 0;
@@ -309,20 +263,12 @@
         float indValue = indTotal / 100;
         float value = indValue / max;
         industryCell.moneyProgress.progress = value / 1.0;
-        
         int totalInt = (int)roundf(total);
-        
         NSString *totalText = [NSString stringWithFormat:@"%d", totalInt];
         // Convert to currency Format
         NSString *totalWithFormat = [NSString stringWithFormat:@"%@ of %@", [self setCurrencyFormat:totalString], [self setCurrencyFormat:totalText]];
-        
-        //NSString * totalSubString = [NSString stringWithFormat:@"$%@ of $%d", totalString, totalInt];
-        
-        industryCell.totalLabel.text = totalWithFormat; //[NSString stringWithFormat:@"$%@",totalSubString];
-        
+        industryCell.totalLabel.text = totalWithFormat;
         cellToReturn = industryCell;
-        
-        
     }
     else if (indexPath.section == 2) {
         NSString *totalString = [[self.contributorArray objectAtIndex:indexPath.row] valueForKey:@"contributionTotal"];
@@ -332,12 +278,10 @@
         cell.detailTextLabel.text = [self setCurrencyFormat:totalString];
         cellToReturn = cell;
     }
-    
     [cellToReturn layoutIfNeeded];
-    
     return cellToReturn;
 }
-
+// Set Progress Bars
 -(float)setProgressBars:(float)total maxValue:(float)max {
     float progressValue;
     float maxValue = max * 1.5;
@@ -346,25 +290,15 @@
     } else{
         progressValue = 0;
     }
-    
-    //NSLog(@"Progress Value = %f", progressValue);
     return progressValue;
 }
-
+// Currency Format
 -(NSString*)setCurrencyFormat:(NSString*)numberString {
-    
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc]init];
     [formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
     NSString *returnString = [formatter stringFromNumber:[NSNumber numberWithFloat:[numberString floatValue]]];
     return returnString;
 }
-
-/*self.totalRaised = fdcObj.raised;
- self.totalSpent = fdcObj.spent;
- self.cashOnHand = fdcObj.cashOnHand;
- self.totalDebts = fdcObj.debts;
- self.lastReported = fdcObj.lastReported;*/
-
 // Deselect cell after selection
 -(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

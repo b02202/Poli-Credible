@@ -14,8 +14,6 @@
 @property (nonatomic, strong) NSURLConnection *requestConnection;
 @end
 
-
-
 @implementation HTTPManager
 
 -(NSMutableData*)receivedData
@@ -47,11 +45,6 @@
             NSLog(@"%@", error.description);
         }
     }] resume];
-    
-    //self.requestConnection = [NSURLConnection connectionWithRequest:request delegate:self];
-
-    
-    
 }
 
 

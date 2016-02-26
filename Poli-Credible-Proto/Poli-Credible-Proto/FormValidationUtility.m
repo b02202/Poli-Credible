@@ -13,18 +13,13 @@
 // Using NSPredicate
 
 +(BOOL)isValidEmailAddress:(NSString *)emailAddress {
-    
-    //Create a regex string
+    //regex string
     NSString *stricterFilterString = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}" ;
-    
-    //Create predicate with format matching your regex string
+    //predicate
     NSPredicate *emailTest = [NSPredicate predicateWithFormat:
                               @"SELF MATCHES %@", stricterFilterString];
-    
-    //return true if email address is valid
     return [emailTest evaluateWithObject:emailAddress];
 }
-
 // Password Check
 +(BOOL)isValidPassword:(NSString*)pass {
     // Min 6 characters, Max 16 characters, At least 1 alphanumeric, and 1 non-alphanumeric
@@ -36,7 +31,6 @@
         return NO;
     }
 }
-
 // U.S. Zip Code Check
 +(BOOL)zipVal:(NSString *)zip {
     NSString *regex = @"^\\d{5}(-\\d{4})?$";
