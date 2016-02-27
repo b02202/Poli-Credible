@@ -243,7 +243,7 @@
 		C77C3C2C1C7E24F40068EE0F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		C77C3C2E1C7E250A0068EE0F /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		C77C3C301C7E251E0068EE0F /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
-		C77C3C321C7E33130068EE0F /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
+		C77C3C321C7E33130068EE0F /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Firebase.framework; path = "Poli-Credible-Proto/Firebase.framework"; sourceTree = "<group>"; };
 		C77C3C341C7E33740068EE0F /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		C77C3C361C7E338F0068EE0F /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		C7ADC52E1C72D94F0003A847 /* Contents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
@@ -419,6 +419,7 @@
 				C7539EDF1C7CEC280071D485 /* LocalAuthentication.framework */,
 				C7334F511C712A0300449CD3 /* CoreLocation.framework */,
 				C7D5B3971C6535330092A5D5 /* libxml2.tbd */,
+				C77C3C321C7E33130068EE0F /* Firebase.framework */,
 				C71832731C50B85F00388E02 /* Poli-Credible-Proto */,
 				C71832901C50B85F00388E02 /* Poli-Credible-ProtoTests */,
 				C718329B1C50B85F00388E02 /* Poli-Credible-ProtoUITests */,
@@ -439,7 +440,6 @@
 		C71832731C50B85F00388E02 /* Poli-Credible-Proto */ = {
 			isa = PBXGroup;
 			children = (
-				C77C3C321C7E33130068EE0F /* Firebase.framework */,
 				C7334F531C713F5200449CD3 /* Main.storyboard */,
 				C7D5B4821C68F16B0092A5D5 /* CustomCells */,
 				C7D5B38B1C6531CD0092A5D5 /* hpple */,

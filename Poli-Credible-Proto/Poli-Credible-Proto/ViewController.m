@@ -27,6 +27,9 @@
     // Touch ID Check
     [self touchIDVislibility];
     
+    // enable login btn if disabled
+    self.loginBtn.enabled = YES;
+    
     // TextField Setup
     // username field
     self.usernameField.delegate = self;
@@ -103,6 +106,7 @@
 }
 // User Login (Firebase)
 -(void)firebaseLogin:(NSString*)username password:(NSString*)pass {
+    self.loginBtn.enabled = NO;
      NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     Firebase *ref = [[Firebase alloc] initWithUrl:@"https://blistering-inferno-8811.firebaseio.com/"];
@@ -135,6 +139,7 @@
                 [passAlert show];
             }
             else {
+                self.loginBtn.enabled = YES;
                 [self performSegueWithIdentifier:@"login" sender:self];
             }
         }
@@ -142,6 +147,7 @@
 }
 // Change password from alertview
 -(void)alertView:(UIAlertView*)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    self.loginBtn.enabled = YES;
     if (alertView.tag == 1) {
         if (buttonIndex == 1) {
             UITextField *newPassword = [alertView textFieldAtIndex:0];
@@ -154,6 +160,7 @@
                 [self updateFirebasePass:newPassword.text];
                 
                 // launch app
+                self.loginBtn.enabled = YES;
                 [self performSegueWithIdentifier:@"login" sender:self];
                 
             } else {
@@ -162,7 +169,7 @@
         }
     }
 }
-// update Password (Firebase)
+// update Password (Firebase) - Send Reset Email
 -(void)updateFirebasePass:(NSString*)newPass {
     Firebase *ref = [[Firebase alloc] initWithUrl:@"https://blistering-inferno-8811.firebaseio.com/"];
     [ref changePasswordForUser:self.usernameField.text fromOld:self.passwordField.text
